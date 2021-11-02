@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd"
+        objectQuotingStrategy="QUOTE_ONLY_RESERVED_WORDS">
+    <changeSet id="1" author="frontdemo">
+        <addForeignKeyConstraint baseColumnNames="ASSOCIATION_M2_OATTR_ID" baseTableName="DATATYPES_TEST_ENTITY"
+                                 constraintName="FK_DATATYPESTE_ON_ASSOCIATIONs4H2Fz" referencedColumnNames="ID"
+                                 referencedTableName="ASSOCIATION_M2O_TEST_ENTITY"/>
+    </changeSet>
+    <changeSet id="2" author="frontdemo">
+        <addForeignKeyConstraint baseColumnNames="STRING_ID_TEST_ENTITY_ASSOCIATION_M2O_ID"
+                                 baseTableName="DATATYPES_TEST_ENTITY"
+                                 constraintName="FK_DATATYPESTE_ON_STRINGIDTEScoGKEX" referencedColumnNames="IDENTIFIER"
+                                 referencedTableName="STRING_ID_TEST_ENTITY"/>
+    </changeSet>
+</databaseChangeLog>

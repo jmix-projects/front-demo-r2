@@ -35,6 +35,9 @@
       </entry>
     </moduleSettings>
   </component>
+  <component name="JmixLiquibaseChangesConfig">
+    <exclude-change idName="DATATYPES_TEST_ENTITY#BIG_DECIMAL_ATTR" tagName="modifyDataType" />
+  </component>
   <component name="JmixPluginProjectSettings">
     <option name="savedDbProperties">
       <list>
