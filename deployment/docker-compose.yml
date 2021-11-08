@@ -1,13 +1,13 @@
 version: '3'
 
 networks:
-  frontend-demo-r1-net:
+  frontend-demo-r2-net:
     driver: bridge
-    name: frontend-demo-r1-net
+    name: frontend-demo-r2-net
 
 services:
-  frontend-r1-postgres-12:
-    container_name: frontend-r1-postgres-12
+  frontend-r2-postgres-12:
+    container_name: frontend-r2-postgres-12
     image: postgres:12
     restart: unless-stopped
     environment:
@@ -15,14 +15,14 @@ services:
       POSTGRES_USER: ${DB2_USERNAME}
       POSTGRES_DB: ${DB2_NAME}
     networks:
-      - frontend-demo-r1-net
+      - frontend-demo-r2-net
 
-  frontend-r1-jmix-app:
-    container_name: frontend-r1-jmix-app
-    image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1-jmix:testing
+  frontend-r2-jmix-app:
+    container_name: frontend-r2-jmix-app
+    image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r2/frontend-demo-r2-jmix:testing
     restart: unless-stopped
     environment:
-      RDS_HOSTNAME: frontend-r1-postgres-12
+      RDS_HOSTNAME: frontend-r2-postgres-12
       RDS_PASSWORD: ${DB2_PASSWORD}
       RDS_USERNAME: ${DB2_USERNAME}
       RDS_DB_NAME: ${DB2_NAME}
@@ -33,13 +33,13 @@ services:
     ports:
       - 8083:8080
     networks:
-      - frontend-demo-r1-net
+      - frontend-demo-r2-net
 
   frontend-r1-front:
-    container_name: frontend-demo-r1-front
-    image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r1/frontend-demo-r1-front:testing
+    container_name: frontend-demo-r2-front
+    image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r2/frontend-demo-r2-front:testing
     restart: unless-stopped
     ports:
       - 83:80
     networks:
-      - frontend-demo-r1-net
+      - frontend-demo-r2-net
