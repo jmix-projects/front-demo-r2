@@ -2,17 +2,18 @@
   "name": "frontdemo",
   "private": true,
   "dependencies": {
-    "@ant-design/icons": "^4.0.0",
-    "@apollo/client": "^3.3.15",
-    "@haulmont/jmix-react-core": "^1.0.0-next.25",
-    "@haulmont/jmix-react-ui": "^1.0.0-next.29",
-    "@haulmont/jmix-rest": "^1.0.0-next.21",
-    "@haulmont/react-ide-toolbox": "^1.0.0-next.21",
-    "@haulmont/react-scripts": "^4.0.2-alpha.8",
+    "@ant-design/icons": "^4.6.2",
+    "@apollo/client": "^3.4.0",
+    "@haulmont/jmix-react-antd": "^1.0.0-next.10",
+    "@haulmont/jmix-react-core": "^2.0.0-next.1",
+    "@haulmont/jmix-react-web": "1.0.0-next.10",
+    "@haulmont/jmix-rest": "^2.0.0-next.0",
+    "@haulmont/react-ide-toolbox": "^1.0.0",
+    "@haulmont/react-scripts": "^1.0.1",
     "antd": "^4.12.3",
     "graphql": "^15.4.0",
-    "mobx": "^6.1.8",
-    "mobx-react": "^7.1.0",
+    "mobx": "^6.3.3",
+    "mobx-react": "^7.2.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-input-mask": "^2.0.4",
@@ -27,14 +28,14 @@
     "update-model": "gen-jmix-front sdk:all --dest src/jmix"
   },
   "devDependencies": {
-    "@haulmont/jmix-front-generator": "^1.0.0-next.0",
-    "@types/jest": "^23.3.12",
+    "@haulmont/jmix-front-generator": "^2.0.0-next.1",
+    "@types/jest": "^27.0.0",
     "@types/node": "^10.12.18",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-input-mask": "^2.0.5",
     "@types/react-router-dom": "^5.1.5",
-    "typescript": "~4.2.4"
+    "typescript": "~4.4.3"
   },
   "jest": {
     "transformIgnorePatterns": [
