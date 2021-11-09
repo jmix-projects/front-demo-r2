@@ -150,5 +150,27 @@
   "antd.form.validation.array.min": "${name} shall have no less than ${min} elements.",
   "antd.form.validation.array.max": "${name} shall have no more than ${max} elements.",
   "antd.form.validation.array.range": "${name} shall have from ${min} to ${max} elements.",
-  "antd.form.validation.pattern.mismatch": "${name} does not match pattern ${pattern}."
+  "antd.form.validation.pattern.mismatch": "${name} does not match pattern ${pattern}.",
+
+  "userLogin": "test userSession.userLogin {userLogin}",
+  "currentDate": "test currentDate {currentDate}",
+  "currentTime": "test currentTime {currentTime}",
+  "currentDateTime": "test currentDateTime {currentDateTime}",
+  "firstYearDay": "test firstYearDay {firstYearDay}",
+  "lastYearDay":  "test lastYearDay {lastYearDay}",
+  "firstMonthDay": "test firstMonthDay {firstMonthDay}",
+  "lastMonthDay":  "test lastMonthDay {lastMonthDay}",
+  "firstWeekDay": "test firstWeekDay {firstWeekDay}",
+  "lastWeekDay":  "test lastWeekDay {lastWeekDay}",
+  "startPreviousDay": "test startPreviousDay {startPreviousDay}",
+  "startNextDay": "test startNextDay {startNextDay}",
+  "startCurrentHour": "test startCurrentHour {startCurrentHour}",
+  "endCurrentHour": "test endCurrentHour {endCurrentHour}",
+  "startCurrentMinute": "test startCurrentMinute {startCurrentMinute}",
+  "endCurrentMinute": "test endCurrentMinute {endCurrentMinute}",
+  "testedNumber": "test testedNumber {testedNumber}",
+  "testedEntityProp": "test testedEntityProp {testedEntityProp}",
+  "testedSomeComponentVariable": " test testedSomeComponentVariable {testedSomeComponentVariable}",
+  "allTypesKey": "test date currentDateTime {currentDateTime} test number {testedNumber} city is {testedEntityProp}"
+
 }
