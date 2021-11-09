@@ -3,10 +3,11 @@ import {observer} from "mobx-react";
 import {LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import {Button, Tooltip} from "antd";
 import {EntityPermAccessControl} from "@haulmont/jmix-react-core";
-import {DataTable, EntityListProps, registerEntityList, RetryDialog, useEntityList} from "@haulmont/jmix-react-ui";
 import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
 import {FormattedMessage} from "react-intl";
 import {gql} from "@apollo/client";
+import {EntityListProps, registerEntityList, useEntityList} from "@haulmont/jmix-react-web";
+import {DataTable, RetryDialog} from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "DatatypesTestEntity";
 const ROUTING_PATH = "/datatypesTestEntityList";

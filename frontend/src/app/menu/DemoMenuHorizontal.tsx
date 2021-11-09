@@ -1,6 +1,6 @@
 import React from "react";
-import {HorizontalMenu, MenuItem, SubMenuItem} from "@haulmont/jmix-react-ui";
 import {BarsOutlined, HomeOutlined} from "@ant-design/icons";
+import {HorizontalMenu, MenuItem, SubMenuItem} from "@haulmont/jmix-react-antd";
 
 export const DemoMenuHorizontal = () => {
   return (

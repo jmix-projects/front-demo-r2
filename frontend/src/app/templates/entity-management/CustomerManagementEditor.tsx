@@ -1,24 +1,27 @@
 import React, { useContext } from "react";
-import { Form, Alert, Button, Card } from "antd";
+import {Form, Alert, Button, Card, Space} from "antd";
 import { useForm } from "antd/es/form/Form";
 import { observer } from "mobx-react";
-import { toJS } from "mobx";
 import { FormattedMessage } from "react-intl";
+import { gql } from "@apollo/client";
+import { Customer } from "../../../jmix/entities/Customer";
 import {
   createAntdFormValidationMessages,
-  createUseAntdForm,
-  createUseAntdFormValidation,
-  RetryDialog,
+  EntityEditorProps,
+  registerEntityEditor,
+  useEntityEditor
+} from "@haulmont/jmix-react-web";
+import {
+  ant_to_jmixFront,
+  createUseAntdForm, createUseAntdFormValidation,
   Field,
   GlobalErrorsAlert,
+  RetryDialog,
   Spinner,
-  useEntityEditor,
-  EntityEditorProps,
-  registerEntityEditor
-} from "@haulmont/jmix-react-ui";
-import { gql } from "@apollo/client";
-import "../../../app/App.css";
-import { Customer } from "../../../jmix/entities/Customer";
+  useEntityPersistCallbacks,
+  useSubmitFailedCallback
+} from "@haulmont/jmix-react-antd";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerManagementEditor";
@@ -51,7 +54,7 @@ const CustomerManagementEditor = observer(
     } = props;
 
     const [form] = useForm();
-
+    const onSubmitFailed = useSubmitFailedCallback();
     const {
       executeLoadQuery,
       loadQueryResult: { loading: queryLoading, error: queryError },
@@ -59,7 +62,6 @@ const CustomerManagementEditor = observer(
       serverValidationErrors,
       intl,
       handleSubmit,
-      handleSubmitFailed,
       handleCancelBtnClick
     } = useEntityEditor<Customer>({
       loadQuery: LOAD_CUSTOMER,
@@ -68,6 +70,8 @@ const CustomerManagementEditor = observer(
       routingPath: ROUTING_PATH,
       onCommit,
       entityInstance,
+      persistEntityCallbacks: useEntityPersistCallbacks(),
+      uiKit_to_jmixFront: ant_to_jmixFront,
       useEntityEditorForm: createUseAntdForm(form),
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
@@ -82,10 +86,10 @@ const CustomerManagementEditor = observer(
     }
 
     return (
-      <Card className="narrow-layout">
+      <Card className={styles.narrowLayout}>
         <Form
           onFinish={handleSubmit}
-          onFinishFailed={handleSubmitFailed}
+          onFinishFailed={onSubmitFailed}
           layout="vertical"
           form={form}
           validateMessages={createAntdFormValidationMessages(intl)}
@@ -109,17 +113,14 @@ const CustomerManagementEditor = observer(
           <GlobalErrorsAlert serverValidationErrors={serverValidationErrors} />
 
           <Form.Item style={{ textAlign: "center" }}>
-            <Button htmlType="button" onClick={handleCancelBtnClick}>
-              <FormattedMessage id="common.cancel" />
-            </Button>
-            <Button
-              type="primary"
-              htmlType="submit"
-              loading={upsertLoading}
-              style={{ marginLeft: "8px" }}
-            >
-              <FormattedMessage id={submitBtnCaption} />
-            </Button>
+            <Space size={8}>
+              <Button htmlType="button" onClick={handleCancelBtnClick}>
+                <FormattedMessage id="common.cancel" />
+              </Button>
+              <Button type="primary" htmlType="submit" loading={upsertLoading}>
+                <FormattedMessage id={submitBtnCaption} />
+              </Button>
+            </Space>
           </Form.Item>
         </Form>
       </Card>

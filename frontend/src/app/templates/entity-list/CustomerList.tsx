@@ -3,18 +3,11 @@ import {observer} from "mobx-react";
 import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import {Button, List, Tooltip} from "antd";
 import {EntityInstance, EntityPermAccessControl, getFields} from "@haulmont/jmix-react-core";
-import {
-  EntityListProps,
-  EntityProperty,
-  Paging,
-  registerScreen,
-  RetryDialog,
-  Spinner,
-  useEntityList
-} from "@haulmont/jmix-react-ui";
 import {Customer} from "../../../jmix/entities/Customer";
 import {FormattedMessage} from "react-intl";
 import {gql} from "@apollo/client";
+import {EntityListProps, EntityProperty, registerScreen, useEntityList} from "@haulmont/jmix-react-web";
+import {Paging, RetryDialog, Spinner } from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerList";

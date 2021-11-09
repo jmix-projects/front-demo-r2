@@ -1,9 +1,9 @@
 import React from "react";
 import {DemoMenuHorizontal} from "./DemoMenuHorizontal";
-import {registerScreen} from "@haulmont/jmix-react-ui";
 import Title from "antd/es/typography/Title";
 import {DemoMenuVertical} from "./DemoMenuVertical";
 import {DemoMenuSwitcher} from "./DemoMenuSwitcher";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
 export const MenuDemoScreen = () => (
   <div>

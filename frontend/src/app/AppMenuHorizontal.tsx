@@ -1,8 +1,9 @@
 import React from "react";
-import { MenuProps } from "antd";
-import { MenuItem, SubMenuItem, HorizontalMenu } from "@haulmont/jmix-react-ui";
-import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
-import { tabs } from "@haulmont/jmix-react-core";
+import {MenuProps} from "antd";
+import {HomeOutlined} from "@ant-design/icons";
+import {tabs} from "@haulmont/jmix-react-core";
+import {HorizontalMenu, MenuItem, SubMenuItem} from "@haulmont/jmix-react-antd";
+
 export interface AppMenuProps extends MenuProps {}
 
 export const AppMenHorizontal = (props: AppMenuProps) => {

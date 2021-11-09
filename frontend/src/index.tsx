@@ -1,16 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { Result } from "antd";
+import { useIntl } from "react-intl";
 import App from "./app/App";
 import { ComponentPreviews } from "./dev/previews";
 import { useDevLogin } from "./dev/hooks";
 import { DevSupport } from "@haulmont/react-ide-toolbox";
+import { initializeTheme } from "./themes/themes.core";
 // import registerServiceWorker from './registerServiceWorker';
 import {
   JmixAppProvider,
   initializeApolloClient,
-  ScreensContext, Screens
+  Screens,
+  ScreensContext,
+  ErrorBoundary
 } from "@haulmont/jmix-react-core";
-import {I18nProvider, Modals} from "@haulmont/jmix-react-ui";
+import { I18nProvider, Modals } from "@haulmont/jmix-react-antd";
 import { initializeApp } from "@haulmont/jmix-rest";
 import {
   JMIX_REST_URL,
@@ -18,13 +23,12 @@ import {
   REST_CLIENT_SECRET,
   GRAPHQL_URI
 } from "./config";
-import "mobx-react-lite/batchingForReactDom";
 import metadata from "./jmix/metadata.json";
-import "antd/dist/antd.min.css";
-import "@haulmont/jmix-react-ui/dist/index.min.css";
 import "./index.css";
-import { antdLocaleMapping, messagesMapping } from "./i18n/i18nMappings";
 import { ApolloProvider } from "@apollo/client";
+import "./i18n/i18nInit";
+import { IntlDocumentTitle } from "@haulmont/jmix-react-web";
+import "./addons";
 
 // Define types of plugins used by dayjs
 import "dayjs/plugin/customParseFormat";
@@ -34,8 +38,10 @@ import "dayjs/plugin/localeData";
 import "dayjs/plugin/weekOfYear";
 import "dayjs/plugin/weekYear";
 
+initializeTheme();
+
 export const jmixREST = initializeApp({
-  name: "",
+  name: "frontdemo-r2",
   apiUrl: JMIX_REST_URL,
   restClientId: REST_CLIENT_ID,
   restClientSecret: REST_CLIENT_SECRET,
@@ -45,40 +51,55 @@ export const jmixREST = initializeApp({
 
 const client = initializeApolloClient({
   graphqlEndpoint: GRAPHQL_URI,
-  tokenStorageKey: "_jmixRestAccessToken",
-  localeStorageKey: "_jmixLocale"
+  tokenStorageKey: "frontdemo-r2_jmixRestAccessToken",
+  localeStorageKey: "frontdemo-r2_jmixLocale"
 });
 
 const devScreens = new Screens();
+
+const AppErrorBoundary = function(props) {
+  const intl = useIntl();
+
+  return (
+    <ErrorBoundary
+      message={intl.formatMessage({ id: "common.unknownAppError" })}
+      render={message => <Result status="warning" title={message} />}
+    >
+      {props.children}
+    </ErrorBoundary>
+  );
+};
 
 ReactDOM.render(
   <JmixAppProvider
     apolloClient={client}
     jmixREST={jmixREST}
     config={{
-      appName: "",
+      appName: "frontdemo-r2",
       clientId: REST_CLIENT_ID, // TODO Rename once we remove REST
       secret: REST_CLIENT_SECRET,
-      locale: "en"
+      locale: "en",
+      graphqlEndpoint: GRAPHQL_URI
     }}
     metadata={metadata}
     Modals={Modals}
   >
     <ApolloProvider client={client}>
-      <I18nProvider
-        messagesMapping={messagesMapping}
-        antdLocaleMapping={antdLocaleMapping}
-      >
-        <DevSupport
-          ComponentPreviews={
-            <ScreensContext.Provider value={devScreens}>
-              <ComponentPreviews />
-            </ScreensContext.Provider>
-          }
-          useInitialHook={useDevLogin}
-        >
-          <App />
-        </DevSupport>
+      <I18nProvider>
+        <IntlDocumentTitle>
+          <DevSupport
+            ComponentPreviews={
+              <ScreensContext.Provider value={devScreens}>
+                <ComponentPreviews />
+              </ScreensContext.Provider>
+            }
+            useInitialHook={useDevLogin}
+          >
+            <AppErrorBoundary>
+              <App />
+            </AppErrorBoundary>
+          </DevSupport>
+        </IntlDocumentTitle>
       </I18nProvider>
     </ApolloProvider>
   </JmixAppProvider>,

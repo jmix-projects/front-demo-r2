@@ -1,43 +1,62 @@
-import { LogoutOutlined } from "@ant-design/icons";
-import { Button, Space, Modal } from "antd";
-import React, { useCallback } from "react";
+import { LogoutOutlined, SettingOutlined } from "@ant-design/icons";
+import { Button, Space } from "antd";
+import React, { useCallback, useState } from "react";
 import { observer } from "mobx-react";
-import "./AppHeader.css";
-import {redirect, tabs, useMainStore} from "@haulmont/jmix-react-core";
+import styles from "./AppHeader.module.css";
+import { useMainStore } from "@haulmont/jmix-react-core";
 import { LanguageSwitcher } from "../../i18n/LanguageSwitcher";
+import { ThemeSwitcher } from "../../themes/ThemeSwitcher";
 import { useIntl } from "react-intl";
 import JmixLightIcon from "../icons/JmixLightIcon";
+import { modals } from "@haulmont/jmix-react-antd";
 
 const AppHeader = observer(({ children }: { children?: React.ReactNode }) => {
   const intl = useIntl();
   const mainStore = useMainStore();
 
+  const [settingsEnabled, setSettingsEnabled] = useState<boolean>(false);
+
+  const toggleSettings = useCallback(() => {
+    setSettingsEnabled(isEnabled => {
+      return !isEnabled;
+    });
+  }, []);
+
   const showLogoutConfirm = useCallback(() => {
-    Modal.confirm({
-      title: intl.formatMessage({ id: "header.logout.areYouSure" }),
+    modals.open({
+      content: intl.formatMessage({ id: "header.logout.areYouSure" }),
       okText: intl.formatMessage({ id: "header.logout.ok" }),
       cancelText: intl.formatMessage({ id: "header.logout.cancel" }),
-      onOk: () => {
-        mainStore.logout().then(() => {
-          tabs.closeAll();
-          redirect('/');
-        })
-      }
+      onOk: () => mainStore.logout()
     });
   }, [mainStore, intl]);
 
   return (
-    <div className="app-header">
-      <JmixLightIcon className="app-header__icon" />
+    <div className={styles.header}>
+      <JmixLightIcon className={styles.icon} />
 
-      <div className="app-header__content">{children}</div>
-
-      <Space className="app-header__user-panel">
-        <LanguageSwitcher className="language-switcher -header" />
+      <div className={styles.content}>{children}</div>
+      <>
+        {settingsEnabled && (
+          <>
+            <ThemeSwitcher className={styles.themeSwitcher} />
+            <LanguageSwitcher className={styles.languageSwitcher} />
+          </>
+        )}
+      </>
+      <Space className={styles.userPanel}>
         <span>{mainStore.userName}</span>
         <Button
+          className={
+            settingsEnabled ? styles.settingsBtnActive : styles.settingsBtn
+          }
+          type={"text"}
+          icon={<SettingOutlined />}
+          onClick={toggleSettings}
+        />
+        <Button
           id="button_logout"
-          className="app-header__user-panel__logout-btn"
+          className={styles.logoutBtn}
           type="text"
           icon={<LogoutOutlined />}
           onClick={showLogoutConfirm}

@@ -3,21 +3,25 @@ import {Button, Card, Form} from "antd";
 import {useForm} from "antd/es/form/Form";
 import {observer} from "mobx-react";
 import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
+import {DeeplyNestedTestEntity} from "../../../jmix/entities/DeeplyNestedTestEntity";
 import {
-  createAntdFormValidationMessages,
-  createUseAntdForm,
-  createUseAntdFormValidation,
-  EntityEditorProps,
+  ant_to_jmixFront,
+  createUseAntdForm, createUseAntdFormValidation,
   Field,
   GlobalErrorsAlert,
-  registerEntityEditor,
   RetryDialog,
   Spinner,
+  useEntityPersistCallbacks,
+  useSubmitFailedCallback
+} from "@haulmont/jmix-react-antd";
+import {
+  createAntdFormValidationMessages,
+  EntityEditorProps,
+  registerEntityEditor,
   useEntityEditor
-} from "@haulmont/jmix-react-ui";
-import {gql} from "@apollo/client";
-import "../../../app/App.css";
-import {DeeplyNestedTestEntity} from "../../../jmix/entities/DeeplyNestedTestEntity";
+} from "@haulmont/jmix-react-web";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "DeeplyNestedTestEntity";
 const ROUTING_PATH = "/deeplyNestedTestEntityEdit";
@@ -53,7 +57,7 @@ const DeeplyNestedTestEntityEdit = observer(
     } = props;
 
     const [form] = useForm();
-
+    const onSubmitFailed = useSubmitFailedCallback();
     const {
       executeLoadQuery,
       loadQueryResult: { loading: queryLoading, error: queryError },
@@ -61,7 +65,6 @@ const DeeplyNestedTestEntityEdit = observer(
       serverValidationErrors,
       intl,
       handleSubmit,
-      handleSubmitFailed,
       handleCancelBtnClick
     } = useEntityEditor<DeeplyNestedTestEntity>({
       loadQuery: LOAD_DEEPLYNESTEDTESTENTITY,
@@ -70,6 +73,8 @@ const DeeplyNestedTestEntityEdit = observer(
       routingPath: ROUTING_PATH,
       onCommit,
       entityInstance,
+      persistEntityCallbacks: useEntityPersistCallbacks(),
+      uiKit_to_jmixFront: ant_to_jmixFront,
       useEntityEditorForm: createUseAntdForm(form),
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
@@ -84,10 +89,10 @@ const DeeplyNestedTestEntityEdit = observer(
     }
 
     return (
-      <Card className="narrow-layout">
+      <Card className={styles.narrowLayout}>
         <Form
           onFinish={handleSubmit}
-          onFinishFailed={handleSubmitFailed}
+          onFinishFailed={onSubmitFailed}
           layout="vertical"
           form={form}
           validateMessages={createAntdFormValidationMessages(intl)}

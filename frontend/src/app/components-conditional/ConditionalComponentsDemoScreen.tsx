@@ -2,9 +2,9 @@ import React from "react";
 import {Card, Space} from "antd";
 import {IFComponentDemo} from "./IFComponentDemo";
 import {TimerComponentDemo} from "./TimerComponentDemo";
-import {registerScreen} from "@haulmont/jmix-react-ui";
 import {EntityPermAccessControlDemo} from "./EntityPermAccessControlDemo";
 import {AttrPermAccessControlDemo} from "./AttrPermAccessControlDemo";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
 export const ConditionalComponentsDemoScreen = () => (
   <Space direction={"vertical"} style={{width: "100%"}}>

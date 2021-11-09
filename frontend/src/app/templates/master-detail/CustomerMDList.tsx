@@ -3,15 +3,11 @@ import { observer } from "mobx-react";
 import { PlusOutlined, LeftOutlined } from "@ant-design/icons";
 import { Button, Tooltip } from "antd";
 import { EntityPermAccessControl } from "@haulmont/jmix-react-core";
-import {
-  DataTable,
-  RetryDialog,
-  useMasterDetailList,
-  EntityListProps
-} from "@haulmont/jmix-react-ui";
 import { Customer } from "../../../jmix/entities/Customer";
 import { FormattedMessage } from "react-intl";
 import { gql } from "@apollo/client";
+import {EntityListProps} from "@haulmont/jmix-react-web";
+import {DataTable, RetryDialog, useMasterDetailList} from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerMDList";

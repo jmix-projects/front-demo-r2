@@ -13,18 +13,11 @@ import {
   EntityPermAccessControl,
   toIdString
 } from "@haulmont/jmix-react-core";
-import {
-  EntityProperty,
-  Paging,
-  Spinner,
-  RetryDialog,
-  useEntityList,
-  EntityListProps,
-  registerEntityList
-} from "@haulmont/jmix-react-ui";
 import { Customer } from "../../../jmix/entities/Customer";
 import { FormattedMessage } from "react-intl";
 import { gql } from "@apollo/client";
+import {EntityListProps, EntityProperty, registerEntityList, useEntityList} from "@haulmont/jmix-react-web";
+import {Paging, RetryDialog, Spinner} from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerManagementList";

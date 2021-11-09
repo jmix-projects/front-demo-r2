@@ -3,21 +3,26 @@ import {Button, Card, Form} from "antd";
 import {useForm} from "antd/es/form/Form";
 import {observer} from "mobx-react";
 import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
+import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
 import {
-  createAntdFormValidationMessages,
+  ant_to_jmixFront,
   createUseAntdForm,
   createUseAntdFormValidation,
-  EntityEditorProps,
   Field,
   GlobalErrorsAlert,
-  registerEntityEditor,
   RetryDialog,
   Spinner,
+  useEntityPersistCallbacks,
+  useSubmitFailedCallback
+} from "@haulmont/jmix-react-antd";
+import {
+  createAntdFormValidationMessages,
+  EntityEditorProps,
+  registerEntityEditor,
   useEntityEditor
-} from "@haulmont/jmix-react-ui";
-import {gql} from "@apollo/client";
-import "../../../app/App.css";
-import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
+} from "@haulmont/jmix-react-web";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "DatatypesTestEntity";
 const ROUTING_PATH = "/datatypesTestEntityEditor";
@@ -67,7 +72,7 @@ const DatatypesTestEntityEditor = observer(
     } = props;
 
     const [form] = useForm();
-
+    const onSubmitFailed = useSubmitFailedCallback();
     const {
       executeLoadQuery,
       loadQueryResult: { loading: queryLoading, error: queryError },
@@ -75,7 +80,6 @@ const DatatypesTestEntityEditor = observer(
       serverValidationErrors,
       intl,
       handleSubmit,
-      handleSubmitFailed,
       handleCancelBtnClick
     } = useEntityEditor<DatatypesTestEntity>({
       loadQuery: LOAD_DATATYPESTESTENTITY,
@@ -84,6 +88,8 @@ const DatatypesTestEntityEditor = observer(
       routingPath: ROUTING_PATH,
       onCommit,
       entityInstance,
+      persistEntityCallbacks: useEntityPersistCallbacks(),
+      uiKit_to_jmixFront: ant_to_jmixFront,
       useEntityEditorForm: createUseAntdForm(form),
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
@@ -98,10 +104,10 @@ const DatatypesTestEntityEditor = observer(
     }
 
     return (
-      <Card className="narrow-layout">
+      <Card className={styles.narrowLayout}>
         <Form
           onFinish={handleSubmit}
-          onFinishFailed={handleSubmitFailed}
+          onFinishFailed={onSubmitFailed}
           layout="vertical"
           form={form}
           validateMessages={createAntdFormValidationMessages(intl)}

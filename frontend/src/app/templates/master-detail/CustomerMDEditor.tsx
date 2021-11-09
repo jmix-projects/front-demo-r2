@@ -3,21 +3,21 @@ import { Form, Button } from "antd";
 import { useForm } from "antd/es/form/Form";
 import { observer } from "mobx-react";
 import { FormattedMessage } from "react-intl";
+import { gql } from "@apollo/client";
+import { Customer } from "../../../jmix/entities/Customer";
 import {
-  createAntdFormValidationMessages,
+  ant_to_jmixFront,
   createUseAntdForm,
   createUseAntdFormValidation,
-  RetryDialog,
   Field,
   GlobalErrorsAlert,
+  RetryDialog,
   Spinner,
+  useChangeConfirm, useCreateAntdResetForm, useEntityPersistCallbacks,
   useMasterDetailEditor,
-  EntityEditorProps,
-  useCreateAntdResetForm
-} from "@haulmont/jmix-react-ui";
-import { gql } from "@apollo/client";
-import "../../App.css";
-import { Customer } from "../../../jmix/entities/Customer";
+  useSubmitFailedCallback
+} from "@haulmont/jmix-react-antd";
+import {createAntdFormValidationMessages, EntityEditorProps} from "@haulmont/jmix-react-web";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerMDEditor";
@@ -49,6 +49,12 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
   } = props;
 
   const [form] = useForm();
+  const onSubmitFailed = useSubmitFailedCallback();
+  const { setDirty } = useChangeConfirm();
+  const fieldComponentProps = {
+    onBlur: setDirty
+  };
+
 
   const {
     executeLoadQuery,
@@ -57,7 +63,6 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
     serverValidationErrors,
     intl,
     handleSubmit,
-    handleSubmitFailed,
     handleCancelBtnClick
   } = useMasterDetailEditor<Customer>({
     loadQuery: LOAD_CUSTOMER,
@@ -68,7 +73,9 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
     entityInstance,
     useEntityEditorForm: createUseAntdForm(form),
     useEntityEditorFormValidation: createUseAntdFormValidation(form),
-    resetEntityEditorForm: useCreateAntdResetForm(form)
+    resetEntityEditorForm: useCreateAntdResetForm(form),
+    persistEntityCallbacks: useEntityPersistCallbacks(),
+    uiKit_to_jmixFront: ant_to_jmixFront
   });
 
   if (queryLoading) {
@@ -83,7 +90,7 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
   return (
     <Form
       onFinish={handleSubmit}
-      onFinishFailed={handleSubmitFailed}
+      onFinishFailed={onSubmitFailed}
       layout="vertical"
       form={form}
       validateMessages={createAntdFormValidationMessages(intl)}
@@ -94,6 +101,7 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
         formItemProps={{
           style: { marginBottom: "12px" }
         }}
+        componentProps={fieldComponentProps}
       />
 
       <Field
@@ -102,6 +110,7 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
         formItemProps={{
           style: { marginBottom: "12px" }
         }}
+        componentProps={fieldComponentProps}
       />
 
       <GlobalErrorsAlert serverValidationErrors={serverValidationErrors} />

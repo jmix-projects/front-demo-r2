@@ -3,17 +3,10 @@ import {observer} from "mobx-react";
 import {Card, Col, Row} from "antd";
 import {Customer} from "../../../jmix/entities/Customer";
 import {getFields} from "@haulmont/jmix-react-core";
-import {
-  defaultGridPaginationConfig,
-  EntityProperty,
-  Paging,
-  registerScreen,
-  RetryDialog,
-  Spinner,
-  useEntityList
-} from "@haulmont/jmix-react-ui";
 import {getStringId} from "@haulmont/jmix-rest";
 import {gql} from "@apollo/client";
+import {defaultGridPaginationConfig, EntityProperty, registerScreen, useEntityList} from "@haulmont/jmix-react-web";
+import {Paging, RetryDialog, Spinner } from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerCardsGrid";

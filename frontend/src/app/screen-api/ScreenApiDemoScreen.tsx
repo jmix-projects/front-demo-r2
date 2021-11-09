@@ -1,13 +1,14 @@
 import React, {useCallback, useState} from "react";
-import {modals, notifications, registerScreen} from "@haulmont/jmix-react-ui";
 import {Button, Card, Radio, RadioChangeEvent, Space} from "antd";
 import {CheckOutlined, CloseCircleOutlined, WarningOutlined} from "@ant-design/icons";
 import {ContentDisplayMode, tabs, useMainStore, useScreens} from "@haulmont/jmix-react-core";
-import {NotificationType} from "@haulmont/jmix-react-ui";
+
 import {observer} from "mobx-react";
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
 import Link from "antd/lib/typography/Link";
+import {modals, notifications, NotificationType} from "@haulmont/jmix-react-antd";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
 const ROUTING_PATH = "/screenApiDemoScreen";
 
@@ -124,7 +125,7 @@ export const ScreenApiDemoScreen = observer(() => {
         <Paragraph>
           Screens opened in current tab
           {JSON.stringify(screens.screens.map(screen => screen.title))}
-          <Button onClick={() => screens.push({title: 'New Screen', content: 'Content'})}>
+          <Button onClick={() => screens.push({title: 'New Screen', content: 'Content', key: 'NewScreen'})}>
             Open screen in current tab
           </Button>
         </Paragraph>

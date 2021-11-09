@@ -3,6 +3,8 @@
     {
       "name": "User",
       "className": "User",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -113,6 +115,8 @@
     {
       "name": "AssociationM2MTestEntity",
       "className": "AssociationM2MTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -160,6 +164,8 @@
     {
       "name": "AssociationM2OTestEntity",
       "className": "AssociationM2OTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -192,6 +198,8 @@
     {
       "name": "AssociationO2MTestEntity",
       "className": "AssociationO2MTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -239,6 +247,8 @@
     {
       "name": "AssociationO2OTestEntity",
       "className": "AssociationO2OTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -301,6 +311,8 @@
     {
       "name": "CompositionO2MTestEntity",
       "className": "CompositionO2MTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -361,6 +373,8 @@
     {
       "name": "CompositionO2OTestEntity",
       "className": "CompositionO2OTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -421,6 +435,8 @@
     {
       "name": "DatatypesTestEntity",
       "className": "DatatypesTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -796,6 +812,8 @@
     {
       "name": "DeeplyNestedTestEntity",
       "className": "DeeplyNestedTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -843,6 +861,8 @@
     {
       "name": "IntegerIdTestEntity",
       "className": "IntegerIdTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -966,6 +986,8 @@
     {
       "name": "StringIdTestEntity",
       "className": "StringIdTestEntity",
+      "persistentEntity": true,
+      "idAttributeName": "identifier",
       "attributes": [
         {
           "name": "identifier",
@@ -1102,6 +1124,8 @@
     {
       "name": "Customer",
       "className": "Customer",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -1238,6 +1262,8 @@
     {
       "name": "Order_",
       "className": "Order",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -1430,6 +1456,8 @@
     {
       "name": "OrderLine",
       "className": "OrderLine",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",
@@ -1583,6 +1611,8 @@
     {
       "name": "Product",
       "className": "Product",
+      "persistentEntity": true,
+      "idAttributeName": "id",
       "attributes": [
         {
           "name": "id",

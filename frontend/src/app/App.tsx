@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
-import { Layout } from "antd";
-import { observer } from "mobx-react";
+import React, {useState} from "react";
+import {Layout} from "antd";
+import {observer} from "mobx-react";
 import Login from "./login/Login";
 import Centered from "./common/Centered";
 import AppHeader from "./header/AppHeader";
-import HomePage from "./home/HomePage";
-import {ContentArea, MultiTabs } from "@haulmont/jmix-react-ui";
-import { useMainStore, tabs, Router } from "@haulmont/jmix-react-core";
+import {Router, useMainStore} from "@haulmont/jmix-react-core";
 import CenteredLoader from "./CenteredLoader";
-import { AppMenu } from "./AppMenu";
-import { AppMenHorizontal } from "./AppMenuHorizontal";
+import {AppMenu} from "./AppMenu";
+import {AppMenHorizontal} from "./AppMenuHorizontal";
 import "../routing";
-import "./App.css";
+import styles from "./App.module.css";
+import { ContentArea } from "@haulmont/jmix-react-antd";
 
 const routes = {
   "/": <ContentArea />,
@@ -43,24 +42,24 @@ const App = observer(() => {
   }
 
   return (
-    <Layout className="main-layout">
+    <Layout className={styles.mainLayout}>
       <Layout.Header>
         <AppHeader>
           {menuType === "horizontal" && <AppMenHorizontal theme="dark"/>}
         </AppHeader>
       </Layout.Header>
-      <Layout className="layout-container">
+      <Layout className={styles.layoutContainer}>
         {menuType === "vertical" && (
             <Layout.Sider
               width={200}
               breakpoint="sm"
               collapsedWidth={0}
-              className="layout-sider"
+              className={styles.layoutSider}
             >
               <AppMenu />
             </Layout.Sider>
         ) }
-        <Layout className="layout-content">
+        <Layout className={styles.layoutContent}>
           <Layout.Content>
             <Router global routes={routes} />
           </Layout.Content>

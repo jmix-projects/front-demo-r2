@@ -1,5 +1,5 @@
 import React from "react";
-import {registerScreen} from "@haulmont/jmix-react-ui";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
 export const BlankTemplateDemo = () => <div>BlankTemplateDemo</div>;
 

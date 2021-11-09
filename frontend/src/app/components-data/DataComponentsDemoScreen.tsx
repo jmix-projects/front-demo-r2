@@ -2,8 +2,8 @@ import React from "react";
 import {UseEntityListDataDemo} from "./UseEntityListDataDemo";
 import {Card, Space} from "antd";
 import Text from "antd/es/typography/Text";
-import {registerScreen} from "@haulmont/jmix-react-ui";
 import {UseEntityEditorDataDemo} from "./UseEntityEditorDataDemo";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
 export const DataComponentsDemoScreen = () => {
   return (

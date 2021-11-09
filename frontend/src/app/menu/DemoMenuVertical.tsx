@@ -1,9 +1,9 @@
 import React, {useState} from "react";
-import {MenuItem, SubMenuItem, VerticalMenu} from "@haulmont/jmix-react-ui";
 import {BarsOutlined, HomeOutlined} from "@ant-design/icons";
 import {FormattedMessage} from "react-intl";
 import {Button, Space} from "antd";
 import Title from "antd/es/typography/Title";
+import {MenuItem, SubMenuItem, VerticalMenu} from "@haulmont/jmix-react-antd";
 
 export const DemoMenuVertical = () => {
 

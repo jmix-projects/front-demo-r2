@@ -1,5 +1,5 @@
 import {IF} from "@haulmont/jmix-react-core";
-import {Alert, Button, Space} from "antd";
+import {Alert, Button} from "antd";
 import React, {useState} from "react";
 
 export const IFComponentDemo = () => {

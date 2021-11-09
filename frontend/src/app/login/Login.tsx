@@ -1,16 +1,16 @@
 import React, { useState, useCallback } from "react";
 import { ChangeEvent } from "react";
-import { Form } from "antd";
+import { Card, Form } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import { Button, Input, message } from "antd";
 import { observer } from "mobx-react";
 import { action } from "mobx";
 import { useMainStore, JmixServerError } from "@haulmont/jmix-react-core";
-import "./Login.css";
+import styles from "./Login.module.css";
 import { LanguageSwitcher } from "../../i18n/LanguageSwitcher";
 import { FormattedMessage, useIntl } from "react-intl";
 import JmixDarkIcon from "../icons/JmixDarkIcon";
-import { loginMapJmixRestErrorToIntlId } from "@haulmont/jmix-react-ui";
+import { loginMapJmixRestErrorToIntlId } from "@haulmont/jmix-react-web";
 
 const Login = observer(() => {
   const intl = useIntl();
@@ -50,10 +50,10 @@ const Login = observer(() => {
   }, [setPerformingLoginRequest, mainStore, intl, login, password]);
 
   return (
-    <div className="login-form">
-      <JmixDarkIcon className="logo" />
+    <Card className={styles.loginForm}>
+      <JmixDarkIcon className={styles.logo} />
 
-      <div className="title">frontdemo</div>
+      <div className={styles.title}>scr-jmix</div>
 
       <Form layout="vertical" onFinish={doLogin}>
         <Form.Item>
@@ -62,7 +62,7 @@ const Login = observer(() => {
             placeholder={intl.formatMessage({ id: "login.placeholder.login" })}
             onChange={changeLogin}
             value={login}
-            prefix={<UserOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
+            prefix={<UserOutlined style={{ margin: "0 11px 0 0" }} />}
             size="large"
           />
         </Form.Item>
@@ -75,13 +75,13 @@ const Login = observer(() => {
             onChange={changePassword}
             value={password}
             type="password"
-            prefix={<LockOutlined style={{ color: "rgba(0,0,0,.25)" }} />}
+            prefix={<LockOutlined style={{ margin: "0 11px 0 0" }} />}
             size="large"
           />
         </Form.Item>
         <Form.Item>
-          <div className="language-switcher-container">
-            <LanguageSwitcher className="language-switcher" />
+          <div className={styles.languageSwitcherContainer}>
+            <LanguageSwitcher />
           </div>
         </Form.Item>
         <Form.Item>
@@ -96,7 +96,7 @@ const Login = observer(() => {
           </Button>
         </Form.Item>
       </Form>
-    </div>
+    </Card>
   );
 });
 

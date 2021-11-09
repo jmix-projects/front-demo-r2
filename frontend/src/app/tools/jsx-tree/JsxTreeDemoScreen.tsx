@@ -1,7 +1,7 @@
 import React from "react";
-import {registerScreen} from "@haulmont/jmix-react-ui";
 import Title from "antd/lib/typography/Title";
 import {Alert} from "antd";
+import { registerScreen } from "@haulmont/jmix-react-web";
 
 export const JsxTreeDemoScreen = () => (
   <div>

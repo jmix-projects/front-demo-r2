@@ -1,9 +1,10 @@
 import React from "react";
-import {DataTable, EntityProperty, Field, registerScreen} from "@haulmont/jmix-react-ui";
+import {EntityProperty, registerScreen} from "@haulmont/jmix-react-web";
 import {Card, Form, Space, Typography} from "antd";
 import Link from "antd/lib/typography/Link";
 import Paragraph from "antd/es/typography/Paragraph";
 import {useForm} from "antd/es/form/Form";
+import {DataTable, Field} from "@haulmont/jmix-react-antd";
 
 const FIELD_CODE = `<Field/>`;
 const FORM_CODE = `<Form/>`;

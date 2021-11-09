@@ -1,8 +1,10 @@
 import React from "react";
 import CustomerMDEditor from "./CustomerMDEditor";
 import CustomerMDList from "./CustomerMDList";
-import {MasterDetailManager, registerScreen} from "@haulmont/jmix-react-ui";
+
 import {observer} from "mobx-react";
+import { MasterDetailManager } from "@haulmont/jmix-react-antd";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerMasterDetail";

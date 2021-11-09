@@ -1,23 +1,27 @@
 import React from "react";
-import {Button, Card, Form} from "antd";
+import {Button, Card, Form, Space} from "antd";
 import {useForm} from "antd/es/form/Form";
 import {observer} from "mobx-react";
 import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
+import {CompositionO2MTestEntity} from "../../../jmix/entities/CompositionO2MTestEntity";
 import {
   createAntdFormValidationMessages,
+  EntityEditorProps,
+  registerEntityEditor,
+  useEntityEditor
+} from "@haulmont/jmix-react-web";
+import {
+  ant_to_jmixFront,
   createUseAntdForm,
   createUseAntdFormValidation,
-  EntityEditorProps,
   Field,
   GlobalErrorsAlert,
-  registerEntityEditor,
   RetryDialog,
-  Spinner,
-  useEntityEditor
-} from "@haulmont/jmix-react-ui";
-import {gql} from "@apollo/client";
-import "../../../app/App.css";
-import {CompositionO2MTestEntity} from "../../../jmix/entities/CompositionO2MTestEntity";
+  Spinner, useEntityPersistCallbacks,
+  useSubmitFailedCallback
+} from "@haulmont/jmix-react-antd";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "CompositionO2MTestEntity";
 const ROUTING_PATH = "/compositionO2MTestEntityEditor";
@@ -63,7 +67,7 @@ const CompositionO2MTestEntityEditor = observer(
     } = props;
 
     const [form] = useForm();
-
+    const onSubmitFailed = useSubmitFailedCallback();
     const {
       relationOptions,
       executeLoadQuery,
@@ -72,7 +76,6 @@ const CompositionO2MTestEntityEditor = observer(
       serverValidationErrors,
       intl,
       handleSubmit,
-      handleSubmitFailed,
       handleCancelBtnClick
     } = useEntityEditor<CompositionO2MTestEntity>({
       loadQuery: LOAD_COMPOSITIONO2MTESTENTITY,
@@ -81,6 +84,8 @@ const CompositionO2MTestEntityEditor = observer(
       routingPath: ROUTING_PATH,
       onCommit,
       entityInstance,
+      persistEntityCallbacks: useEntityPersistCallbacks(),
+      uiKit_to_jmixFront: ant_to_jmixFront,
       useEntityEditorForm: createUseAntdForm(form),
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
@@ -95,10 +100,10 @@ const CompositionO2MTestEntityEditor = observer(
     }
 
     return (
-      <Card className="narrow-layout">
+      <Card className={styles.narrowLayout}>
         <Form
           onFinish={handleSubmit}
-          onFinishFailed={handleSubmitFailed}
+          onFinishFailed={onSubmitFailed}
           layout="vertical"
           form={form}
           validateMessages={createAntdFormValidationMessages(intl)}
@@ -131,17 +136,14 @@ const CompositionO2MTestEntityEditor = observer(
           <GlobalErrorsAlert serverValidationErrors={serverValidationErrors} />
 
           <Form.Item style={{ textAlign: "center" }}>
-            <Button htmlType="button" onClick={handleCancelBtnClick}>
-              <FormattedMessage id="common.cancel" />
-            </Button>
-            <Button
-              type="primary"
-              htmlType="submit"
-              loading={upsertLoading}
-              style={{ marginLeft: "8px" }}
-            >
-              <FormattedMessage id={submitBtnCaption} />
-            </Button>
+            <Space size={8}>
+              <Button htmlType="button" onClick={handleCancelBtnClick}>
+                <FormattedMessage id="common.cancel" />
+              </Button>
+              <Button type="primary" htmlType="submit" loading={upsertLoading}>
+                <FormattedMessage id={submitBtnCaption} />
+              </Button>
+            </Space>
           </Form.Item>
         </Form>
       </Card>
