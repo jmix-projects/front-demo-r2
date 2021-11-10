@@ -10,7 +10,7 @@ export const ParametrizedMessages = () => {
 
   const mainStore = useMainStore();
   const [state, setStatue] = useState<{ someProp: string }>({ someProp: "some custom property of custom object" });
-  const {item, executeLoadQuery} = useEntityEditorData<Customer>({
+  const {item: entity, executeLoadQuery} = useEntityEditorData<Customer>({
     entityName: "Customer",
     loadQuery: gql`
       query CustomerById($id: String = "", $loadItem: Boolean!) {
@@ -168,7 +168,7 @@ export const ParametrizedMessages = () => {
         <FormattedMessage
           id={"testedEntityProp"}
           values={{
-            testedEntityProp: item?.email ?? "undefined",
+            testedEntityProp: entity?.email ?? "undefined",
           }}
         />
       </div>
@@ -184,7 +184,7 @@ export const ParametrizedMessages = () => {
         <FormattedMessage // you can see all propertes of FormattedNumber on this link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters
           id={"allTypesKey"}
           values={{
-            testedEntityProp: item?.name ?? "undefined",
+            testedEntityProp: entity?.name ?? "undefined",
             currentDateTime: dayjs().format("YYYY"),
             testedNumber: <FormattedNumber value={45412.564} maximumFractionDigits={2} /> // maximumFractionDigits - the maximum number of fraction digits to use
           }}
