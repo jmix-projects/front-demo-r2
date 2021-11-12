@@ -8,7 +8,7 @@ import {ApolloClient, InMemoryCache} from "@apollo/client";
 import { Modals } from "@haulmont/jmix-react-antd";
 
 const jmixREST = initializeApp();
-
+const apolloClient = new ApolloClient<unknown>({cache: new InMemoryCache()});
 const metadata = { entities: [], enums: [] };
 
 it("renders without crashing", () => {
@@ -16,7 +16,7 @@ it("renders without crashing", () => {
   ReactDOM.render(
     <JmixAppProvider jmixREST={jmixREST}
                      metadata={metadata}
-                     apolloClient={new ApolloClient<unknown>({cache: new InMemoryCache()})}
+                     apolloClient={apolloClient}
                      Modals={Modals}>
       <IntlProvider locale="en">
         <App />
