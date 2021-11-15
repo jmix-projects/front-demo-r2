@@ -10,6 +10,7 @@ import en from "./en.json";
 import en_US from "antd/es/locale/en_US";
 import ru from "./ru.json";
 import ru_RU from "antd/es/locale/ru_RU";
+import ar_EG from "antd/es/locale/ar_EG";
 import "dayjs/locale/en";
 import "dayjs/locale/ru";
 
@@ -33,4 +34,16 @@ localesStore.addLocale({
 antdLocalesStore.addAntdLocale({
   localeName: "ru",
   antdLocale: ru_RU
+});
+
+localesStore.addLocale({
+  locale: "ar",
+  caption: "RTL demo",
+  messages: en,
+  isRtlLayout: true
+});
+
+antdLocalesStore.addAntdLocale({
+  localeName: "ar",
+  antdLocale: ar_EG
 });
