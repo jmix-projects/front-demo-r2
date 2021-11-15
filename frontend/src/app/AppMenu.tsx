@@ -1,7 +1,7 @@
 import React from "react";
-import {MenuProps} from "antd";
-import {HomeOutlined} from "@ant-design/icons";
-import {MenuItem, SubMenuItem, VerticalMenu} from "@haulmont/jmix-react-antd";
+import { MenuProps } from "antd";
+import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
+import { MenuItem, SubMenuItem, VerticalMenu } from "@haulmont/jmix-react-antd";
 
 export interface AppMenuProps extends MenuProps {}
 
@@ -9,7 +9,7 @@ export const AppMenu = (props: AppMenuProps) => {
   return (
     <VerticalMenu {...props}>
       <MenuItem
-        screenId={'HomePage'}
+        screenId={"HomePage"}
         icon={<HomeOutlined />}
         caption={"router.home"}
         key={"home"}
@@ -34,7 +34,8 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"aae139b5-829e-4c05-8119-bcb9977842e6"}
         />
       </SubMenuItem>
-      <SubMenuItem caption={"Components"}>
+      <SubMenuItem caption={"Components"}
+                   key={"dr2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}>
         <MenuItem
           screenId={"VisualComponentsDemo"}
           caption={"Visual Components"}
@@ -95,11 +96,31 @@ export const AppMenu = (props: AppMenuProps) => {
           caption={"menu.EntityCardsGrid"}
           key={"2b9f95cd-011f-4341-9631-6d07f95c3235"}
         />
-        <MenuItem
-          screenId={"StructureDemo"}
-          caption={"menu.StructureDemo"}
-          key={"4e77434a-7c86-4e58-8f64-d6ccaddcaf22"}
-        />
+        <SubMenuItem
+          caption={"menu.StructureTemplates"}
+          key={"7ef031d3-8a01-437b-bfef-7fc2800102cd"}
+        >
+          <MenuItem
+            screenId={"StructureTwoColumns"}
+            caption={"screen.StructureTwoColumns"}
+            key={"689ec9d3-5efa-47af-9eb5-4aff814ffde9"}
+          />
+          <MenuItem
+            screenId={"StructureFourColumns"}
+            caption={"screen.StructureFourColumns"}
+            key={"4fcdb507-7544-44f2-90ec-16e593fe6302"}
+          />
+          <MenuItem
+            screenId={"Structure3to1"}
+            caption={"screen.Structure3to1"}
+            key={"1df26263-cbd4-4514-b3b4-957b2433f378"}
+          />
+          <MenuItem
+            screenId={"Structure1to3"}
+            caption={"screen.Structure1to3"}
+            key={"4f4c5ac4-974e-4ff8-8abc-bd4cebfd7974"}
+          />
+        </SubMenuItem>
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Tools"}

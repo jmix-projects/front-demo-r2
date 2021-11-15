@@ -96,11 +96,31 @@ export const AppMenHorizontal = (props: AppMenuProps) => {
           caption={"menu.EntityCardsGrid"}
           key={"2b9f95cd-011f-4341-9631-6d07f95c3235"}
         />
-        <MenuItem
-          screenId={"StructureDemo"}
-          caption={"menu.StructureDemo"}
-          key={"4e77434a-7c86-4e58-8f64-d6ccaddcaf22"}
-        />
+        <SubMenuItem
+          caption={"menu.StructureTemplates"}
+          key={"7ef031d3-8a01-437b-bfef-7fc2800102cd"}
+        >
+          <MenuItem
+            screenId={"StructureTwoColumns"}
+            caption={"screen.StructureTwoColumns"}
+            key={"689ec9d3-5efa-47af-9eb5-4aff814ffde9"}
+          />
+          <MenuItem
+            screenId={"StructureFourColumns"}
+            caption={"screen.StructureFourColumns"}
+            key={"4fcdb507-7544-44f2-90ec-16e593fe6302"}
+          />
+          <MenuItem
+            screenId={"Structure3to1"}
+            caption={"screen.Structure3to1"}
+            key={"1df26263-cbd4-4514-b3b4-957b2433f378"}
+          />
+          <MenuItem
+            screenId={"Structure1to3"}
+            caption={"screen.Structure1to3"}
+            key={"4f4c5ac4-974e-4ff8-8abc-bd4cebfd7974"}
+          />
+        </SubMenuItem>
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Tools"}

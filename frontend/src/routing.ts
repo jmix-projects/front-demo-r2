@@ -1,3 +1,7 @@
+import "./app/templates/structure/Structure1to3";
+import "./app/templates/structure/Structure3to1";
+import "./app/templates/structure/StructureFourColumns";
+import "./app/templates/structure/StructureTwoColumns";
 import "./app/templates/entity-cards/CustomerCards";
 import "./app/screen-api/ScreenApiDemoScreen";
 import "./app/templates/entity-management/CustomerManagementList";
@@ -5,7 +9,6 @@ import "./app/templates/entity-management/CustomerManagementEditor";
 import "./app/templates/blank/BlankTemplateDemo";
 import "./app/templates/entity-list/CustomerList";
 import "./app/components-data/DataComponentsDemoScreen";
-import "./app/templates/structure/StructureDemo";
 import "./app/templates/entity-cards-grid/CustomerCardsGrid";
 import "./app/templates/entity-cards/CustomerCards";
 import "./app/templates/master-detail/CustomerMasterDetail";
