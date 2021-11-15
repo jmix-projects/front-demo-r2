@@ -1,6 +1,6 @@
 {
   "name": "frontdemo-generation",
   "devDependencies": {
-    "@haulmont/jmix-front-generator": "^2.0.0-next.1"
+    "@haulmont/jmix-front-generator": "^2.0.0-next.4"
   }
 }
