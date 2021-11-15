@@ -18,6 +18,10 @@
     {
       "name": "high-contrast",
       "caption": "themes.highСontrast"
+    },
+    {
+      "name": "custom",
+      "caption": "themes.custom"
     }
   ],
   "sizes": [

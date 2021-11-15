@@ -160,6 +160,7 @@
   "themes.highСontrast": "Высококонтрастная тема",
   "themes.sizes.defaultSize": "Стандартный размер",
   "themes.large": "Крупный размер",
+  "themes.custom": "Нестандартная тема",
   "multiSelectionTable.delete.success": "Выбранные сущности успешно удалены",
   "multiSelectionTable.delete.error": "Произошла ошибка во время удаления выбранных сущностей",
   "multiSelectionTable.delete.areYouSure": "Вы уверены, что хотите удалить выбранные сущности?"
