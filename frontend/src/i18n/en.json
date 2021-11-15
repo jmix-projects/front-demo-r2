@@ -171,6 +171,9 @@
   "testedNumber": "test testedNumber {testedNumber}",
   "testedEntityProp": "test testedEntityProp {testedEntityProp}",
   "testedSomeComponentVariable": " test testedSomeComponentVariable {testedSomeComponentVariable}",
-  "allTypesKey": "test date currentDateTime {currentDateTime} test number {testedNumber} city is {testedEntityProp}"
-
+  "allTypesKey": "test date currentDateTime {currentDateTime} test number {testedNumber} city is {testedEntityProp}",
+  "themes.light": "Light theme",
+  "themes.dark": "Dark theme",
+  "themes.highСontrast": "High contrast theme",
+  "themes.sizes.defaultSize": "Default size"
 }
