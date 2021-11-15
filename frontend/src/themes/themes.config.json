@@ -3,7 +3,7 @@
   "idThemePresetLink": "jmix-antd-theme-link",
   "storageThemeAttr": "jmixAntdActiveTheme",
   "defaultThemePreset": {
-    "themeName": "light", 
+    "themeName": "light",
     "sizeName": null
   },
   "themes": [
@@ -20,5 +20,10 @@
       "caption": "themes.highСontrast"
     }
   ],
-  "sizes": []
+  "sizes": [
+    {
+      "name": "large",
+      "caption": "themes.large"
+    }
+  ]
 }
