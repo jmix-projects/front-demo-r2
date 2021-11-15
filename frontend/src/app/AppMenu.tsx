@@ -34,8 +34,10 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"aae139b5-829e-4c05-8119-bcb9977842e6"}
         />
       </SubMenuItem>
-      <SubMenuItem caption={"Components"}
-                   key={"dr2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}>
+      <SubMenuItem
+        caption={"Components"}
+        key={"dr2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}
+      >
         <MenuItem
           screenId={"VisualComponentsDemo"}
           caption={"Visual Components"}
@@ -121,6 +123,12 @@ export const AppMenu = (props: AppMenuProps) => {
             key={"4f4c5ac4-974e-4ff8-8abc-bd4cebfd7974"}
           />
         </SubMenuItem>
+        <MenuItem
+          screenId={"CustomerMultiSelectionScreen"}
+          icon={<BarsOutlined />}
+          caption={"screen.CustomerMultiSelectionScreen"}
+          key={"6efd5f32-4cb9-4c13-8768-a5b8440c691d"}
+        />
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Tools"}

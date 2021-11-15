@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import CustomerMultiSelectionScreen from "../app/templates/entity-multi-selection/CustomerMultiSelectionScreen";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import {
   Category,
@@ -60,7 +61,6 @@ export default () => (
         </Variant>
       </Component>
     </Category>
-
     <Category name="Controls">
       <Component name="Autocomplete">
         <Variant>
@@ -101,7 +101,6 @@ export default () => (
         </Variant>
       </Component>
     </Category>
-
     <Category name="Data Display">
       <Component name="Card">
         <Variant>
@@ -124,11 +123,17 @@ export default () => (
         </Variant>
       </Component>
     </Category>
-
     <Category name="Icons">
       <Component name="ArrowUpOutlined">
         <Variant>
           <ArrowUpOutlined />
+        </Variant>
+      </Component>
+    </Category>
+    <Category name="Screens">
+      <Component name="CustomerMultiSelectionScreen">
+        <Variant>
+          <CustomerMultiSelectionScreen />
         </Variant>
       </Component>
     </Category>

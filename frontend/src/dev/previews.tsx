@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import CustomerMultiSelectionScreen from "../app/templates/entity-multi-selection/CustomerMultiSelectionScreen";
 import CustomerCards from "../app/templates/entity-cards/CustomerCards";
 import { ScreenApiDemoScreen } from "../app/screen-api/ScreenApiDemoScreen";
 import CustomerManagementList from "../app/templates/entity-management/CustomerManagementList";
@@ -26,7 +27,7 @@ import { AttrPermAccessControlDemo } from "../app/components-conditional/AttrPer
 import CustomerMDList from "../app/templates/master-detail/CustomerMDList";
 import { CustomerCardsGrid } from "../app/templates/entity-cards-grid/CustomerCardsGrid";
 import { UseEntityEditorDataDemo } from "../app/components-data/UseEntityEditorDataDemo";
-import {ParametrizedMessages} from "../app/i18n/ParametrizedMessages";
+import { ParametrizedMessages } from "../app/i18n/ParametrizedMessages";
 
 export const ComponentPreviews = () => {
   return (
@@ -112,9 +113,12 @@ export const ComponentPreviews = () => {
       <ComponentPreview path="/CustomerCards">
         <CustomerCards />
       </ComponentPreview>
-        <ComponentPreview path="/ParametrizedMessages">
-            <ParametrizedMessages/>
-        </ComponentPreview>
+      <ComponentPreview path="/ParametrizedMessages">
+        <ParametrizedMessages />
+      </ComponentPreview>
+      <ComponentPreview path="/CustomerMultiSelectionScreen">
+        <CustomerMultiSelectionScreen />
+      </ComponentPreview>
     </Previews>
   );
 };

@@ -158,5 +158,8 @@
   "themes.light": "Светлая тема",
   "themes.dark": "Темная тема",
   "themes.highСontrast": "Высококонтрастная тема",
-  "themes.sizes.defaultSize": "Стандартный размер"
+  "themes.sizes.defaultSize": "Стандартный размер",
+  "multiSelectionTable.delete.success": "Выбранные сущности успешно удалены",
+  "multiSelectionTable.delete.error": "Произошла ошибка во время удаления выбранных сущностей",
+  "multiSelectionTable.delete.areYouSure": "Вы уверены, что хотите удалить выбранные сущности?"
 }
