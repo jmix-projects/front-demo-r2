@@ -11,8 +11,11 @@ import en_US from "antd/es/locale/en_US";
 import ru from "./ru.json";
 import ru_RU from "antd/es/locale/ru_RU";
 import ar_EG from "antd/es/locale/ar_EG";
+import fr_FR from "antd/es/locale/fr_FR";
 import "dayjs/locale/en";
 import "dayjs/locale/ru";
+import "dayjs/locale/fr";
+import fr from "./fr.json";
 
 localesStore.addLocale({
   locale: "en",
@@ -46,4 +49,16 @@ localesStore.addLocale({
 antdLocalesStore.addAntdLocale({
   localeName: "ar",
   antdLocale: ar_EG
+});
+
+
+localesStore.addLocale({
+  locale: "fr",
+  caption: "Françias",
+  messages: fr,
+});
+
+antdLocalesStore.addAntdLocale({
+  localeName: "fr",
+  antdLocale: fr_FR
 });
