@@ -12,6 +12,7 @@
     "@haulmont/react-scripts": "^1.1.1",
     "antd": "^4.13.1",
     "graphql": "^15.4.0",
+    "jmix-i18n-cn": "file:../front-cn-locale-example-package",
     "mobx": "^6.3.3",
     "mobx-react": "^7.2.1",
     "react": "^17.0.1",
