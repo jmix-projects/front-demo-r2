@@ -71,6 +71,22 @@
             <column name="ROLE_TYPE" value="resource"/>
         </insert>
 
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="postgresql, mssql, hsqldb">
+            <column name="ID" value="6c9e420a-2b7a-4c42-8654-a9027ee14084"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="admin"/>
+            <column name="ROLE_CODE" value="graphql-minimal"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
+        <insert tableName="SEC_ROLE_ASSIGNMENT" dbms="oracle, mysql, mariadb">
+            <column name="ID" value="6c9e420a2b7a4c428654a9027ee14084"/>
+            <column name="VERSION" value="1"/>
+            <column name="USERNAME" value="admin"/>
+            <column name="ROLE_CODE" value="graphql-minimal"/>
+            <column name="ROLE_TYPE" value="resource"/>
+        </insert>
+
     </changeSet>
 
 </databaseChangeLog>
