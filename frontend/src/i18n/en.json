@@ -186,5 +186,17 @@
   "themes.custom": "Custom theme",
   "multiSelectionTable.delete.success": "Selected entities deleted successfully",
   "multiSelectionTable.delete.error": "Error occurred while deleting the selected entities",
-  "multiSelectionTable.delete.areYouSure": "Are you sure you want to delete the selected entities?"
+  "multiSelectionTable.delete.areYouSure": "Are you sure you want to delete the selected entities?",
+  "hotkeys.hotkeyInfo.title": "Keyboard Shortcuts",
+  "hotkeys.hotkeyInfo.categoryName": "Shortcuts Help",
+  "hotkeys.hotkeyInfo.toggleHotkeyInfo": "Open / close the help page",
+  "hotkeys.browserTable.categoryName": "Entity List (Table)",
+  "hotkeys.browserTable.editEntity": "Edit the entity",
+  "hotkeys.browserTable.createEntity": "Create an entity",
+  "hotkeys.browserTable.deleteEntity": "Delete the entity",
+  "hotkeys.editor.categoryName": "Entity Editor",
+  "hotkeys.editor.saveEntity": "Save the entity",
+  "hotkeys.tabs.categoryName": "Tabs",
+  "hotkeys.tabs.nextTab": "Switch to the next tab",
+  "hotkeys.tabs.previousTab": "Switch to the previous tab"
 }

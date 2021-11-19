@@ -163,5 +163,17 @@
   "themes.custom": "Нестандартная тема",
   "multiSelectionTable.delete.success": "Выбранные сущности успешно удалены",
   "multiSelectionTable.delete.error": "Произошла ошибка во время удаления выбранных сущностей",
-  "multiSelectionTable.delete.areYouSure": "Вы уверены, что хотите удалить выбранные сущности?"
+  "multiSelectionTable.delete.areYouSure": "Вы уверены, что хотите удалить выбранные сущности?",
+  "hotkeys.hotkeyInfo.title": "Горячие клавиши",
+  "hotkeys.hotkeyInfo.categoryName": "Помощь по горячим клавишам",
+  "hotkeys.hotkeyInfo.toggleHotkeyInfo": "Открыть / закрыть окно горячих клавиш",
+  "hotkeys.browserTable.categoryName": "Таблица сущностей",
+  "hotkeys.browserTable.editEntity": "Редактировать сущность",
+  "hotkeys.browserTable.createEntity": "Создать сущность",
+  "hotkeys.browserTable.deleteEntity": "Удалить сущность",
+  "hotkeys.editor.categoryName": "Редактор cущностей",
+  "hotkeys.editor.saveEntity": "Сохранить сущность",
+  "hotkeys.tabs.categoryName": "Управление вкладками",
+  "hotkeys.tabs.nextTab": "Переключиться на следующий вкладку",
+  "hotkeys.tabs.previousTab": "Переключиться на предыдущий вкладку"
 }

@@ -11,6 +11,7 @@ import {AppMenHorizontal} from "./AppMenuHorizontal";
 import "../routing";
 import styles from "./App.module.css";
 import { ContentArea } from "@haulmont/jmix-react-antd";
+import {useDefaultTabHotkeys} from "@haulmont/jmix-react-web";
 
 const routes = {
   "/": <ContentArea />,
@@ -28,6 +29,8 @@ const App = observer(() => {
 
   const mainStore = useMainStore();
   const { initialized, locale, loginRequired } = mainStore;
+
+  useDefaultTabHotkeys();
 
   if (!initialized || !locale) {
     return <CenteredLoader />;
