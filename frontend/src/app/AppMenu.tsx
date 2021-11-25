@@ -135,6 +135,12 @@ export const AppMenu = (props: AppMenuProps) => {
         key={"7ef031d3-8a07-437b-bfef-7fc4800100cd"}
       >
         <MenuItem screenId={"JsxTreeDemo"} caption={"menu.JsxTree"} />
+        <MenuItem
+          screenId={"UserActionsScreen"}
+          icon={<BarsOutlined />}
+          caption={"screen.UserActionsScreen"}
+          key={"21522e71-5149-4386-b3f8-3e8772dd0217"}
+        />
       </SubMenuItem>
       <MenuItem
         screenId={"ScreenApiDemoScreen"}

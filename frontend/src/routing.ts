@@ -1,3 +1,4 @@
+import "./app/tools/user-actions/UserActionsScreen";
 import "./app/templates/entity-multi-selection/CustomerMultiSelectionScreen";
 import "./app/templates/structure/Structure1to3";
 import "./app/templates/structure/Structure3to1";

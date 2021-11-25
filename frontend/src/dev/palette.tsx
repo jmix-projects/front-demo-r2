@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import UserActionsScreen from "../app/tools/user-actions/UserActionsScreen";
 import CustomerMultiSelectionScreen from "../app/templates/entity-multi-selection/CustomerMultiSelectionScreen";
 import { ArrowUpOutlined } from "@ant-design/icons";
 import {
@@ -134,6 +135,11 @@ export default () => (
       <Component name="CustomerMultiSelectionScreen">
         <Variant>
           <CustomerMultiSelectionScreen />
+        </Variant>
+      </Component>
+      <Component name="UserActionsScreen">
+        <Variant>
+          <UserActionsScreen />
         </Variant>
       </Component>
     </Category>
