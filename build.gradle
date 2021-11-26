@@ -38,7 +38,7 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    runtimeOnly 'org.postgresql:postgresql'
+    implementation("org.postgresql:postgresql")
     implementation "io.jmix.security:jmix-security-oauth2-starter"
     implementation "io.jmix.graphql:jmix-graphql-starter"
     implementation "io.jmix.rest:jmix-rest-starter"
