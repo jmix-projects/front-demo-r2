@@ -19,7 +19,7 @@ import {
 import {
   createAntdFormValidationMessages,
   EntityEditorProps,
-  registerEntityEditor,
+  registerEntityEditor, useDefaultEditorHotkeys,
   useEntityEditor
 } from "@haulmont/jmix-react-web";
 import styles from "../../../app/App.module.css";
@@ -93,6 +93,8 @@ const DatatypesTestEntityEditor = observer(
       useEntityEditorForm: createUseAntdForm(form),
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
+
+    useDefaultEditorHotkeys({ saveEntity: form.submit });
 
     if (queryLoading) {
       return <Spinner />;

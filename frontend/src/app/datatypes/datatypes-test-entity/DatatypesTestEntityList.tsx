@@ -6,7 +6,12 @@ import {EntityPermAccessControl} from "@haulmont/jmix-react-core";
 import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
 import {FormattedMessage} from "react-intl";
 import {gql} from "@apollo/client";
-import {EntityListProps, registerEntityList, useEntityList} from "@haulmont/jmix-react-web";
+import {
+  EntityListProps,
+  registerEntityList,
+  useDefaultBrowserTableHotkeys,
+  useEntityList
+} from "@haulmont/jmix-react-web";
 import {DataTable, RetryDialog} from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "DatatypesTestEntity";
@@ -74,6 +79,13 @@ const DatatypesTestEntityList = observer(
       routingPath: ROUTING_PATH,
       entityList,
       onEntityListChange
+    });
+
+    useDefaultBrowserTableHotkeys({
+      selectedEntityId: entityListState.selectedEntityId,
+      handleCreateBtnClick,
+      handleEditBtnClick,
+      handleDeleteBtnClick
     });
 
     if (error != null) {

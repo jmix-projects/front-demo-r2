@@ -8,7 +8,7 @@ import { Customer } from "../../../jmix/entities/Customer";
 import {
   createAntdFormValidationMessages,
   EntityEditorProps,
-  registerEntityEditor,
+  registerEntityEditor, useDefaultEditorHotkeys,
   useEntityEditor
 } from "@haulmont/jmix-react-web";
 import {
@@ -75,6 +75,8 @@ const CustomerManagementEditor = observer(
       useEntityEditorForm: createUseAntdForm(form),
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
+
+    useDefaultEditorHotkeys({ saveEntity: form.submit });
 
     if (queryLoading) {
       return <Spinner />;
