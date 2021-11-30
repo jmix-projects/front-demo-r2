@@ -21,9 +21,15 @@ import {
   Palette
 } from "@haulmont/react-ide-toolbox";
 import * as React from "react";
+import {FormattedMessage} from "react-intl";
 
 export default () => (
   <Palette>
+    <Category name="i18n">
+      <Component name="FormattedMessage">
+        <FormattedMessage/>
+      </Component>
+    </Category>
     <Category name="Layout">
       <Component name="Divider">
         <Variant>
