@@ -177,6 +177,7 @@
   "endCurrentMinute": "test endCurrentMinute {endCurrentMinute}",
   "testedNumber": "test testedNumber {testedNumber}",
   "testedEntityProp": "test testedEntityProp {testedEntityProp}",
+  "inputAddon": "Input {inputAddonType}",
   "testedSomeComponentVariable": " test testedSomeComponentVariable {testedSomeComponentVariable}",
   "allTypesKey": "test date currentDateTime {currentDateTime} test number {testedNumber} city is {testedEntityProp}",
   "themes.light": "Light theme",

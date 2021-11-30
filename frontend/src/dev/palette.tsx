@@ -27,7 +27,9 @@ export default () => (
   <Palette>
     <Category name="i18n">
       <Component name="FormattedMessage">
-        <FormattedMessage/>
+        <Variant>
+          <FormattedMessage/>
+        </Variant>
       </Component>
     </Category>
     <Category name="Layout">

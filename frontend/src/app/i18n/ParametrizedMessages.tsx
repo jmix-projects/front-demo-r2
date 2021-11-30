@@ -1,5 +1,5 @@
-import {Card} from "antd";
-import {FormattedMessage, FormattedNumber} from "react-intl";
+import {Button, Card, Input} from "antd";
+import {FormattedMessage, FormattedNumber, useIntl} from "react-intl";
 import dayjs from 'dayjs';
 import {useState} from "react";
 import {useEntityEditorData, useMainStore} from "@haulmont/jmix-react-core";
@@ -24,6 +24,8 @@ export const ParametrizedMessages = () => {
     `,
     entityId: '0fd79ee4-be3e-9ecf-8450-068be04dc4a1'
   },);
+
+  const intl = useIntl();
 
   return(
     <Card className="narrow-layout">
@@ -189,6 +191,10 @@ export const ParametrizedMessages = () => {
             testedNumber: <FormattedNumber value={45412.564} maximumFractionDigits={2} /> // maximumFractionDigits - the maximum number of fraction digits to use
           }}
         />
+      </div>
+      <div>
+        <Input addonBefore={
+          intl.formatMessage({id: "inputAddon"}, {inputAddonType: "prefix"})}/>
       </div>
     </Card>
   )
