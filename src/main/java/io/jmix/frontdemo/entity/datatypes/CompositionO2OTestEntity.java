@@ -6,8 +6,10 @@ import io.jmix.core.entity.annotation.OnDelete;
 import io.jmix.core.metamodel.annotation.Composition;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.UUID;
 
@@ -28,6 +30,9 @@ public class CompositionO2OTestEntity {
     public void setId(UUID id) {
         this.id = id;
     }
+
+    @NotNull
+    @Length(min = 3)
     @InstanceName
     @Column(name = "NAME")
     protected String name;
@@ -36,6 +41,7 @@ public class CompositionO2OTestEntity {
     @PositiveOrZero
     private Integer quantity;
 
+    @NotNull
     @Composition
     @OnDelete(DeletePolicy.CASCADE)
     @OneToOne(fetch = FetchType.LAZY)
