@@ -5,6 +5,7 @@ import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Table(name = "DEEPLY_NESTED_TEST_ENTITY")
@@ -23,6 +24,8 @@ public class DeeplyNestedTestEntity {
     public void setId(UUID id) {
         this.id = id;
     }
+
+    @Size(message = "{msg://io.jmix.frontdemo.entity.datatypes/DeeplyNestedTestEntity.name.validation.Size}", min = 5, max = 15)
     @InstanceName
     @Column(name = "NAME")
     protected String name;
