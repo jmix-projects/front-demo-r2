@@ -28,7 +28,7 @@ import { AttrPermAccessControlDemo } from "../app/components-conditional/AttrPer
 import CustomerMDList from "../app/templates/master-detail/CustomerMDList";
 import { CustomerCardsGrid } from "../app/templates/entity-cards-grid/CustomerCardsGrid";
 import { UseEntityEditorDataDemo } from "../app/components-data/UseEntityEditorDataDemo";
-import { ParametrizedMessages } from "../app/i18n/ParametrizedMessages";
+import { ParametrizedMessagesScreen } from "../app/i18n/ParametrizedMessagesScreen";
 
 export const ComponentPreviews = () => {
   return (
@@ -115,7 +115,7 @@ export const ComponentPreviews = () => {
         <CustomerCards />
       </ComponentPreview>
       <ComponentPreview path="/ParametrizedMessages">
-        <ParametrizedMessages />
+        <ParametrizedMessagesScreen />
       </ComponentPreview>
       <ComponentPreview path="/CustomerMultiSelectionScreen">
         <CustomerMultiSelectionScreen />

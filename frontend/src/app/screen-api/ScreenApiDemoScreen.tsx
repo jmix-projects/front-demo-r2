@@ -6,7 +6,6 @@ import {ContentDisplayMode, tabs, useMainStore, useScreens} from "@haulmont/jmix
 import {observer} from "mobx-react";
 import Paragraph from "antd/es/typography/Paragraph";
 import Title from "antd/es/typography/Title";
-import Link from "antd/lib/typography/Link";
 import {modals, notifications, NotificationType} from "@haulmont/jmix-react-antd";
 import {registerScreen} from "@haulmont/jmix-react-web";
 

@@ -1,12 +1,15 @@
-import {Button, Card, Input} from "antd";
+import {Card, Input} from "antd";
 import {FormattedMessage, FormattedNumber, useIntl} from "react-intl";
 import dayjs from 'dayjs';
 import {useState} from "react";
 import {useEntityEditorData, useMainStore} from "@haulmont/jmix-react-core";
 import {gql} from "@apollo/client";
 import {Customer} from "../../jmix/entities/Customer";
+import {registerScreen} from "@haulmont/jmix-react-web";
 
-export const ParametrizedMessages = () => {
+const ROUTING_PATH = "/parametrizedMessagesScreen";
+
+export const ParametrizedMessagesScreen = () => {
 
   const mainStore = useMainStore();
   const [state, setStatue] = useState<{ someProp: string }>({ someProp: "some custom property of custom object" });
@@ -199,3 +202,13 @@ export const ParametrizedMessages = () => {
     </Card>
   )
 }
+
+registerScreen({
+  component: ParametrizedMessagesScreen,
+  caption: "screen.ParametrizedMessages",
+  screenId: "ParametrizedMessagesScreen",
+  menuOptions: {
+    pathPattern: ROUTING_PATH,
+    menuLink: ROUTING_PATH
+  }
+});

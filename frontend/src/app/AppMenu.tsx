@@ -152,6 +152,10 @@ export const AppMenu = (props: AppMenuProps) => {
         caption={"router.MenuDemoScreen"}
         key={"930a8778-0e7b-4556-a878-ea8b45fb6ea3"}
       />
+      <MenuItem
+        screenId={"ParametrizedMessagesScreen"}
+        caption={"screen.ParametrizedMessages"}
+        key={"ParametrizedMessagesScreen"}/>
     </VerticalMenu>
   );
 };

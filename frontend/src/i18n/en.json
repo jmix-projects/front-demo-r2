@@ -5,6 +5,7 @@
   "screen.Structure3to1": "3 : 1",
   "screen.StructureFourColumns": "Four Columns",
   "screen.StructureTwoColumns": "Two Columns",
+  "screen.ParametrizedMessages": "Messages",
   "management.browser.delete.areYouSure": "Are you sure you want to delete {instanceName}?",
   "management.browser.delete.ok": "Delete",
   "management.browser.noItems": "No data",
