@@ -13,4 +13,9 @@ values  ('0fd79ee4-be3e-9ecf-8450-068be04dc4a1', 'Test Customer 1', 'customer1@e
         ('2a61f544-0a05-c011-3751-b0e03f88589d', 'Test Customer 12', 'customer12@example.com', 1, 'admin', '2021-06-19 20:18:06.683000', null, '2021-06-19 20:18:06.683000', null, null),
         ('e6ab4feb-9d77-308f-b154-685edc7754e6', 'Test Customer 13', 'customer13@example.com', 1, 'admin', '2021-06-19 20:18:19.849000', null, '2021-06-19 20:18:19.849000', null, null),
         ('068c99ef-daac-75fe-6061-e8e97565850f', 'Test Customer 14', 'customer14@example.com', 1, 'admin', '2021-06-19 20:18:30.469000', null, '2021-06-19 20:18:30.469000', null, null),
-        ('c57984b2-011e-1a18-37de-a3ec6e4bddb5', 'Test Customer 15', 'customer15@example.com', 1, 'admin', '2021-06-19 20:18:43.793000', null, '2021-06-19 20:18:43.793000', null, null);
+        ('c57984b2-011e-1a18-37de-a3ec6e4bddb5', 'Test Customer 15', 'customer15@example.com', 1, 'admin', '2021-06-19 20:18:43.793000', null, '2021-06-19 20:18:43.793000', null, null),
+        ('716c6dfa-e612-3f24-2811-54a4a8cbaa49', 'Test Customer 20', 'customer20@example.com', 2, 'admin', '2021-12-03 10:02:18.122', NULL, '2021-12-03 10:02:18.122', 'admin', '2021-12-03 10:02:20.071'),
+        ('4b5963db-a368-b0e4-5030-cdbe9b0440ef', 'Test Customer 19', 'customer19@example.com', 2, 'admin', '2021-12-03 10:02:04.747', NULL, '2021-12-03 10:02:04.747', 'admin', '2021-12-03 10:02:21.437'),
+        ('711abe7c-fecc-4242-89f7-8e9ddb0bc6e2', 'Test Customer 18', 'customer18@example.com', 2, 'admin', '2021-12-03 10:01:53.366', NULL, '2021-12-03 10:01:53.366', 'admin', '2021-12-03 10:02:22.249'),
+        ('0a3b179a-92ea-d327-e775-2c1c7b9f5743', 'Test Customer 17', 'customer17@example.com', 2, 'admin', '2021-12-03 10:01:39.638', NULL, '2021-12-03 10:01:39.638', 'admin', '2021-12-03 10:02:23.128'),
+        ('eb83d9fc-af63-58ba-e10f-4191ae523ab9', 'Test Customer 16', 'customer16@example.com', 2, 'admin', '2021-12-03 10:01:25.756', NULL, '2021-12-03 10:01:25.756', 'admin', '2021-12-03 10:02:23.982');
