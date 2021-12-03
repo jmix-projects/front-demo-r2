@@ -178,7 +178,6 @@ const DatatypesTestEntityList = observer(
           "dateAttr",
           "dateTimeAttr",
           "doubleAttr",
-          "enumAttr",
           "integerAttr",
           "localDateAttr",
           "localDateTimeAttr",
@@ -189,7 +188,8 @@ const DatatypesTestEntityList = observer(
           "offsetTimeAttr",
           "stringAttr",
           "timeAttr",
-          "uuidAttr"
+          "uuidAttr",
+          "enumAttr"
         ]}
         onRowSelectionChange={handleSelectionChange}
         onFilterChange={handleFilterChange}
