@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import Chart from "../app/Chart";
 import UserActionsScreen from "../app/tools/user-actions/UserActionsScreen";
 import CustomerMultiSelectionScreen from "../app/templates/entity-multi-selection/CustomerMultiSelectionScreen";
 import CustomerCards from "../app/templates/entity-cards/CustomerCards";
@@ -122,6 +123,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/userActionsScreen">
         <UserActionsScreen />
+      </ComponentPreview>
+      <ComponentPreview path="/chart">
+        <Chart />
       </ComponentPreview>
     </Previews>
   );
