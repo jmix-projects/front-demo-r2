@@ -46,6 +46,8 @@ dependencies {
         exclude group: 'javax.websocket', module: 'javax.websocket-api'
     }
     runtimeOnly "com.graphql-java-kickstart:graphiql-spring-boot-starter:8.1.1"
+    implementation 'io.jmix.datatools:jmix-datatools-starter'
+    implementation "io.jmix.datatools:jmix-datatools-graphql-starter:1.1.0-SNAPSHOT"
 }
 
 test {
