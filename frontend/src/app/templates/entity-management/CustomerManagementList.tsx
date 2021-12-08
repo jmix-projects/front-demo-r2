@@ -167,7 +167,7 @@ const CustomerManagementList = observer((props: EntityListProps<Customer>) => {
 
 registerEntityList({
   component: CustomerManagementList,
-  caption: "Customer Management List",
+  caption: "screen.CustomerManagementList",
   screenId: "CustomerManagementList",
   entityName: ENTITY_NAME,
   menuOptions: {

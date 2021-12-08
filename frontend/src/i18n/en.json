@@ -12,6 +12,8 @@
   "menu.CustomerCards": "Customer Cards",
   "menu.ScreenApiDemoScreen": "Screen API",
   "menu.CustomerManagementList": "Customer Management List",
+  "screen.CustomerManagementList": "Customer Management List",
+  "screen.CustomerManagementEditor": "Customer Management Editor",
   "customerManagementList": "Customer Browser",
   "management.editor.validationError": "Validation Error. Please check the data you entered.",
   "management.editor.created": "Entity has been created",

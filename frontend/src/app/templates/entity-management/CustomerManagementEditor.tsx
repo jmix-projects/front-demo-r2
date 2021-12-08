@@ -132,7 +132,7 @@ const CustomerManagementEditor = observer(
 
 registerEntityEditor({
   component: CustomerManagementEditor,
-  caption: "Customer Management Editor",
+  caption: "screen.CustomerManagementEditor",
   screenId: "CustomerManagementEditor",
   entityName: ENTITY_NAME
 });
