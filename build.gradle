@@ -1,17 +1,17 @@
 plugins {
-    id 'io.jmix' version '1.1.0'
+    id 'io.jmix' version '1.2.0-M3'
     id 'java'
 }
 
 apply plugin: 'org.springframework.boot'
 
 jmix {
-    bomVersion = '1.1.0'
+    bomVersion = '1.2.0-SNAPSHOT'
 }
 
 group = 'com.company'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '1.8'
 
 repositories {
     mavenCentral()
@@ -47,7 +47,7 @@ dependencies {
     }
     runtimeOnly "com.graphql-java-kickstart:graphiql-spring-boot-starter:8.1.1"
     implementation 'io.jmix.datatools:jmix-datatools-starter'
-    implementation "io.jmix.datatools:jmix-datatools-graphql-starter:1.1.0-SNAPSHOT"
+    implementation "io.jmix.datatools:jmix-datatools-graphql-starter:1.2.0-SNAPSHOT"
 }
 
 test {
