@@ -1,0 +1,2 @@
+insert into public.order_ (id, number_, customer_id, number_of_special_products, amount, date_, version, created_by, created_date, last_modified_by, last_modified_date, deleted_by, deleted_date)
+values  ('5b51b89f-623b-86c2-c10e-d538b3b11857', '004', '0fd79ee4-be3e-9ecf-8450-068be04dc4a1', 1, 50.00, '2021-06-23', 1, 'admin', '2021-06-28 15:41:25.998000', null, '2021-06-28 15:41:25.998000', null, null);

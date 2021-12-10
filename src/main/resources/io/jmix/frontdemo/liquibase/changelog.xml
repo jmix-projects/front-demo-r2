@@ -26,4 +26,8 @@
         <sqlFile path="datatypes_test_entities.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="order_with_customer" author="admin">
+        <sqlFile path="order_with_customer.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
 </databaseChangeLog>

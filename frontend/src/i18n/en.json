@@ -188,7 +188,7 @@
   "testedEntityProp": "test testedEntityProp {testedEntityProp}",
   "inputAddon": "Input {inputAddonType}",
   "testedSomeComponentVariable": " test testedSomeComponentVariable {testedSomeComponentVariable}",
-  "allTypesKey": "test date currentDateTime {currentDateTime} test number {testedNumber} city is {testedEntityProp}",
+  "allTypesKey": "test date currentDateTime {currentDateTime} test number {testedNumber} entity property (order number) is {testedEntityProp}",
   "themes.light": "Light theme",
   "themes.dark": "Dark theme",
   "themes.highСontrast": "High contrast theme",
