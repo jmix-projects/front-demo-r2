@@ -1,7 +1,8 @@
 import { FilterCondition } from "./ui_FilterCondition";
+import { io_jmix_ui_component_LogicalFilterComponent_Operation } from "../../enums/enums";
 export class LogicalFilterCondition extends FilterCondition {
   static NAME = "ui_LogicalFilterCondition";
-  operation?: any | null;
+  operation?: io_jmix_ui_component_LogicalFilterComponent_Operation | null;
   operationCaptionVisible?: boolean | null;
   ownFilterConditions?: FilterCondition[] | null;
 }

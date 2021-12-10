@@ -1,4 +1,6 @@
 {
+  "screen.UserList": "User List",
+  "screen.UserEditor": "User Editor",
   "screen.UserActionsScreen": "User Actions Screen",
   "screen.CustomerMultiSelectionScreen": "Customer Multi Selection Screen",
   "screen.Structure1to3": "1 : 3",

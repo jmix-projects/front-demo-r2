@@ -11,6 +11,8 @@ import {
   Row,
   Space
 } from "antd";
+import UserList from "../app/user/UserList";
+import UserEditor from "../app/user/UserEditor";
 import UserActionsScreen from "../app/tools/user-actions/UserActionsScreen";
 import CustomerMultiSelectionScreen from "../app/templates/entity-multi-selection/CustomerMultiSelectionScreen";
 import { ArrowUpOutlined } from "@ant-design/icons";
@@ -21,14 +23,14 @@ import {
   Palette
 } from "@haulmont/react-ide-toolbox";
 import * as React from "react";
-import {FormattedMessage} from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 export default () => (
   <Palette>
     <Category name="i18n">
       <Component name="FormattedMessage">
         <Variant>
-          <FormattedMessage/>
+          <FormattedMessage />
         </Variant>
       </Component>
     </Category>
@@ -148,6 +150,16 @@ export default () => (
       <Component name="UserActionsScreen">
         <Variant>
           <UserActionsScreen />
+        </Variant>
+      </Component>
+      <Component name="UserEditor">
+        <Variant>
+          <UserEditor />
+        </Variant>
+      </Component>
+      <Component name="UserList">
+        <Variant>
+          <UserList />
         </Variant>
       </Component>
     </Category>

@@ -1,8 +1,9 @@
 import { FilterCondition } from "./ui_FilterCondition";
+import { CaptionPosition } from "../../enums/enums";
 import { FilterValueComponent } from "./ui_FilterValueComponent";
 export class AbstractSingleFilterCondition extends FilterCondition {
   static NAME = "ui_AbstractSingleFilterCondition";
-  captionPosition?: any | null;
+  captionPosition?: CaptionPosition | null;
   valueComponent?: FilterValueComponent | null;
   required?: boolean | null;
 }

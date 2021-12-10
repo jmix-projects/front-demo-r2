@@ -1,7 +1,12 @@
 import React from "react";
 import { MenuProps } from "antd";
 import { BarsOutlined, HomeOutlined } from "@ant-design/icons";
-import {AddonsMenu, MenuItem, SubMenuItem, VerticalMenu} from "@haulmont/jmix-react-antd";
+import {
+  AddonsMenu,
+  MenuItem,
+  SubMenuItem,
+  VerticalMenu
+} from "@haulmont/jmix-react-antd";
 
 export interface AppMenuProps extends MenuProps {}
 
@@ -155,8 +160,15 @@ export const AppMenu = (props: AppMenuProps) => {
       <MenuItem
         screenId={"ParametrizedMessagesScreen"}
         caption={"screen.ParametrizedMessages"}
-        key={"ParametrizedMessagesScreen"}/>
-      <AddonsMenu key={"addonsMenu"}/>
+        key={"ParametrizedMessagesScreen"}
+      />
+      <MenuItem
+        screenId={"UserList"}
+        icon={<BarsOutlined />}
+        caption={"screen.UserList"}
+        key={"7173e042-ffd6-41ea-88bb-c34d8a619524"}
+      />
+      <AddonsMenu key={"addonsMenu"} />
     </VerticalMenu>
   );
 };

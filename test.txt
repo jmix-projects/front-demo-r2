@@ -1,0 +1,1 @@
+node /Users/subbotin/Developer/work/samples/front-demo-r2/frontend/generation/node_modules/.bin/gen-jmix-front  react-typescript:addon --dest /Users/subbotin/Developer/work/samples/front-demo-r2/frontend/src --addonPackageName @haulmont/jmix-addon-user-management --model /Users/subbotin/Developer/work/samples/front-demo-r2/frontend/generation/projectModel.json

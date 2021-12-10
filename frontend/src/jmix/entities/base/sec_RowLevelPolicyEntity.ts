@@ -1,3 +1,4 @@
+import { RowLevelPolicyType, RowLevelPolicyAction } from "../../enums/enums";
 import { RowLevelRoleEntity } from "./sec_RowLevelRoleEntity";
 export class RowLevelPolicyEntity {
   static NAME = "sec_RowLevelPolicyEntity";
@@ -9,9 +10,9 @@ export class RowLevelPolicyEntity {
   updatedBy?: string | null;
   deleteTs?: any | null;
   deletedBy?: string | null;
-  type?: any | null;
+  type?: RowLevelPolicyType | null;
   entityName?: string | null;
-  action?: any | null;
+  action?: RowLevelPolicyAction | null;
   whereClause?: string | null;
   joinClause?: string | null;
   script?: string | null;
