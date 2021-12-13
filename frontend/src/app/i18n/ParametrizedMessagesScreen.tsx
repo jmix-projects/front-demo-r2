@@ -1,4 +1,4 @@
-import {Card, Input} from "antd";
+import {Button, Card, Input, Space} from "antd";
 import {FormattedMessage, FormattedNumber, useIntl} from "react-intl";
 import dayjs from 'dayjs';
 import {useState} from "react";
@@ -6,13 +6,15 @@ import {useEntityEditorData, useMainStore} from "@haulmont/jmix-react-core";
 import {gql} from "@apollo/client";
 import {registerScreen} from "@haulmont/jmix-react-web";
 import {Order} from "../../jmix/entities/Order_";
+import {notifications, NotificationType} from "@haulmont/jmix-react-antd";
 
 const ROUTING_PATH = "/parametrizedMessagesScreen";
 
 export const ParametrizedMessagesScreen = () => {
 
   const mainStore = useMainStore();
-  const [state, setStatue] = useState<{ someProp: string }>({ someProp: "some custom property of custom object" });
+
+  const [state, setStatue] = useState<{ someProp: string }>({someProp: "some custom property of custom object"});
   const {item: entity, executeLoadQuery} = useEntityEditorData<Order>({
     entityName: Order.NAME,
     loadQuery: gql`
@@ -33,8 +35,34 @@ export const ParametrizedMessagesScreen = () => {
 
   const intl = useIntl();
 
-  return(
+  function onButtonClick(event: React.MouseEvent) {
+    notifications.show({title: intl.formatMessage({id: "lastYearDay"}, {lastYearDay: dayjs().endOf("year").format("YYYY-M-D")}), description: "Description", type: NotificationType.INFO})
+  }
+
+  return (
     <Card className="narrow-layout">
+
+        <Button>
+          <FormattedMessage
+            id={"firstYearDay"}
+            values={{
+              firstYearDay: dayjs().startOf("year").format("YYYY-M-D")
+            }}
+          />
+        </Button>
+
+      <Space/>
+      <div>
+        <Input addonBefore={
+          intl.formatMessage({id: "inputAddon"}, {inputAddonType: "prefix"})}/>
+      </div>
+      <Space/>
+
+        <Button onClick={onButtonClick}>
+          Show notification
+        </Button>
+
+
       <div>
         <FormattedMessage // we don't have information on front-side about user at moment
           id={"userLogin"}
@@ -48,7 +76,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage // you can see all dayjs formats on this link https://day.js.org/docs/en/display/format
           id={"currentDate"}
           values={{
-            currentDate: dayjs().format("YYYY-M-D"),
+            currentDate: dayjs().format("YYYY-M-D")
           }}
         />
       </div>
@@ -56,7 +84,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"currentTime"}
           values={{
-            currentTime: dayjs().format("HH:mm:ss"),
+            currentTime: dayjs().format("HH:mm:ss")
           }}
         />
       </div>
@@ -64,18 +92,11 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"currentDateTime"}
           values={{
-            currentDateTime: dayjs().format("YYYY-M-D HH:mm:ss"),
+            currentDateTime: dayjs().format("YYYY-M-D HH:mm:ss")
           }}
         />
       </div>
-      <div>
-        <FormattedMessage
-          id={"firstYearDay"}
-          values={{
-            firstYearDay: dayjs().startOf("year").format("YYYY-M-D")
-          }}
-        />
-      </div>
+
       <div>
         <FormattedMessage
           id={"lastYearDay"}
@@ -96,7 +117,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"lastMonthDay"}
           values={{
-            lastMonthDay: dayjs().endOf("month").format("YYYY-M-D"),
+            lastMonthDay: dayjs().endOf("month").format("YYYY-M-D")
           }}
         />
       </div>
@@ -128,7 +149,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"startNextDay"}
           values={{
-            startNextDay: dayjs().add(1, "day").startOf("day").format("YYYY-M-D HH:mm:ss"),
+            startNextDay: dayjs().add(1, "day").startOf("day").format("YYYY-M-D HH:mm:ss")
           }}
         />
       </div>
@@ -136,7 +157,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"startCurrentHour"}
           values={{
-            startCurrentHour: dayjs().startOf("hour").format("HH:mm:ss"),
+            startCurrentHour: dayjs().startOf("hour").format("HH:mm:ss")
           }}
         />
       </div>
@@ -144,7 +165,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"endCurrentHour"}
           values={{
-            endCurrentHour: dayjs().endOf("hour").format("HH:mm:ss"),
+            endCurrentHour: dayjs().endOf("hour").format("HH:mm:ss")
           }}
         />
       </div>
@@ -152,7 +173,7 @@ export const ParametrizedMessagesScreen = () => {
         <FormattedMessage
           id={"startCurrentMinute"}
           values={{
-            startCurrentMinute: dayjs().startOf("minute").format("HH:mm:ss"),
+            startCurrentMinute: dayjs().startOf("minute").format("HH:mm:ss")
           }}
         />
       </div>
@@ -173,10 +194,19 @@ export const ParametrizedMessagesScreen = () => {
         />
       </div>
       <div>
+
         <FormattedMessage
-          id={"testedEntityProp"}
           values={{
-            testedEntityProp: entity?.customer?.name ?? "undefined",
+            testedEntityProp: entity?.number ?? "undefined"
+          }}
+          id={"testedEntityProp"}
+        />
+      </div>
+      <div>
+        <FormattedMessage
+          id={"nestedTestedEntityProp"}
+          values={{
+            testedEntityProp: entity?.customer?.name ?? "undefined"
           }}
         />
       </div>
@@ -187,20 +217,6 @@ export const ParametrizedMessagesScreen = () => {
             testedSomeComponentVariable: state.someProp
           }}
         />
-      </div>
-      <div>
-        <FormattedMessage // you can see all propertes of FormattedNumber on this link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#parameters
-          id={"allTypesKey"}
-          values={{
-            testedEntityProp: entity?.number ?? "undefined",
-            currentDateTime: dayjs().format("YYYY"),
-            testedNumber: <FormattedNumber value={45412.564} maximumFractionDigits={2} /> // maximumFractionDigits - the maximum number of fraction digits to use
-          }}
-        />
-      </div>
-      <div>
-        <Input addonBefore={
-          intl.formatMessage({id: "inputAddon"}, {inputAddonType: "prefix"})}/>
       </div>
     </Card>
   )
