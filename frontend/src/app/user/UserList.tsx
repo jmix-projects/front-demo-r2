@@ -19,6 +19,7 @@ import {
 import { User } from "../../jmix/entities/User";
 import { FormattedMessage } from "react-intl";
 import { gql } from "@apollo/client";
+import {showChangePasswordComponent, showRoleAssignmentsComponent} from "@haulmont/jmix-addon-user-management";
 
 const ENTITY_NAME = "User";
 const ROUTING_PATH = "/userList";
@@ -98,6 +99,22 @@ const UserList = observer((props: EntityListProps<User>) => {
 
   const screens: Screens = useScreens();
 
+  const handleRoleAssignments = useCallback(() => {
+    const value = items?.find(({id}) => {
+      return id === entityListState!.selectedEntityId!
+    });
+    showRoleAssignmentsComponent(value!.username, screens)
+  }, [entityListState, items, screens]);
+
+  const handleChangePassword = useCallback(() => {
+    const value = items?.find(({id}) => {
+      return id === entityListState!.selectedEntityId!
+    });
+    if (value!.username) {
+      showChangePasswordComponent(value!.username, ROUTING_PATH, screens)
+    }
+  }, [entityListState, items, screens]);
+
   useDefaultBrowserTableHotkeys({
     selectedEntityId: entityListState.selectedEntityId,
     handleCreateBtnClick,
@@ -174,6 +191,39 @@ const UserList = observer((props: EntityListProps<User>) => {
           type="default"
         >
           <FormattedMessage id="common.remove" />
+        </Button>
+      </EntityPermAccessControl>,
+      <EntityPermAccessControl
+        entityName={ENTITY_NAME}
+        operation="update"
+        key="roleAssignment"
+      >
+        <Button
+          htmlType="button"
+          style={{margin: "0 12px 12px 0"}}
+          disabled={entityListState.selectedEntityId == null}
+          onClick={handleRoleAssignments}
+          key="roleAssignment"
+          type="default"
+        >
+          <FormattedMessage id="jmix.usermgmt.roleAssignments"/>
+        </Button>
+      </EntityPermAccessControl>,
+
+      <EntityPermAccessControl
+        entityName={ENTITY_NAME}
+        operation="update"
+        key="changePassword"
+      >
+        <Button
+          htmlType="button"
+          style={{margin: "0 12px 12px 0"}}
+          disabled={entityListState.selectedEntityId == null}
+          onClick={handleChangePassword}
+          key="changePassword"
+          type="default"
+        >
+          <FormattedMessage id="jmix.usermgmt.changePassword"/>
         </Button>
       </EntityPermAccessControl>
     ];
