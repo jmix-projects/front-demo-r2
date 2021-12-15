@@ -124,7 +124,7 @@ export const ScreenApiDemoScreen = observer(() => {
         <Paragraph>
           Screens opened in current tab
           {JSON.stringify(screens.screens.map(screen => screen.title))}
-          <Button onClick={() => screens.push({title: 'New Screen', content: 'Content', key: 'NewScreen'})}>
+          <Button onClick={() => screens.push({screenId: 'NewScreen', title: 'New Screen', content: 'Content', key: 'NewScreen'})}>
             Open screen in current tab
           </Button>
         </Paragraph>
