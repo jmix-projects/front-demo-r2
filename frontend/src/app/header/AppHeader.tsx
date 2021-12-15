@@ -2,15 +2,17 @@ import { LogoutOutlined, SettingOutlined } from "@ant-design/icons";
 import { Button, Space } from "antd";
 import React, { useCallback, useState } from "react";
 import { observer } from "mobx-react";
-import styles from "./AppHeader.module.css";
+import { HotkeyConfig, useHotkey } from "@haulmont/jmix-react-web";
 import { useMainStore } from "@haulmont/jmix-react-core";
 import { LanguageSwitcher } from "../../i18n/LanguageSwitcher";
 import { ThemeSwitcher } from "../../themes/ThemeSwitcher";
 import { useIntl } from "react-intl";
 import JmixLightIcon from "../icons/JmixLightIcon";
-import {HotkeyInfoModalButton, modals } from "@haulmont/jmix-react-antd";
-import {HotkeyConfig, useHotkey} from "@haulmont/jmix-react-web";
+import styles from "./AppHeader.module.css";
+import appStyles from "../App.module.css";
+import { modals, HotkeyInfoModalButton } from "@haulmont/jmix-react-antd";
 import { KeyHandler } from "hotkeys-js";
+import classNames from "classnames";
 
 const toggleHotkeyInfoHotkeyConfig: HotkeyConfig = {
   description: "hotkeys.hotkeyInfo.toggleHotkeyInfo",
@@ -26,8 +28,7 @@ const AppHeader = observer(({ children }: { children?: React.ReactNode }) => {
   const intl = useIntl();
   const mainStore = useMainStore();
 
-  const [settingsEnabled, setSettingsEnabled] = useState<boolean>(false);
-
+  const [settingsEnabled, setSettingsEnabled] = useState(false);
 
   const [visibleHotkeyInfo, setVisibleHotkeyInfo] = useState(false);
 
@@ -36,7 +37,6 @@ const AppHeader = observer(({ children }: { children?: React.ReactNode }) => {
     [visibleHotkeyInfo]
   );
   useHotkey(toggleHotkeyInfoHotkeyConfig, toggleHotkeyInfo);
-
 
   const toggleSettings = useCallback(() => {
     setSettingsEnabled(isEnabled => {
@@ -66,25 +66,32 @@ const AppHeader = observer(({ children }: { children?: React.ReactNode }) => {
           </>
         )}
       </>
-      <HotkeyInfoModalButton
-        visible={visibleHotkeyInfo}
-        setVisible={setVisibleHotkeyInfo}
-      />
       <Space className={styles.userPanel}>
         <span>{mainStore.userName}</span>
         <Button
-          className={
-            settingsEnabled ? styles.settingsBtnActive : styles.settingsBtn
-          }
+          className={classNames(
+            settingsEnabled ? styles.settingsBtnActive : styles.settingsBtn,
+            appStyles.focusOuterHighlight
+          )}
           type={"text"}
-          icon={<SettingOutlined />}
+          icon={<SettingOutlined role={""} />}
           onClick={toggleSettings}
+          role={"switch"}
+          aria-checked={settingsEnabled}
+        />
+        <HotkeyInfoModalButton
+          visible={visibleHotkeyInfo}
+          setVisible={setVisibleHotkeyInfo}
+          className={classNames(styles.infoBtn, appStyles.focusOuterHighlight)}
         />
         <Button
           id="button_logout"
-          className={styles.logoutBtn}
+          className={classNames(
+            styles.logoutBtn,
+            appStyles.focusOuterHighlight
+          )}
           type="text"
-          icon={<LogoutOutlined />}
+          icon={<LogoutOutlined role={""} />}
           onClick={showLogoutConfirm}
         />
       </Space>
