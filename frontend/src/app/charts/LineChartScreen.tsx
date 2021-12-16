@@ -1,8 +1,8 @@
 import {gql, useQuery} from "@apollo/client";
-import { registerScreen } from "@haulmont/jmix-react-web";
-import { BarChart, ClusteredBarChart } from "@haulmont/jmix-addon-charts";
+import {registerScreen} from "@haulmont/jmix-react-web";
+import {LineChart, SmoothedLineChart, StackedLineChart} from "@haulmont/jmix-addon-charts";
 
-const ROUTING_PATH = "/barChartScreen";
+const ROUTING_PATH = "/lineChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
   query DatatypesTestEntityList(
@@ -42,7 +42,7 @@ const DATATYPESTESTENTITY_LIST = gql`
 `;
 
 
-const BarChartScreen = () => {
+const LineChartScreen = () => {
 
   const { loading, data } = useQuery(
     DATATYPESTESTENTITY_LIST,
@@ -52,31 +52,41 @@ const BarChartScreen = () => {
   if (loading) return <p>Loading ...</p>
 
   return <div>
-    Bar Chart
+    Line Chart
     <div>
-      <BarChart data={data.DatatypesTestEntityList}
-                indexBy='name'
-                keys={['bigDecimalAttr', 'integerAttr']}/>
+      <LineChart id='line-chart-id'
+                 data={data.DatatypesTestEntityList}
+                 xKey='name'
+                 yKey='bigDecimalAttr'/>
     </div>
 
-    Clustered Bar Chart
+    Smoothed Line Chart
     <div>
-      <ClusteredBarChart data={data.DatatypesTestEntityList}
-                         indexBy='name'
-                         keys={['bigDecimalAttr', 'integerAttr']}/>
+      <SmoothedLineChart id='smooth-line-chart-id'
+                         data={data.DatatypesTestEntityList}
+                         xKey='name'
+                         yKey='bigDecimalAttr'/>
+    </div>
+
+    Stacked Line Chart
+    <div>
+      <StackedLineChart id='stacked-line-chart-id'
+                        data={data.DatatypesTestEntityList}
+                        xKey='name'
+                        yKey='bigDecimalAttr'/>
     </div>
   </div>;
 }
 
 registerScreen({
-  component: BarChartScreen,
-  caption: "screen.BarChartScreen",
-  screenId: "BarChartScreen",
+  component: LineChartScreen,
+  caption: "screen.LineChartScreen",
+  screenId: "LineChartScreen",
   menuOptions: {
     pathPattern: ROUTING_PATH,
     menuLink: ROUTING_PATH
   }
 });
 
-export default BarChartScreen;
+export default LineChartScreen;
 

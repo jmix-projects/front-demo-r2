@@ -29,3 +29,5 @@ import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityList";
 import "./app/datatypes/datatypes-test-entity/DatatypesTestEntityEditor";
 import "./app/home/HomePage";
 import "./app/charts/BarChartScreen";
+import "./app/charts/PieChartScreen";
+import "./app/charts/LineChartScreen";

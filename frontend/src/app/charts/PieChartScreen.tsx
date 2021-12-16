@@ -1,8 +1,9 @@
+import React from "react";
 import {gql, useQuery} from "@apollo/client";
+import { PieChart, DonutChart } from "@haulmont/jmix-addon-charts";
 import { registerScreen } from "@haulmont/jmix-react-web";
-import { BarChart, ClusteredBarChart } from "@haulmont/jmix-addon-charts";
 
-const ROUTING_PATH = "/barChartScreen";
+const ROUTING_PATH = "/pieChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
   query DatatypesTestEntityList(
@@ -42,7 +43,7 @@ const DATATYPESTESTENTITY_LIST = gql`
 `;
 
 
-const BarChartScreen = () => {
+const PieChartScreen = () => {
 
   const { loading, data } = useQuery(
     DATATYPESTESTENTITY_LIST,
@@ -51,32 +52,42 @@ const BarChartScreen = () => {
 
   if (loading) return <p>Loading ...</p>
 
+
   return <div>
-    Bar Chart
+    Pie Chart
     <div>
-      <BarChart data={data.DatatypesTestEntityList}
-                indexBy='name'
-                keys={['bigDecimalAttr', 'integerAttr']}/>
+      <PieChart
+        idKey='name'
+        labelKey='name'
+        valueKey='bigDecimalAttr'
+        data={data.DatatypesTestEntityList}
+      />
     </div>
 
-    Clustered Bar Chart
+    Donut Chart
     <div>
-      <ClusteredBarChart data={data.DatatypesTestEntityList}
-                         indexBy='name'
-                         keys={['bigDecimalAttr', 'integerAttr']}/>
+      <DonutChart
+        idKey='name'
+        labelKey='name'
+        valueKey='bigDecimalAttr'
+        data={data.DatatypesTestEntityList}
+      />
     </div>
+
   </div>;
 }
 
 registerScreen({
-  component: BarChartScreen,
-  caption: "screen.BarChartScreen",
-  screenId: "BarChartScreen",
+  component: PieChartScreen,
+  caption: "screen.PieChartScreen",
+  screenId: "PieChartScreen",
   menuOptions: {
     pathPattern: ROUTING_PATH,
     menuLink: ROUTING_PATH
   }
 });
 
-export default BarChartScreen;
+
+
+export default PieChartScreen;
 
