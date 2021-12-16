@@ -147,6 +147,16 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"21522e71-5149-4386-b3f8-3e8772dd0217"}
         />
       </SubMenuItem>
+      <SubMenuItem
+        caption={"menu.Charts"}
+        key={"a9c4dce1-f80b-4015-b206-53527495d2c1"}
+      >
+        <MenuItem
+          screenId={"BarChartScreen"}
+          caption={"menu.BarChartScreen"}
+          key={"0a24a7c1-96f2-4dd0-b62c-3052d70d2bf4"}
+        />
+      </SubMenuItem>
       <MenuItem
         screenId={"ScreenApiDemoScreen"}
         caption={"menu.ScreenApiDemoScreen"}
