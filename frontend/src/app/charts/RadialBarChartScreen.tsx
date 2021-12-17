@@ -58,7 +58,7 @@ const RadialBarChartScreen = () => {
       <RadialBarChart id='rb-chart-id'
                  data={data.DatatypesTestEntityList}
                  xKey='name'
-                 yKey='bigDecimalAttr'/>
+                 yKey='integerAttr'/>
     </div>
   </div>;
 }
