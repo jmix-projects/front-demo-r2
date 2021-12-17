@@ -166,6 +166,31 @@ export const AppMenu = (props: AppMenuProps) => {
           caption={"menu.LineChartScreen"}
           key={"795c9482-fe11-4b5c-a315-0364b651d3af"}
         />
+        <MenuItem
+          screenId={"FunnelChartScreen"}
+          caption={"menu.FunnelChartScreen"}
+          key={"c33555c3-1c55-4865-a3f4-70d59209619a"}
+        />
+        <MenuItem
+          screenId={"RadialBarChartScreen"}
+          caption={"menu.RadialBarChartScreen"}
+          key={"192c6822-f860-411a-815d-e362deb89496"}
+        />
+        <MenuItem
+          screenId={"RadarChartScreen"}
+          caption={"menu.RadarChartScreen"}
+          key={"dad46e8b-40be-4369-8409-c807dbc5239c"}
+        />
+        <MenuItem
+          screenId={"ScatterChartScreen"}
+          caption={"menu.ScatterChartScreen"}
+          key={"184d27e5-fdc4-4840-839b-63262d718b0b"}
+        />
+        <MenuItem
+          screenId={"WaffleChartScreen"}
+          caption={"menu.WaffleChartScreen"}
+          key={"1f088958-9f82-42b1-bbc9-a8231337ee6b"}
+        />
       </SubMenuItem>
       <MenuItem
         screenId={"ScreenApiDemoScreen"}

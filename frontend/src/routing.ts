@@ -31,3 +31,8 @@ import "./app/home/HomePage";
 import "./app/charts/BarChartScreen";
 import "./app/charts/PieChartScreen";
 import "./app/charts/LineChartScreen";
+import "./app/charts/FunnelChartScreen";
+import "./app/charts/RadarChartScreen";
+import "./app/charts/RadialBarChartScreen";
+import "./app/charts/ScatterChartScreen";
+import "./app/charts/WaffleChartScreen";
