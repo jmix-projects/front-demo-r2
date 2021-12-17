@@ -6,6 +6,7 @@ import io.jmix.security.role.annotation.ResourceRole;
 @ResourceRole(name = "GraphQlRole", code = "graph-ql-restore-role")
 public interface GraphQlRestoreRole {
 
-    @GraphQLPolicy(operations = "restoreEntities")
+    @GraphQLPolicy(operations = "*")
     void graphqlPolicy();
+
 }
