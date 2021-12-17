@@ -204,5 +204,10 @@
   "startCurrentMinute": "Начало текущей минуты: {startCurrentMinute}",
   "endCurrentMinute": "Конец текущей минуты: {endCurrentMinute}",
   "testedNumber": "Число с форматированием: {testedNumber}",
-  "testedSomeComponentVariable": " Some сomponent variable: {testedSomeComponentVariable}"
+  "testedSomeComponentVariable": " Some сomponent variable: {testedSomeComponentVariable}",
+  "jmix.richTextArea.headingOne": "Заголовок 1",
+  "jmix.richTextArea.headingTwo": "Заголовок 2",
+  "jmix.richTextArea.headingThree": "Заголовок 3",
+  "jmix.richTextArea.headingFour": "Заголовок 4",
+  "jmix.richTextArea.normalText": "Текст"
 }

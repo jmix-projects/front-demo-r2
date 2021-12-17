@@ -212,5 +212,10 @@
   "hotkeys.tabs.categoryName": "Tabs",
   "hotkeys.tabs.nextTab": "Switch to the next tab",
   "hotkeys.tabs.previousTab": "Switch to the previous tab",
-  "testedEntityProp": "Order number: {testedEntityProp}"
+  "testedEntityProp": "Order number: {testedEntityProp}",
+  "jmix.richTextArea.headingOne": "Heading 1",
+  "jmix.richTextArea.headingTwo": "Heading 2",
+  "jmix.richTextArea.headingThree": "Heading 3",
+  "jmix.richTextArea.headingFour": "Heading 4",
+  "jmix.richTextArea.normalText": "Normal"
 }

@@ -193,5 +193,10 @@
   "multiSelectionTable.delete.success": "Entités sélectionnées supprimées avec succès",
   "multiSelectionTable.delete.error": "Une erreur s'est produite lors de la suppression des entités sélectionnées",
   "multiSelectionTable.delete.areYouSure": "Voulez-vous vraiment supprimer les entités sélectionnées ?",
-  "testedEntityProp": "Numéro d'ordre: {testedEntityProp}"
+  "testedEntityProp": "Numéro d'ordre: {testedEntityProp}",
+  "jmix.richTextArea.headingOne": "Heading 1",
+  "jmix.richTextArea.headingTwo": "Heading 2",
+  "jmix.richTextArea.headingThree": "Heading 3",
+  "jmix.richTextArea.headingFour": "Heading 4",
+  "jmix.richTextArea.normalText": "Normal"
 }
