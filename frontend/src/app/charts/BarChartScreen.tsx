@@ -1,23 +1,14 @@
 import {gql, useQuery} from "@apollo/client";
 import { registerScreen } from "@haulmont/jmix-react-web";
 import { BarChart, ClusteredBarChart } from "@haulmont/jmix-addon-charts";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
+import {BarDatum} from "@nivo/bar";
 
 const ROUTING_PATH = "/barChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -41,27 +32,28 @@ const DATATYPESTESTENTITY_LIST = gql`
   }
 `;
 
-
 const BarChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
 
   if (loading) return <p>Loading ...</p>
 
+  const chartData: DatatypesTestEntity[] = data === undefined ? [] : data.DatatypesTestEntityList;
+
   return <div>
     Bar Chart
     <div>
-      <BarChart data={data.DatatypesTestEntityList}
+      <BarChart data={chartData as BarDatum[]}
                 indexBy='name'
                 keys={['bigDecimalAttr', 'integerAttr']}/>
     </div>
 
     Clustered Bar Chart
     <div>
-      <ClusteredBarChart data={data.DatatypesTestEntityList}
+      <ClusteredBarChart data={chartData as BarDatum[]}
                          indexBy='name'
                          keys={['bigDecimalAttr', 'integerAttr']}/>
     </div>

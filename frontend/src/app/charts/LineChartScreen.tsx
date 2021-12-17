@@ -1,23 +1,13 @@
 import {gql, useQuery} from "@apollo/client";
 import {registerScreen} from "@haulmont/jmix-react-web";
 import {LineChart, SmoothedLineChart, StackedLineChart} from "@haulmont/jmix-addon-charts";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
 
 const ROUTING_PATH = "/lineChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -41,10 +31,9 @@ const DATATYPESTESTENTITY_LIST = gql`
   }
 `;
 
-
 const LineChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
@@ -55,7 +44,7 @@ const LineChartScreen = () => {
     Line Chart
     <div>
       <LineChart id='line-chart-id'
-                 data={data.DatatypesTestEntityList}
+                 data={data === undefined ? [] : data.DatatypesTestEntityList}
                  xKey='name'
                  yKey='bigDecimalAttr'/>
     </div>
@@ -63,7 +52,7 @@ const LineChartScreen = () => {
     Smoothed Line Chart
     <div>
       <SmoothedLineChart id='smooth-line-chart-id'
-                         data={data.DatatypesTestEntityList}
+                         data={data === undefined ? [] : data.DatatypesTestEntityList}
                          xKey='name'
                          yKey='bigDecimalAttr'/>
     </div>
@@ -71,7 +60,7 @@ const LineChartScreen = () => {
     Stacked Line Chart
     <div>
       <StackedLineChart id='stacked-line-chart-id'
-                        data={data.DatatypesTestEntityList}
+                        data={data === undefined ? [] : data.DatatypesTestEntityList}
                         xKey='name'
                         yKey='bigDecimalAttr'/>
     </div>

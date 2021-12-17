@@ -2,23 +2,13 @@ import React from "react";
 import {gql, useQuery} from "@apollo/client";
 import { PieChart, DonutChart } from "@haulmont/jmix-addon-charts";
 import { registerScreen } from "@haulmont/jmix-react-web";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
 
 const ROUTING_PATH = "/pieChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -45,7 +35,7 @@ const DATATYPESTESTENTITY_LIST = gql`
 
 const PieChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
@@ -60,7 +50,7 @@ const PieChartScreen = () => {
         idKey='name'
         labelKey='name'
         valueKey='bigDecimalAttr'
-        data={data.DatatypesTestEntityList}
+        data={data === undefined ? [] : data.DatatypesTestEntityList}
       />
     </div>
 
@@ -70,7 +60,7 @@ const PieChartScreen = () => {
         idKey='name'
         labelKey='name'
         valueKey='bigDecimalAttr'
-        data={data.DatatypesTestEntityList}
+        data={data === undefined ? [] : data.DatatypesTestEntityList}
       />
     </div>
 
