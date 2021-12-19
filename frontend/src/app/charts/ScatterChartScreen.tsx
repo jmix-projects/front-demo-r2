@@ -2,23 +2,13 @@ import { gql, useQuery } from "@apollo/client";
 import { registerScreen } from "@haulmont/jmix-react-web";
 
 import {ScatterChart} from "@haulmont/jmix-addon-charts";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
 
 const SCATTER_ROUTING_PATH = "/scatterChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -44,7 +34,7 @@ const DATATYPESTESTENTITY_LIST = gql`
 
 const ScatterChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
@@ -52,7 +42,10 @@ const ScatterChartScreen = () => {
   if (loading) return <p>Loading ...</p>
 
   // map x axis to array index
-  const chartData = data.DatatypesTestEntityList.map((item, index) => ({x: index, bigDecimalAttr: item.bigDecimalAttr}));
+  const chartData = data === undefined
+    ? [] :
+    data.DatatypesTestEntityList
+      .map((item, index) => ({x: index, bigDecimalAttr: item.bigDecimalAttr}));
 
   return <div>
     Scatter Chart

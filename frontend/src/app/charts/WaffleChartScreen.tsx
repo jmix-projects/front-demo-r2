@@ -1,23 +1,13 @@
 import { gql, useQuery } from "@apollo/client";
 import {registerScreen} from "@haulmont/jmix-react-web";
 import {WaffleChart, HorizontalWaffleChart} from "@haulmont/jmix-addon-charts";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
 
 const ROUTING_PATH = "/waffleChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -43,7 +33,7 @@ const DATATYPESTESTENTITY_LIST = gql`
 
 const WaffleChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
@@ -57,7 +47,7 @@ const WaffleChartScreen = () => {
         total={500}
         rows={18}
         columns={14}
-        data={data.DatatypesTestEntityList}
+        data={data === undefined ? [] : data.DatatypesTestEntityList}
         idKey='name'
         labelKey='bigDecimalAttr'
         valueKey='bigDecimalAttr'
@@ -70,7 +60,7 @@ const WaffleChartScreen = () => {
         total={500}
         rows={18}
         columns={14}
-        data={data.DatatypesTestEntityList}
+        data={data === undefined ? [] : data.DatatypesTestEntityList}
         idKey='name'
         labelKey='bigDecimalAttr'
         valueKey='bigDecimalAttr'

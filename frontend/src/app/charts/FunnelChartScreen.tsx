@@ -1,24 +1,14 @@
 import {gql, useQuery} from "@apollo/client";
 import {registerScreen} from "@haulmont/jmix-react-web";
 import {FunnelChart} from "@haulmont/jmix-addon-charts";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
 
 
 const ROUTING_PATH = "/funnelChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -45,14 +35,17 @@ const DATATYPESTESTENTITY_LIST = gql`
 
 const FunnelChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
 
   if (loading) return <p>Loading ...</p>
 
-  const sortedData = [...data.DatatypesTestEntityList].sort((item1, item2) => item2.bigDecimalAttr - item1.bigDecimalAttr);
+  const sortedData = data === undefined
+    ? []
+    : [...data.DatatypesTestEntityList]
+        .sort((item1, item2) => item2.bigDecimalAttr - item1.bigDecimalAttr);
 
   return <div>
     Funnel Chart

@@ -1,24 +1,14 @@
 import { gql, useQuery } from "@apollo/client";
 import { registerScreen } from "@haulmont/jmix-react-web";
 import { RadarChart } from "@haulmont/jmix-addon-charts";
+import {DatatypesTestEntity} from "../../jmix/entities/DatatypesTestEntity";
 
 
 const ROUTING_PATH = "/radarChartScreen";
 
 const DATATYPESTESTENTITY_LIST = gql`
-  query DatatypesTestEntityList(
-    $limit: Int
-    $offset: Int
-    $orderBy: inp_DatatypesTestEntityOrderBy
-    $filter: [inp_DatatypesTestEntityFilterCondition]
-  ) {
-    DatatypesTestEntityCount
-    DatatypesTestEntityList(
-      limit: $limit
-      offset: $offset
-      orderBy: $orderBy
-      filter: $filter
-    ) {
+  query DatatypesTestEntityList {
+    DatatypesTestEntityList {
       id
       _instanceName
       bigDecimalAttr
@@ -45,7 +35,7 @@ const DATATYPESTESTENTITY_LIST = gql`
 
 const RadarChartScreen = () => {
 
-  const { loading, data } = useQuery(
+  const { loading, data } = useQuery<{DatatypesTestEntityList: DatatypesTestEntity[]}>(
     DATATYPESTESTENTITY_LIST,
     { variables: { language: "english" } }
   );
@@ -57,7 +47,7 @@ const RadarChartScreen = () => {
     <RadarChart
       indexBy='name'
       keys={['bigDecimalAttr']}
-      data={data.DatatypesTestEntityList}
+      data={data === undefined ? [] : data.DatatypesTestEntityList}
     />
   </div>;
 }
