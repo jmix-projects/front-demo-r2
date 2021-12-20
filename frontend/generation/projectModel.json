@@ -12,6 +12,226 @@
   },
   "entities": [
     {
+      "name": "Event",
+      "className": "Event",
+      "packageName": "io.jmix.frontdemo.entity",
+      "dataStore": "main",
+      "table": "EVENT",
+      "embeddable": false,
+      "persistentEntity": true,
+      "replaceParent": false,
+      "systemLevel": false,
+      "mappedSuperclass": false,
+      "fqn": "io.jmix.frontdemo.entity.Event",
+      "idAttributeName": "id",
+      "attributes": [
+        {
+          "name": "id",
+          "type": {
+            "packageName": "java.util",
+            "className": "UUID",
+            "fqn": "java.util.UUID",
+            "label": "UUID"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "ID",
+          "mandatory": true,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "traitAttribute": "uuid"
+        },
+        {
+          "name": "title",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "TITLE",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false
+        },
+        {
+          "name": "description",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "DESCRIPTION",
+          "mandatory": false,
+          "unique": false,
+          "transient": false
+        },
+        {
+          "name": "startDate",
+          "type": {
+            "packageName": "java.util",
+            "className": "Date",
+            "fqn": "java.util.Date",
+            "label": "Date"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "START_DATE",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "temporalType": "DATE"
+        },
+        {
+          "name": "endDate",
+          "type": {
+            "packageName": "java.util",
+            "className": "Date",
+            "fqn": "java.util.Date",
+            "label": "DateTime"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "END_DATE",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "temporalType": "TIMESTAMP"
+        },
+        {
+          "name": "version",
+          "type": {
+            "packageName": "java.lang",
+            "className": "Integer",
+            "fqn": "java.lang.Integer",
+            "label": "Integer"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "VERSION",
+          "mandatory": true,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "traitAttribute": "version"
+        },
+        {
+          "name": "createdBy",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "CREATED_BY",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "traitAttribute": "createdBy"
+        },
+        {
+          "name": "createdDate",
+          "type": {
+            "packageName": "java.util",
+            "className": "Date",
+            "fqn": "java.util.Date",
+            "label": "DateTime"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "CREATED_DATE",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "temporalType": "TIMESTAMP",
+          "traitAttribute": "createdDate"
+        },
+        {
+          "name": "lastModifiedBy",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "LAST_MODIFIED_BY",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "traitAttribute": "lastModifiedBy"
+        },
+        {
+          "name": "lastModifiedDate",
+          "type": {
+            "packageName": "java.util",
+            "className": "Date",
+            "fqn": "java.util.Date",
+            "label": "DateTime"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "LAST_MODIFIED_DATE",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "temporalType": "TIMESTAMP",
+          "traitAttribute": "lastModifiedDate"
+        },
+        {
+          "name": "deletedBy",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "DELETED_BY",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "traitAttribute": "deletedBy"
+        },
+        {
+          "name": "deletedDate",
+          "type": {
+            "packageName": "java.util",
+            "className": "Date",
+            "fqn": "java.util.Date",
+            "label": "DateTime"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "column": "DELETED_DATE",
+          "mandatory": false,
+          "unique": false,
+          "length": "255",
+          "transient": false,
+          "temporalType": "TIMESTAMP",
+          "traitAttribute": "deletedDate"
+        }
+      ]
+    },
+    {
       "name": "User",
       "className": "User",
       "packageName": "io.jmix.frontdemo.entity",
@@ -10558,6 +10778,223 @@
         },
         {
           "name": "longEntityId",
+          "lazy": false
+        }
+      ]
+    },
+    {
+      "name": "_base",
+      "entity": "Event",
+      "classFqn": "io.jmix.frontdemo.entity.Event",
+      "overwrite": false,
+      "systemProperties": false,
+      "properties": [
+        {
+          "name": "title",
+          "lazy": false
+        },
+        {
+          "name": "description",
+          "lazy": false
+        },
+        {
+          "name": "startDate",
+          "lazy": false
+        },
+        {
+          "name": "endDate",
+          "lazy": false
+        },
+        {
+          "name": "version",
+          "lazy": false
+        },
+        {
+          "name": "createdBy",
+          "lazy": false
+        },
+        {
+          "name": "createdDate",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedBy",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedDate",
+          "lazy": false
+        },
+        {
+          "name": "deletedBy",
+          "lazy": false
+        },
+        {
+          "name": "deletedDate",
+          "lazy": false
+        }
+      ],
+      "allProperties": [
+        {
+          "name": "title",
+          "lazy": false
+        },
+        {
+          "name": "description",
+          "lazy": false
+        },
+        {
+          "name": "startDate",
+          "lazy": false
+        },
+        {
+          "name": "endDate",
+          "lazy": false
+        },
+        {
+          "name": "version",
+          "lazy": false
+        },
+        {
+          "name": "createdBy",
+          "lazy": false
+        },
+        {
+          "name": "createdDate",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedBy",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedDate",
+          "lazy": false
+        },
+        {
+          "name": "deletedBy",
+          "lazy": false
+        },
+        {
+          "name": "deletedDate",
+          "lazy": false
+        }
+      ]
+    },
+    {
+      "name": "_instance_name",
+      "entity": "Event",
+      "classFqn": "io.jmix.frontdemo.entity.Event",
+      "overwrite": false,
+      "systemProperties": false,
+      "properties": [
+        {
+          "name": "title",
+          "lazy": false
+        }
+      ],
+      "allProperties": [
+        {
+          "name": "title",
+          "lazy": false
+        }
+      ]
+    },
+    {
+      "name": "_local",
+      "entity": "Event",
+      "classFqn": "io.jmix.frontdemo.entity.Event",
+      "overwrite": false,
+      "systemProperties": false,
+      "properties": [
+        {
+          "name": "title",
+          "lazy": false
+        },
+        {
+          "name": "description",
+          "lazy": false
+        },
+        {
+          "name": "startDate",
+          "lazy": false
+        },
+        {
+          "name": "endDate",
+          "lazy": false
+        },
+        {
+          "name": "version",
+          "lazy": false
+        },
+        {
+          "name": "createdBy",
+          "lazy": false
+        },
+        {
+          "name": "createdDate",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedBy",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedDate",
+          "lazy": false
+        },
+        {
+          "name": "deletedBy",
+          "lazy": false
+        },
+        {
+          "name": "deletedDate",
+          "lazy": false
+        }
+      ],
+      "allProperties": [
+        {
+          "name": "title",
+          "lazy": false
+        },
+        {
+          "name": "description",
+          "lazy": false
+        },
+        {
+          "name": "startDate",
+          "lazy": false
+        },
+        {
+          "name": "endDate",
+          "lazy": false
+        },
+        {
+          "name": "version",
+          "lazy": false
+        },
+        {
+          "name": "createdBy",
+          "lazy": false
+        },
+        {
+          "name": "createdDate",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedBy",
+          "lazy": false
+        },
+        {
+          "name": "lastModifiedDate",
+          "lazy": false
+        },
+        {
+          "name": "deletedBy",
+          "lazy": false
+        },
+        {
+          "name": "deletedDate",
           "lazy": false
         }
       ]

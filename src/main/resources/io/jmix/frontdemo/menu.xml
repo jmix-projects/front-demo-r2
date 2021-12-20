@@ -4,6 +4,7 @@
     <menu id="application" caption="msg://io.jmix.frontdemo/menu.application" insertBefore="administration">
         <item screen="User.browse" caption="msg://io.jmix.frontdemo.screen.user/UserBrowse.caption"/>
         <item screen="themeSettingsScreen" caption="msg://io.jmix.ui.app.themesettings/themeSettings.caption"/>
+        <item screen="Event.browse" caption="msg://io.jmix.frontdemo.screen.event/eventBrowse.menu"/>
     </menu>
 
 </menu-config>

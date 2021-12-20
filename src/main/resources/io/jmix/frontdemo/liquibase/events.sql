@@ -1,0 +1,7 @@
+insert into public.event (id, title, description, end_date, version, created_by, created_date, last_modified_by, last_modified_date, deleted_by, deleted_date, start_date)
+values  ('ef5266ac-d32d-3be5-bff8-e832e4c3d6d9', 'Event 1', 'Event 1 Description', '2021-12-23 13:00:00.000000', 2, 'admin', '2021-12-20 23:22:20.424000', 'admin', '2021-12-20 23:34:45.364000', null, null, '2021-12-23'),
+        ('39893f1e-f140-6178-637d-8a3bb1050fbe', 'Event 2', 'Event 2 Description', '2021-12-30 16:00:00.000000', 2, 'admin', '2021-12-20 23:22:59.698000', 'admin', '2021-12-20 23:34:52.201000', null, null, '2021-12-30'),
+        ('d006555e-6f8c-5ba0-0248-95fa8a02f846', 'Event 3', 'Event 3 description', '2022-01-12 16:00:00.000000', 1, 'admin', '2021-12-20 23:41:17.445000', null, '2021-12-20 23:41:17.445000', null, null, '2022-01-11'),
+        ('2bba17aa-c555-5786-1bc9-d71d6daeb43b', 'Event 4', 'Event 4 description', '2021-12-24 12:00:00.000000', 1, 'admin', '2021-12-20 23:41:33.233000', null, '2021-12-20 23:41:33.233000', null, null, '2021-12-23'),
+        ('3b643f41-6ad0-430e-7136-f8aa5bd29c23', 'Event 5', 'Event 5 description', '2022-02-06 02:00:00.000000', 1, 'admin', '2021-12-20 23:41:53.028000', null, '2021-12-20 23:41:53.028000', null, null, '2022-02-05'),
+        ('f97b84e5-7fbe-7440-2327-ed1c0e410f20', 'Event 6', 'Event 6 description', '2022-02-18 15:00:00.000000', 1, 'admin', '2021-12-20 23:42:14.457000', null, '2021-12-20 23:42:14.457000', null, null, '2022-02-17');

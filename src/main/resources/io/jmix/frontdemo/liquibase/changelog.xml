@@ -30,4 +30,8 @@
         <sqlFile path="order_with_customer.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="events" author="admin">
+        <sqlFile path="events.sql" relativeToChangelogFile="true" stripComments="true"/>
+    </changeSet>
+
 </databaseChangeLog>

@@ -5,6 +5,7 @@ import {DataTable, EntityHierarchyTree} from "@haulmont/jmix-react-antd";
 import {Calendar} from "antd/es";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "antd/lib/typography/Link";
+import EventCalendar from "./calendar/EventCalendar";
 
 const ROUTING_PATH = "/dataDisplayComponentsDemoScreen";
 const DATA_TABLE_CODE = `<DataTable/>`;
@@ -36,9 +37,6 @@ const DataDisplayComponentsDemoScreen = () => (
         hierarchyProperty='parent'
       />
     </Card>
-    <Card title="Calendar">
-      <Calendar/>
-    </Card>
     <Card title={"DataTable"}>
       <Paragraph>
         <Typography.Text code>{DATA_TABLE_CODE}</Typography.Text>
@@ -64,6 +62,9 @@ const DataDisplayComponentsDemoScreen = () => (
         Example</Link>
       <br/>
       <Link href={"/datatypesTestEntityList"}>Demo</Link>
+    </Card>
+    <Card title="Calendar">
+      <EventCalendar/>
     </Card>
   </Space>
 );
