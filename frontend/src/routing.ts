@@ -1,3 +1,4 @@
+import "./app/components-visual/ContainersDemoScreen";
 import "./app/user/UserList";
 import "./app/user/UserEditor";
 import "./app/tools/user-actions/UserActionsScreen";
