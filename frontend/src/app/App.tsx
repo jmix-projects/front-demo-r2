@@ -54,7 +54,7 @@ const App = observer(() => {
       <Layout className={styles.layoutContainer}>
         {menuType === "vertical" && (
             <Layout.Sider
-              width={200}
+              width={240}
               breakpoint="sm"
               collapsedWidth={0}
               className={styles.layoutSider}

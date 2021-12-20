@@ -43,11 +43,16 @@ export const AppMenu = (props: AppMenuProps) => {
         caption={"Components"}
         key={"dr2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}
       >
-        <MenuItem
-          screenId={"VisualComponentsDemo"}
-          caption={"Visual Components"}
+        <SubMenuItem
+          caption={"router.VisualComponentsDemoScreen"}
           key={"de2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}
-        />
+        >
+          <MenuItem
+            screenId={"ContainersDemoScreen"}
+            caption={"screen.ContainersDemoScreen"}
+            key={"51794875-dc16-4e9d-9fce-bcda974f56ca"}
+          />
+        </SubMenuItem>
         <MenuItem
           screenId={"DataComponentsDemo"}
           caption={"menu.DataComponentsDemo"}

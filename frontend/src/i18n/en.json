@@ -1,4 +1,5 @@
 {
+  "screen.ContainersDemoScreen": "Containers",
   "screen.UserList": "User List",
   "screen.UserEditor": "User Editor",
   "screen.UserActionsScreen": "User Actions Screen",
@@ -50,7 +51,7 @@
   "menu.CustomerMDList": "Customer MDList",
   "menu.CustomerMDEditor": "Customer MDEditor",
   "router.ConditionalComponentsDemoScreen": "Conditional Components Demo Screen",
-  "router.VisualComponentsDemoScreen": "Visual Components Demo Screen",
+  "router.VisualComponentsDemoScreen": "Visual Components",
   "router.DeeplyNestedTestEntityEdit": "Deeply Nested Test Entity Edit",
   "menu.EntityManagement": "Entity Management",
   "menu.TemplatesEntityEditTable": "Entity Browser Table",

@@ -28,40 +28,6 @@ export const VisualComponentsDemoScreen = () => {
 
   return (
     <Space direction={"vertical"} style={{width: "100%"}}>
-      <Card title={"Grid"}>
-        <Row>
-          <Col span={8} className={styles.colBg}>Col-8</Col>
-          <Col span={8} className={styles.colBg}>Col-8</Col>
-          <Col span={8} className={styles.colBg}>Col-8</Col>
-        </Row>
-        <Row>
-          <Col span={3}>Col-3</Col>
-          <Col span={18}>Col-18</Col>
-          <Col span={3}>Col-3</Col>
-        </Row>
-      </Card>
-      <Card title="Header">
-        <Header>
-          <Typography.Title level={3} style={{color: '#FFF', padding: '15px 0'}}>
-            Header content
-          </Typography.Title>
-        </Header>
-      </Card>
-      <Card title="Footer">
-        <Footer>Footer content</Footer>
-      </Card>
-      <Card title="Sidebar">
-        <Sidebar style={{minHeight: "100px"}}>
-        </Sidebar>
-      </Card>
-      {/*<Card title="MultiTabs">*/}
-      {/*  <MultiTabs/> { /* todo extract for demonstration *!/*/}
-      {/*</Card>*/}
-      <Card title="Card">
-        <JmixCard title={"Card Title"}>
-          <p>Card content</p>
-        </JmixCard>
-      </Card>
       <Card title="Label">
         <Label entityName="Order_" propertyName="numberOfSpecialProducts">
         </Label>
