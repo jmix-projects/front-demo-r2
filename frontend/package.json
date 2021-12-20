@@ -4,7 +4,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@apollo/client": "^3.4.0",
-    "@haulmont/jmix-addon-charts": "^0.1.0-next.4",
+    "@haulmont/jmix-addon-charts": "file:../../../../../../jf/packages/jmix-addon-charts/haulmont-jmix-addon-charts-0.1.0-next.4.tgz",
     "@haulmont/jmix-addon-data-tools": "^1.1.0-next.18",
     "@haulmont/jmix-addon-user-management": "^0.0.1-next.2",
     "@haulmont/jmix-react-antd": "^2.0.0-next.18",
