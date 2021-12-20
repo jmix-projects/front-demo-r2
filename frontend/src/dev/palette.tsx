@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import DataDisplayComponentsDemoScreen from "../app/components-visual/DataDisplayComponentsDemoScreen";
 import ContainersDemoScreen from "../app/components-visual/ContainersDemoScreen";
 import UserList from "../app/user/UserList";
 import UserEditor from "../app/user/UserEditor";
@@ -166,6 +167,11 @@ export default () => (
       <Component name="ContainersDemoScreen">
         <Variant>
           <ContainersDemoScreen />
+        </Variant>
+      </Component>
+      <Component name="DataDisplayComponentsDemoScreen">
+        <Variant>
+          <DataDisplayComponentsDemoScreen />
         </Variant>
       </Component>
     </Category>

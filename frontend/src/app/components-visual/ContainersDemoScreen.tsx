@@ -1,7 +1,7 @@
 import React from "react";
 import { registerScreen } from "@haulmont/jmix-react-web";
 import {Card, Menu, Space, Typography} from "antd";
-import {Col, Footer, Header, Row, Sidebar, Card as JmixCard} from "@haulmont/jmix-react-antd";
+import {Col, Footer, Header, Row, Sidebar, Card as JmixCard, MultiTabs} from "@haulmont/jmix-react-antd";
 import styles from "./style.module.css";
 
 const ROUTING_PATH = "/containersDemoScreen";

@@ -52,6 +52,11 @@ export const AppMenu = (props: AppMenuProps) => {
             caption={"screen.ContainersDemoScreen"}
             key={"51794875-dc16-4e9d-9fce-bcda974f56ca"}
           />
+          <MenuItem
+            screenId={"DataDisplayComponentsDemoScreen"}
+            caption={"screen.DataDisplayComponentsDemoScreen"}
+            key={"02065971-376d-46a1-8980-31bd00728e04"}
+          />
         </SubMenuItem>
         <MenuItem
           screenId={"DataComponentsDemo"}
@@ -135,7 +140,6 @@ export const AppMenu = (props: AppMenuProps) => {
         </SubMenuItem>
         <MenuItem
           screenId={"CustomerMultiSelectionScreen"}
-          icon={<BarsOutlined />}
           caption={"screen.CustomerMultiSelectionScreen"}
           key={"6efd5f32-4cb9-4c13-8768-a5b8440c691d"}
         />
