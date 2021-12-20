@@ -54,9 +54,9 @@ export const VisualComponentsDemoScreen = () => {
         <Sidebar style={{minHeight: "100px"}}>
         </Sidebar>
       </Card>
-      <Card title="MultiTabs">
-        <MultiTabs/> { /* todo extract for demonstration */}
-      </Card>
+      {/*<Card title="MultiTabs">*/}
+      {/*  <MultiTabs/> { /* todo extract for demonstration *!/*/}
+      {/*</Card>*/}
       <Card title="Card">
         <JmixCard title={"Card Title"}>
           <p>Card content</p>
