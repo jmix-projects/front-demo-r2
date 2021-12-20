@@ -97,7 +97,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": false,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "Email"
+            }
+          ]
         },
         {
           "name": "enabled",
@@ -360,7 +365,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": false,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "PositiveOrZero"
+            }
+          ]
         },
         {
           "name": "name",
@@ -408,7 +418,15 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": false,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "Length",
+              "message": "{msg://io.jmix.frontdemo.entity.datatypes/CompositionO2OTestEntity.name.validation.Length}",
+              "min": 3,
+              "max": 10
+            }
+          ]
         },
         {
           "name": "quantity",
@@ -421,7 +439,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": false,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "PositiveOrZero"
+            }
+          ]
         },
         {
           "name": "nestedComposition",
@@ -849,7 +872,15 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": false,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "Size",
+              "message": "{msg://io.jmix.frontdemo.entity.datatypes/DeeplyNestedTestEntity.name.validation.Size}",
+              "min": 5,
+              "max": 15
+            }
+          ]
         },
         {
           "name": "associationO2Oattr",
@@ -1512,7 +1543,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "product",
@@ -1527,7 +1563,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "createdBy",
@@ -1688,7 +1729,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "name",
@@ -1701,7 +1747,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "version",
@@ -3322,7 +3373,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "resource",
@@ -3335,7 +3391,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "action",
@@ -3389,7 +3450,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -3522,7 +3588,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "code",
@@ -3535,7 +3606,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "description",
@@ -3735,7 +3811,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "roleCode",
@@ -3748,7 +3829,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "roleType",
@@ -3761,7 +3847,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -3894,7 +3985,12 @@
           "mappingType": "ENUM",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "entityName",
@@ -3907,7 +4003,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "action",
@@ -3920,7 +4021,12 @@
           "mappingType": "ENUM",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "whereClause",
@@ -3974,7 +4080,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -4107,7 +4218,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "code",
@@ -4120,7 +4236,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "description",
@@ -6137,7 +6258,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "attribute",
@@ -6150,7 +6276,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "action",
@@ -6191,7 +6322,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -6240,7 +6376,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "action",
@@ -6281,7 +6422,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -6330,7 +6476,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "readOnly",
@@ -6358,7 +6509,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -6419,7 +6575,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "code",
@@ -6432,7 +6593,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "description",
@@ -6595,7 +6761,12 @@
           "mappingType": "ENUM",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "entityName",
@@ -6608,7 +6779,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "action",
@@ -6621,7 +6797,12 @@
           "mappingType": "ENUM",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "whereClause",
@@ -6688,7 +6869,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -6736,7 +6922,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "code",
@@ -6749,7 +6940,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "description",
@@ -6852,7 +7048,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "readOnly",
@@ -6880,7 +7081,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -6929,7 +7135,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         },
         {
           "name": "readOnly",
@@ -6957,7 +7168,12 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "NotNull"
+            }
+          ]
         }
       ]
     },
@@ -7058,7 +7274,12 @@
           "mappingType": "DATATYPE",
           "readOnly": false,
           "mandatory": false,
-          "transient": false
+          "transient": false,
+          "beanValidationRules": [
+            {
+              "name": "Email"
+            }
+          ]
         },
         {
           "name": "active",
