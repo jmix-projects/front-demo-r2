@@ -10,7 +10,8 @@ import {
   CheckboxField,
   RadioButton,
   Button,
-  SliderField
+  SliderField,
+  ColorPickerField
 } from "@haulmont/jmix-react-antd";
 import {useForm} from "antd/es/form/Form";
 
@@ -22,8 +23,8 @@ const ControlsDemoScreen = () => {
   const [form] = useForm();
 
   return (
-    <Space direction={"vertical"} style={{width: "100%"}}>
-      <Form form={form}>
+    <Form form={form}>
+      <Space direction={"vertical"} style={{width: "100%"}}>
         <Card title="TextField">
           <TextField entityName={"Customer"} propertyName={"email"}/>
         </Card>
@@ -68,8 +69,11 @@ const ControlsDemoScreen = () => {
                        max={100}
           />
         </Card>
-      </Form>
-    </Space>
+        <Card title="ColorPickerField">
+          <ColorPickerField  entityName={"Event"} propertyName={"displayColor"}/>
+        </Card>
+      </Space>
+    </Form>
   );
 };
 

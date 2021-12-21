@@ -1,6 +1,7 @@
 export class Event {
   static NAME = "Event";
   id?: string;
+  displayColor?: string | null;
   title?: string | null;
   description?: string | null;
   startDate?: any | null;
@@ -19,6 +20,7 @@ export type EventView<V extends EventViewName> = V extends "_base"
       Event,
       | "id"
       | "title"
+      | "displayColor"
       | "description"
       | "startDate"
       | "endDate"
@@ -36,6 +38,7 @@ export type EventView<V extends EventViewName> = V extends "_base"
   ? Pick<
       Event,
       | "id"
+      | "displayColor"
       | "title"
       | "description"
       | "startDate"

@@ -23,6 +23,9 @@ public class Event {
     @Id
     private UUID id;
 
+    @Column(name = "DISPLAY_COLOR")
+    private String displayColor;
+
     @InstanceName
     @Column(name = "TITLE")
     private String title;
@@ -69,6 +72,14 @@ public class Event {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
+
+    public String getDisplayColor() {
+        return displayColor;
+    }
+
+    public void setDisplayColor(String displayColor) {
+        this.displayColor = displayColor;
+    }
 
     public Date getEndDate() {
         return endDate;

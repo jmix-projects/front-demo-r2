@@ -21,6 +21,19 @@
           "traitAttribute": "uuid"
         },
         {
+          "name": "displayColor",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "mandatory": false,
+          "transient": false
+        },
+        {
           "name": "title",
           "type": {
             "packageName": "java.lang",
