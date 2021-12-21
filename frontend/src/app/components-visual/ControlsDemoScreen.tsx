@@ -15,7 +15,8 @@ import {
   DropdownField,
   FileUploadField,
   MaskedField,
-  SourceCodeField
+  SourceCodeField,
+  RichTextArea
 } from "@haulmont/jmix-react-antd";
 import {useForm} from "antd/es/form/Form";
 
@@ -104,6 +105,9 @@ const ControlsDemoScreen = () => {
           <SourceCodeField entityName={"Event"}
                            propertyName={"widgetSourceCode"}
                            height={"100px"}/>
+        </Card>
+        <Card>
+          <RichTextArea entityName={"Event"} propertyName={"formattedDescription"}/>
         </Card>
       </Space>
     </Form>

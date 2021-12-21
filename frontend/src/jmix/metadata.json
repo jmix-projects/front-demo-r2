@@ -164,6 +164,19 @@
           "transient": false
         },
         {
+          "name": "formattedDescription",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "mandatory": false,
+          "transient": false
+        },
+        {
           "name": "version",
           "type": {
             "packageName": "java.lang",

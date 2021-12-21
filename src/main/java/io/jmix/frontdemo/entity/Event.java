@@ -62,6 +62,10 @@ public class Event {
     @Column(name = "THIRD_SETTING")
     private String thirdSetting;
 
+    @Column(name = "FORMATTED_DESCRIPTION")
+    @Lob
+    private String formattedDescription;
+
     @Column(name = "VERSION", nullable = false)
     @Version
     private Integer version;
@@ -92,6 +96,14 @@ public class Event {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
+
+    public String getFormattedDescription() {
+        return formattedDescription;
+    }
+
+    public void setFormattedDescription(String formattedDescription) {
+        this.formattedDescription = formattedDescription;
+    }
 
     public String getThirdSetting() {
         return thirdSetting;

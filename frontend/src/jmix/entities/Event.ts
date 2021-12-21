@@ -12,6 +12,7 @@ export class Event {
   firstSetting?: string | null;
   secondSetting?: string | null;
   thirdSetting?: string | null;
+  formattedDescription?: string | null;
   version?: number | null;
   createdBy?: string | null;
   createdDate?: any | null;
@@ -36,6 +37,7 @@ export type EventView<V extends EventViewName> = V extends "_base"
       | "firstSetting"
       | "secondSetting"
       | "thirdSetting"
+      | "formattedDescription"
       | "version"
       | "createdBy"
       | "createdDate"
@@ -61,6 +63,7 @@ export type EventView<V extends EventViewName> = V extends "_base"
       | "firstSetting"
       | "secondSetting"
       | "thirdSetting"
+      | "formattedDescription"
       | "version"
       | "createdBy"
       | "createdDate"
