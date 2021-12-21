@@ -6,6 +6,7 @@ export class Event {
   startDate?: any | null;
   endDate?: any | null;
   logo?: any | null;
+  externalId?: string | null;
   displayColor?: string | null;
   version?: number | null;
   createdBy?: string | null;
@@ -25,6 +26,7 @@ export type EventView<V extends EventViewName> = V extends "_base"
       | "startDate"
       | "endDate"
       | "logo"
+      | "externalId"
       | "displayColor"
       | "version"
       | "createdBy"
@@ -45,6 +47,7 @@ export type EventView<V extends EventViewName> = V extends "_base"
       | "startDate"
       | "endDate"
       | "logo"
+      | "externalId"
       | "displayColor"
       | "version"
       | "createdBy"

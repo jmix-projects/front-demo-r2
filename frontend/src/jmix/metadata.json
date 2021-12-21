@@ -86,6 +86,19 @@
           "transient": false
         },
         {
+          "name": "externalId",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "mandatory": false,
+          "transient": false
+        },
+        {
           "name": "displayColor",
           "type": {
             "packageName": "java.lang",

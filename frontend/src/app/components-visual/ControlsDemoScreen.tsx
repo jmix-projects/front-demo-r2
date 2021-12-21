@@ -1,6 +1,6 @@
 import React from "react";
 import {registerScreen} from "@haulmont/jmix-react-web";
-import {Card, Form, Space} from "antd";
+import {Card, Form, Pagination, Space} from "antd";
 import {
   SelectField,
   TextField,
@@ -13,7 +13,9 @@ import {
   SliderField,
   ColorPickerField,
   DropdownField,
-  FileUploadField
+  FileUploadField,
+  MaskedField,
+  SourceCodeField
 } from "@haulmont/jmix-react-antd";
 import {useForm} from "antd/es/form/Form";
 
@@ -86,6 +88,22 @@ const ControlsDemoScreen = () => {
         </Card>
         <Card title="FileUploadField">
           <FileUploadField entityName={"Event"} propertyName={"logo"}/>
+        </Card>
+        <Card title="MaskedField">
+          <MaskedField entityName={"Event"}
+                       propertyName={"externalId"}
+                       mask={"xxxx-xxxx xx"}
+                       formatChars={{
+                         'x': '[0-9a-fA-F]'
+                       }}/>
+        </Card>
+        <Card title="Pagination">
+          <Pagination total={100} defaultPageSize={10}/>
+        </Card>
+        <Card title="SourceCodeField">
+          <SourceCodeField entityName={"DatatypesTestEntity"}
+                           propertyName={"stringAttr"}
+                           height={"100px"}/>
         </Card>
       </Space>
     </Form>

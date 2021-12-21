@@ -43,6 +43,9 @@ public class Event {
     @Column(name = "LOGO", length = 1024)
     private FileRef logo;
 
+    @Column(name = "EXTERNAL_ID")
+    private String externalId;
+
     @Column(name = "DISPLAY_COLOR")
     private String displayColor;
 
@@ -76,6 +79,14 @@ public class Event {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
+
+    public String getExternalId() {
+        return externalId;
+    }
+
+    public void setExternalId(String externalId) {
+        this.externalId = externalId;
+    }
 
     public FileRef getLogo() {
         return logo;
