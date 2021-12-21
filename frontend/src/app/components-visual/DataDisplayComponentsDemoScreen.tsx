@@ -16,7 +16,7 @@ const DataDisplayComponentsDemoScreen = () => (
       <Label entityName="Order_" propertyName="numberOfSpecialProducts">
       </Label>
     </Card>
-    <Card>
+    <Card title="Tree">
       <EntityHierarchyTree
         items={[
           {
