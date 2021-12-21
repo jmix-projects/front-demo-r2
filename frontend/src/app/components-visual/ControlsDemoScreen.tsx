@@ -106,7 +106,7 @@ const ControlsDemoScreen = () => {
                            propertyName={"widgetSourceCode"}
                            height={"100px"}/>
         </Card>
-        <Card>
+        <Card title="RichTextArea">
           <RichTextArea entityName={"Event"} propertyName={"formattedDescription"}/>
         </Card>
       </Space>
