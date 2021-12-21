@@ -21,19 +21,6 @@
           "traitAttribute": "uuid"
         },
         {
-          "name": "displayColor",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": false
-        },
-        {
           "name": "title",
           "type": {
             "packageName": "java.lang",
@@ -79,6 +66,32 @@
             "className": "Date",
             "fqn": "java.util.Date",
             "label": "DateTime"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "mandatory": false,
+          "transient": false
+        },
+        {
+          "name": "logo",
+          "type": {
+            "packageName": "io.jmix.core",
+            "className": "FileRef",
+            "fqn": "io.jmix.core.FileRef",
+            "label": "fileRef"
+          },
+          "mappingType": "DATATYPE",
+          "readOnly": false,
+          "mandatory": false,
+          "transient": false
+        },
+        {
+          "name": "displayColor",
+          "type": {
+            "packageName": "java.lang",
+            "className": "String",
+            "fqn": "java.lang.String",
+            "label": "String"
           },
           "mappingType": "DATATYPE",
           "readOnly": false,

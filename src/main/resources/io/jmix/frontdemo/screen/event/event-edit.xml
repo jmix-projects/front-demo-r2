@@ -32,6 +32,7 @@
                     <textArea id="descriptionField" property="description" rows="5"/>
                     <dateField id="startDateField" property="startDate"/>
                     <dateField id="endDateField" property="endDate"/>
+                    <fileStorageUpload id="logoField" property="logo"/>
                 </column>
             </form>
         </scrollBox>

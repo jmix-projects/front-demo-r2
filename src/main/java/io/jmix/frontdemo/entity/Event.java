@@ -1,5 +1,6 @@
 package io.jmix.frontdemo.entity;
 
+import io.jmix.core.FileRef;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
@@ -23,9 +24,6 @@ public class Event {
     @Id
     private UUID id;
 
-    @Column(name = "DISPLAY_COLOR")
-    private String displayColor;
-
     @InstanceName
     @Column(name = "TITLE")
     private String title;
@@ -41,6 +39,12 @@ public class Event {
     @Column(name = "END_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endDate;
+
+    @Column(name = "LOGO", length = 1024)
+    private FileRef logo;
+
+    @Column(name = "DISPLAY_COLOR")
+    private String displayColor;
 
     @Column(name = "VERSION", nullable = false)
     @Version
@@ -72,6 +76,14 @@ public class Event {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
+
+    public FileRef getLogo() {
+        return logo;
+    }
+
+    public void setLogo(FileRef logo) {
+        this.logo = logo;
+    }
 
     public String getDisplayColor() {
         return displayColor;

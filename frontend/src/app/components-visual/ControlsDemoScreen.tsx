@@ -12,7 +12,8 @@ import {
   Button,
   SliderField,
   ColorPickerField,
-  DropdownField
+  DropdownField,
+  FileUploadField
 } from "@haulmont/jmix-react-antd";
 import {useForm} from "antd/es/form/Form";
 
@@ -81,7 +82,10 @@ const ControlsDemoScreen = () => {
           />
         </Card>
         <Card title="ColorPickerField">
-          <ColorPickerField  entityName={"Event"} propertyName={"displayColor"}/>
+          <ColorPickerField entityName={"Event"} propertyName={"displayColor"}/>
+        </Card>
+        <Card title="FileUploadField">
+          <FileUploadField entityName={"Event"} propertyName={"logo"}/>
         </Card>
       </Space>
     </Form>

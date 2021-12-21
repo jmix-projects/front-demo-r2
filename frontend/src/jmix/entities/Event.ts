@@ -1,11 +1,12 @@
 export class Event {
   static NAME = "Event";
   id?: string;
-  displayColor?: string | null;
   title?: string | null;
   description?: string | null;
   startDate?: any | null;
   endDate?: any | null;
+  logo?: any | null;
+  displayColor?: string | null;
   version?: number | null;
   createdBy?: string | null;
   createdDate?: any | null;
@@ -20,10 +21,11 @@ export type EventView<V extends EventViewName> = V extends "_base"
       Event,
       | "id"
       | "title"
-      | "displayColor"
       | "description"
       | "startDate"
       | "endDate"
+      | "logo"
+      | "displayColor"
       | "version"
       | "createdBy"
       | "createdDate"
@@ -38,11 +40,12 @@ export type EventView<V extends EventViewName> = V extends "_base"
   ? Pick<
       Event,
       | "id"
-      | "displayColor"
       | "title"
       | "description"
       | "startDate"
       | "endDate"
+      | "logo"
+      | "displayColor"
       | "version"
       | "createdBy"
       | "createdDate"
