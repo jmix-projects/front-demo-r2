@@ -1,7 +1,7 @@
 import React from "react";
 import {Label, registerScreen} from "@haulmont/jmix-react-web";
-import {Card, Space, Typography} from "antd";
-import {DataTable, EntityHierarchyTree} from "@haulmont/jmix-react-antd";
+import {Button, Card, Space, Tooltip, Typography} from "antd";
+import {DataTable, EntityHierarchyTree, ProgressBar} from "@haulmont/jmix-react-antd";
 import {Calendar} from "antd/es";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "antd/lib/typography/Link";
@@ -65,6 +65,14 @@ const DataDisplayComponentsDemoScreen = () => (
     </Card>
     <Card title="Calendar">
       <EventCalendar/>
+    </Card>
+    <Card title="ProgressBar">
+      <ProgressBar percent={50} />
+    </Card>
+    <Card title="Tooltip">
+      <Tooltip title="Tooltip title">
+        <Button>Hover me</Button>
+      </Tooltip>
     </Card>
   </Space>
 );
