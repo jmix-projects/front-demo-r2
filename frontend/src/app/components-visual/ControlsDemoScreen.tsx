@@ -11,14 +11,14 @@ import {
   RadioButton,
   Button,
   SliderField,
-  ColorPickerField
+  ColorPickerField,
+  DropdownField
 } from "@haulmont/jmix-react-antd";
 import {useForm} from "antd/es/form/Form";
 
 const ROUTING_PATH = "/controlsDemoScreen";
 
 const ControlsDemoScreen = () => {
-
 
   const [form] = useForm();
 
@@ -39,6 +39,16 @@ const ControlsDemoScreen = () => {
                        ]}
           />
         </Card>
+        <Card title="DropdownField">
+          <DropdownField entityName={"OrderLine"}
+                         propertyName={"quantity"}
+                         options={[
+                           {label: "1", value: "1"},
+                           {label: "5", value: "5"},
+                           {label: "10", value: "10"},
+                           {label: "100", value: "100"}
+                         ]}/>
+        </Card>
         <Card title="TextArea">
           <TextArea entityName={"Event"} propertyName={"description"} rows={5}/>
         </Card>
@@ -57,15 +67,16 @@ const ControlsDemoScreen = () => {
                        options={[
                          {label: "1", value: "1"},
                          {label: "5", value: "5"},
-                         {label: "10", value: "10", disabled: true}
+                         {label: "10", value: "10", disabled: true},
+                         {label: "100", value: "100"}
                        ]}/>
         </Card>
         <Card title="Button">
           <Button type="primary" htmlType="button">Button text</Button>
         </Card>
         <Card title="SliderField">
-          <SliderField entityName={"OrderLine"}
-                       propertyName={"quantity"}
+          <SliderField entityName={"DatatypesTestEntity"}
+                       propertyName={"integerAttr"}
                        max={100}
           />
         </Card>
