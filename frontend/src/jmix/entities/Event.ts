@@ -7,7 +7,11 @@ export class Event {
   endDate?: any | null;
   logo?: any | null;
   externalId?: string | null;
+  widgetSourceCode?: string | null;
   displayColor?: string | null;
+  firstSetting?: string | null;
+  secondSetting?: string | null;
+  thirdSetting?: string | null;
   version?: number | null;
   createdBy?: string | null;
   createdDate?: any | null;
@@ -27,7 +31,11 @@ export type EventView<V extends EventViewName> = V extends "_base"
       | "endDate"
       | "logo"
       | "externalId"
+      | "widgetSourceCode"
       | "displayColor"
+      | "firstSetting"
+      | "secondSetting"
+      | "thirdSetting"
       | "version"
       | "createdBy"
       | "createdDate"
@@ -48,7 +56,11 @@ export type EventView<V extends EventViewName> = V extends "_base"
       | "endDate"
       | "logo"
       | "externalId"
+      | "widgetSourceCode"
       | "displayColor"
+      | "firstSetting"
+      | "secondSetting"
+      | "thirdSetting"
       | "version"
       | "createdBy"
       | "createdDate"

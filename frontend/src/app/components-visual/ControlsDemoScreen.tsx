@@ -32,24 +32,24 @@ const ControlsDemoScreen = () => {
           <TextField entityName={"Customer"} propertyName={"email"}/>
         </Card>
         <Card title="SelectField">
-          <SelectField entityName={"OrderLine"}
-                       propertyName={"quantity"}
+          <SelectField entityName={"Event"}
+                       propertyName={"firstSetting"}
                        options={[
-                         {label: "1", value: "1"},
-                         {label: "5", value: "5"},
-                         {label: "10", value: "10"},
-                         {label: "100", value: "100"}
+                         {label: "Alpha", value: "1"},
+                         {label: "Beta", value: "5"},
+                         {label: "Gamma", value: "10"},
+                         {label: "Kappa", value: "100"}
                        ]}
           />
         </Card>
         <Card title="DropdownField">
-          <DropdownField entityName={"OrderLine"}
-                         propertyName={"quantity"}
+          <DropdownField entityName={"Event"}
+                         propertyName={"secondSetting"}
                          options={[
-                           {label: "1", value: "1"},
-                           {label: "5", value: "5"},
-                           {label: "10", value: "10"},
-                           {label: "100", value: "100"}
+                           {label: "Up", value: "Up"},
+                           {label: "Down", value: "Down"},
+                           {label: "Right", value: "Right"},
+                           {label: "Left", value: "Left"}
                          ]}/>
         </Card>
         <Card title="TextArea">
@@ -65,13 +65,13 @@ const ControlsDemoScreen = () => {
           <CheckboxField entityName={"DatatypesTestEntity"} propertyName={"booleanAttr"}/>
         </Card>
         <Card title="RadioButton">
-          <RadioButton entityName={"OrderLine"}
-                       propertyName={"quantity"}
+          <RadioButton entityName={"Event"}
+                       propertyName={"thirdSetting"}
                        options={[
-                         {label: "1", value: "1"},
-                         {label: "5", value: "5"},
-                         {label: "10", value: "10", disabled: true},
-                         {label: "100", value: "100"}
+                         {label: "North", value: "North"},
+                         {label: "South", value: "South"},
+                         {label: "West", value: "West", disabled: true},
+                         {label: "East", value: "East"}
                        ]}/>
         </Card>
         <Card title="Button">
@@ -101,8 +101,8 @@ const ControlsDemoScreen = () => {
           <Pagination total={100} defaultPageSize={10}/>
         </Card>
         <Card title="SourceCodeField">
-          <SourceCodeField entityName={"DatatypesTestEntity"}
-                           propertyName={"stringAttr"}
+          <SourceCodeField entityName={"Event"}
+                           propertyName={"widgetSourceCode"}
                            height={"100px"}/>
         </Card>
       </Space>

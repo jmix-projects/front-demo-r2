@@ -46,8 +46,21 @@ public class Event {
     @Column(name = "EXTERNAL_ID")
     private String externalId;
 
+    @Column(name = "WIDGET_SOURCE_CODE")
+    @Lob
+    private String widgetSourceCode;
+
     @Column(name = "DISPLAY_COLOR")
     private String displayColor;
+
+    @Column(name = "FIRST_SETTING")
+    private String firstSetting;
+
+    @Column(name = "SECOND_SETTING")
+    private String secondSetting;
+
+    @Column(name = "THIRD_SETTING")
+    private String thirdSetting;
 
     @Column(name = "VERSION", nullable = false)
     @Version
@@ -79,6 +92,38 @@ public class Event {
     @Column(name = "DELETED_DATE")
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
+
+    public String getThirdSetting() {
+        return thirdSetting;
+    }
+
+    public void setThirdSetting(String thirdSetting) {
+        this.thirdSetting = thirdSetting;
+    }
+
+    public String getSecondSetting() {
+        return secondSetting;
+    }
+
+    public void setSecondSetting(String secondSetting) {
+        this.secondSetting = secondSetting;
+    }
+
+    public String getFirstSetting() {
+        return firstSetting;
+    }
+
+    public void setFirstSetting(String firstSetting) {
+        this.firstSetting = firstSetting;
+    }
+
+    public String getWidgetSourceCode() {
+        return widgetSourceCode;
+    }
+
+    public void setWidgetSourceCode(String widgetSourceCode) {
+        this.widgetSourceCode = widgetSourceCode;
+    }
 
     public String getExternalId() {
         return externalId;
