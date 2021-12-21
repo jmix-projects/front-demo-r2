@@ -3,6 +3,7 @@ import {registerScreen} from "@haulmont/jmix-react-web";
 import {Card, Form, Space} from "antd";
 import {DateField, EntityFilter, EntityForm, EntityPickerField, TextField} from "@haulmont/jmix-react-antd";
 import {useForm} from "antd/es/form/Form";
+import Link from "antd/es/typography/Link";
 
 const ROUTING_PATH = "/complexComponentsDemoScreen";
 
@@ -28,6 +29,11 @@ const ComplexComponentsDemoScreen = () => {
           <DateField  propertyName="startDate"/>
           <DateField propertyName="endDate" showTime/>
         </EntityForm>
+      </Card>
+      <Card title="MultiTabs">
+        <Link href={'/multiTabsDemo'}>
+          Open `MultiTabs` demo screen
+        </Link>
       </Card>
     </Space>
   )

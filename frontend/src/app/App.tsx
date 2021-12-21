@@ -12,9 +12,11 @@ import "../routing";
 import styles from "./App.module.css";
 import { ContentArea } from "@haulmont/jmix-react-antd";
 import {useDefaultTabHotkeys} from "@haulmont/jmix-react-web";
+import {MultiTabsDemo} from "./components-visual/MultiTabsDemo";
 
 const routes = {
   "/": <ContentArea />,
+  "/multiTabsDemo": <MultiTabsDemo />,
   "/:entityName/:entityId?": <ContentArea />
 };
 
