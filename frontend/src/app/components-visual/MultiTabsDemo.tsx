@@ -8,9 +8,17 @@ export const MultiTabsDemo = () => {
     tabs.push(
       {
         title: 'Tab 1',
-        content: () => 'Tab1',
+        content: <div>Tab1 Content</div>,
         key: 'tab1',
-        rootScreenId: 'BlankTemplateDemo',
+        rootScreenId: 'Tab1',
+      }
+    );
+    tabs.push(
+      {
+        title: 'Tab 2',
+        content: <div>Tab2 Content</div>,
+        key: 'tab2',
+        rootScreenId: 'Tab2',
       }
     );
 

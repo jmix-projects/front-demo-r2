@@ -67,6 +67,11 @@ export const AppMenu = (props: AppMenuProps) => {
             caption={"screen.ComplexComponentsDemoScreen"}
             key={"981d6057-08c2-4beb-8645-10e9c73baa91"}
           />
+          <MenuItem
+            screenId={"IconsDemoScreen"}
+            caption={"screen.IconsDemoScreen"}
+            key={"b8754232-9ea8-4307-bac6-ea084564e0ec"}
+          />
         </SubMenuItem>
         <MenuItem
           screenId={"DataComponentsDemo"}

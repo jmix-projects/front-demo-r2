@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import IconsDemoScreen from "../app/components-visual/IconsDemoScreen";
 import ComplexComponentsDemoScreen from "../app/components-visual/ComplexComponentsDemoScreen";
 import ControlsDemoScreen from "../app/components-visual/ControlsDemoScreen";
 import DataDisplayComponentsDemoScreen from "../app/components-visual/DataDisplayComponentsDemoScreen";
@@ -146,6 +147,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/complexComponentsDemoScreen">
         <ComplexComponentsDemoScreen />
+      </ComponentPreview>
+      <ComponentPreview path="/iconsDemoScreen">
+        <IconsDemoScreen />
       </ComponentPreview>
     </Previews>
   );

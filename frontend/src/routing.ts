@@ -1,3 +1,4 @@
+import "./app/components-visual/IconsDemoScreen";
 import "./app/components-visual/ComplexComponentsDemoScreen";
 import "./app/components-visual/ControlsDemoScreen";
 import "./app/components-visual/calendar/EventCalendar";
