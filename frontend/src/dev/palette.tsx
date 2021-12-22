@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import EventWizard from "../app/templates/entity-wizard/EventWizard";
 import EventCardsWithDetails from "../app/templates/entity-expandable-details/EventCardsWithDetails";
 import IconsDemoScreen from "../app/components-visual/IconsDemoScreen";
 import ComplexComponentsDemoScreen from "../app/components-visual/ComplexComponentsDemoScreen";
@@ -196,6 +197,11 @@ export default () => (
       <Component name="EventCardsWithDetails">
         <Variant>
           <EventCardsWithDetails />
+        </Variant>
+      </Component>
+      <Component name="EventWizard">
+        <Variant>
+          <EventWizard />
         </Variant>
       </Component>
     </Category>

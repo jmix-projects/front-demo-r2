@@ -1,3 +1,4 @@
+import "./app/templates/entity-wizard/EventWizard";
 import "./app/templates/entity-expandable-details/EventCardsWithDetails";
 import "./app/components-visual/IconsDemoScreen";
 import "./app/components-visual/ComplexComponentsDemoScreen";
