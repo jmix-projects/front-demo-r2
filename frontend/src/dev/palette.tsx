@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import PivotTableScreen from "../app/charts/PivotTableScreen";
 import UserList from "../app/user/UserList";
 import UserEditor from "../app/user/UserEditor";
 import UserActionsScreen from "../app/tools/user-actions/UserActionsScreen";
@@ -160,6 +161,11 @@ export default () => (
       <Component name="UserList">
         <Variant>
           <UserList />
+        </Variant>
+      </Component>
+      <Component name="PivotTableScreen">
+        <Variant>
+          <PivotTableScreen />
         </Variant>
       </Component>
     </Category>

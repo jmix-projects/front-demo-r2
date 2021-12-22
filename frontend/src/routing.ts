@@ -1,3 +1,4 @@
+import "./app/charts/PivotTableScreen";
 import "./app/user/UserList";
 import "./app/user/UserEditor";
 import "./app/tools/user-actions/UserActionsScreen";

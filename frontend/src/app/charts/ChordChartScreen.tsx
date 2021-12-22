@@ -44,7 +44,7 @@ const data = [
 ];
 
   return <div>
-    Chord Chart - test data
+    Chord Chart
     <div>
       <ChordChart
         layers={['ribbons', 'arcs', 'labels', 'legends']}

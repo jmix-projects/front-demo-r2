@@ -8,7 +8,7 @@ const ROUTING_PATH = "/choroplethChartScreen";
 const ChoroplethChartScreen = () => {
 
   return <div>
-    Choropleth Chart - test data
+    Choropleth Chart
     <div>
       <ChoroplethChart
         data={geoData}

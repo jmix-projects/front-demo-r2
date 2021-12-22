@@ -1,4 +1,5 @@
 {
+  "screen.PivotTableScreen": "Pivot Table Screen",
   "screen.UserList": "User List",
   "screen.UserEditor": "User Editor",
   "screen.UserActionsScreen": "User Actions Screen",
@@ -17,6 +18,8 @@
   "menu.ScatterChartScreen": "Scatter Chart Screen",
   "menu.WaffleChartScreen": "Waffle Chart Screen",
   "menu.RadarChartScreen": "Radar Chart Screen",
+  "menu.ChoroplethChartScreen": "Choropleth Chart Screen",
+  "menu.ChordChartScreen": "Chord Chart Screen",
   "screen.BarChartScreen": "Bar Chart Screen",
   "screen.PieChartScreen": "Pie Chart Screen",
   "screen.LineChartScreen": "Line Chart Screen",
@@ -25,6 +28,8 @@
   "screen.ScatterChartScreen": "Scatter Chart Screen",
   "screen.WaffleChartScreen": "Waffle Chart Screen",
   "screen.RadarChartScreen": "Radar Chart Screen",
+  "screen.ChoroplethChartScreen": "Choropleth Chart Screen",
+  "screen.ChordChartScreen": "Chord Chart Screen",
   "management.browser.delete.areYouSure": "Are you sure you want to delete {instanceName}?",
   "management.browser.delete.ok": "Delete",
   "management.browser.noItems": "No data",

@@ -201,6 +201,11 @@ export const AppMenu = (props: AppMenuProps) => {
           caption={"menu.ChoroplethChartScreen"}
           key={"4514a3a2-67e9-4da4-a6bc-ae648edd60ca"}
         />
+        <MenuItem
+          screenId={"PivotTableScreen"}
+          caption={"screen.PivotTableScreen"}
+          key={"a0283b3d-1271-43a8-be0d-f69b2d9e2843"}
+        />
       </SubMenuItem>
       <MenuItem
         screenId={"ScreenApiDemoScreen"}
