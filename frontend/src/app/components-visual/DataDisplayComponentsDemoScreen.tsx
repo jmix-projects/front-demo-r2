@@ -6,6 +6,7 @@ import {Calendar} from "antd/es";
 import Paragraph from "antd/es/typography/Paragraph";
 import Link from "antd/lib/typography/Link";
 import EventCalendar from "./calendar/EventCalendar";
+import {ImageFieldDemo} from "./image/ImageFieldDemo";
 
 const ROUTING_PATH = "/dataDisplayComponentsDemoScreen";
 const DATA_TABLE_CODE = `<DataTable/>`;
@@ -68,6 +69,9 @@ const DataDisplayComponentsDemoScreen = () => (
     </Card>
     <Card title="ProgressBar">
       <ProgressBar percent={50} />
+    </Card>
+    <Card title="ImagePreview">
+      <ImageFieldDemo/>
     </Card>
     <Card title="Tooltip">
       <Tooltip title="Tooltip title">
