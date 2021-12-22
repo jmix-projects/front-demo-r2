@@ -198,6 +198,66 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"aab8e6eb-2fa8-4476-a34f-c869e02d4e23"}
         />
       </SubMenuItem>
+      <SubMenuItem
+        caption={"menu.Charts"}
+        key={"a9c4dce1-f80b-4015-b206-53527495d2c1"}
+      >
+        <MenuItem
+          screenId={"BarChartScreen"}
+          caption={"menu.BarChartScreen"}
+          key={"0a24a7c1-96f2-4dd0-b62c-3052d70d2bf4"}
+        />
+        <MenuItem
+          screenId={"PieChartScreen"}
+          caption={"menu.PieChartScreen"}
+          key={"38302e4f-add7-4b03-bd5c-717b6661d6f4"}
+        />
+        <MenuItem
+          screenId={"LineChartScreen"}
+          caption={"menu.LineChartScreen"}
+          key={"795c9482-fe11-4b5c-a315-0364b651d3af"}
+        />
+        <MenuItem
+          screenId={"FunnelChartScreen"}
+          caption={"menu.FunnelChartScreen"}
+          key={"c33555c3-1c55-4865-a3f4-70d59209619a"}
+        />
+        <MenuItem
+          screenId={"RadialBarChartScreen"}
+          caption={"menu.RadialBarChartScreen"}
+          key={"192c6822-f860-411a-815d-e362deb89496"}
+        />
+        <MenuItem
+          screenId={"RadarChartScreen"}
+          caption={"menu.RadarChartScreen"}
+          key={"dad46e8b-40be-4369-8409-c807dbc5239c"}
+        />
+        <MenuItem
+          screenId={"ScatterChartScreen"}
+          caption={"menu.ScatterChartScreen"}
+          key={"184d27e5-fdc4-4840-839b-63262d718b0b"}
+        />
+        <MenuItem
+          screenId={"WaffleChartScreen"}
+          caption={"menu.WaffleChartScreen"}
+          key={"1f088958-9f82-42b1-bbc9-a8231337ee6b"}
+        />
+        <MenuItem
+          screenId={"ChordChartScreen"}
+          caption={"menu.ChordChartScreen"}
+          key={"b3d9c523-e2f2-4130-90d8-123732e8bb7f"}
+        />
+        <MenuItem
+          screenId={"ChoroplethChartScreen"}
+          caption={"menu.ChoroplethChartScreen"}
+          key={"4514a3a2-67e9-4da4-a6bc-ae648edd60ca"}
+        />
+        <MenuItem
+          screenId={"PivotTableScreen"}
+          caption={"screen.PivotTableScreen"}
+          key={"a0283b3d-1271-43a8-be0d-f69b2d9e2843"}
+        />
+      </SubMenuItem>
       <MenuItem
         screenId={"ScreenApiDemoScreen"}
         caption={"menu.ScreenApiDemoScreen"}

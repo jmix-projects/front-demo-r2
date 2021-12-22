@@ -6,6 +6,7 @@ import ComplexComponentsDemoScreen from "../app/components-visual/ComplexCompone
 import ControlsDemoScreen from "../app/components-visual/ControlsDemoScreen";
 import DataDisplayComponentsDemoScreen from "../app/components-visual/DataDisplayComponentsDemoScreen";
 import ContainersDemoScreen from "../app/components-visual/ContainersDemoScreen";
+import PivotTableScreen from "../app/charts/PivotTableScreen";
 import UserList from "../app/user/UserList";
 import UserEditor from "../app/user/UserEditor";
 import UserActionsScreen from "../app/tools/user-actions/UserActionsScreen";
@@ -158,6 +159,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/parametrizedCaptionScreen">
         <ParametrizedCaptionScreen />
+      </ComponentPreview>
+      <ComponentPreview path="/pivotTableScreen">
+        <PivotTableScreen />
       </ComponentPreview>
     </Previews>
   );
