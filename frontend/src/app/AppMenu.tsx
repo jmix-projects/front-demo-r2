@@ -193,7 +193,7 @@ export const AppMenu = (props: AppMenuProps) => {
       />
       <MenuItem
         screenId={"ParametrizedMessagesScreen"}
-        caption={"screen.ParametrizedMessages"}
+        caption={"menu.ParametrizedMessages"}
         key={"ParametrizedMessagesScreen"}
       />
       <MenuItem

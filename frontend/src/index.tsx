@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { Result } from "antd";
 import { useIntl } from "react-intl";
 import App from "./app/App";
-import { ComponentPreviews } from "./dev/previews";
 import { useDevLogin } from "./dev/hooks";
 import { DevSupport } from "@haulmont/react-ide-toolbox";
 import { initializeTheme } from "./themes/themes.core";
@@ -17,6 +16,9 @@ import {
 } from "@haulmont/jmix-react-core";
 import { I18nProvider, Modals } from "@haulmont/jmix-react-antd";
 import { initializeApp } from "@haulmont/jmix-rest";
+import "./i18n/i18nInit";
+import { ComponentPreviews } from "./dev/previews";
+
 import {
   JMIX_REST_URL,
   REST_CLIENT_ID,
@@ -26,7 +28,6 @@ import {
 import metadata from "./jmix/metadata.json";
 import "./index.css";
 import { ApolloProvider } from "@apollo/client";
-import "./i18n/i18nInit";
 import { IntlDocumentTitle } from "@haulmont/jmix-react-web";
 import "./addons";
 

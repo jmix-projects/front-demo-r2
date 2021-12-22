@@ -5,7 +5,7 @@
  * - register dayjs locale (as import below)
  */
 import { localesStore } from "@haulmont/jmix-react-web";
-import { antdLocalesStore } from "@haulmont/jmix-react-antd";
+import {antdLocalesStore, initializeI18n} from "@haulmont/jmix-react-antd";
 import en from "./en.json";
 import en_US from "antd/es/locale/en_US";
 import ru from "./ru.json";
@@ -61,4 +61,9 @@ localesStore.addLocale({
 antdLocalesStore.addAntdLocale({
   localeName: "fr",
   antdLocale: fr_FR
+});
+
+initializeI18n({
+  defaultLocale: "en",
+  getMessages: locale => localesStore.messagesMapping[locale]
 });
