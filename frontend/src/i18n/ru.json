@@ -1,5 +1,7 @@
 {
   "screen.ParametrizedMessages": "Сообщения",
+  "menu.ParametrizedCaptionScreen": "Parametrized Caption Screen",
+  "screen.ParametrizedCaptionScreen": "Parametrized Caption {currentDate}",
   "management.browser.delete.areYouSure": "Вы уверены, что хотите удалить {instanceName}?",
   "management.browser.delete.ok": "Удалить",
   "management.browser.noItems": "Нет сущностей",
@@ -24,6 +26,8 @@
   "menu.CustomerMasterDetail": "Master Detail",
   "menu.CustomerMDList": "Customer MDList",
   "menu.CustomerMDEditor": "Customer MDEditor",
+  "menu.Messages": "Сообщения",
+  "menu.ParametrizedMessages": "Сообщения",
   "router.ConditionalComponentsDemoScreen": "Conditional Components Demo Screen",
   "router.VisualComponentsDemoScreen": "Visual Components Demo Screen",
   "router.DeeplyNestedTestEntityEdit": "Deeply Nested Test Entity Edit",

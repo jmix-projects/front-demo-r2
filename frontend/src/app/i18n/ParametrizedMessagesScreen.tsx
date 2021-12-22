@@ -6,7 +6,7 @@ import {useEntityEditorData, useMainStore} from "@haulmont/jmix-react-core";
 import {gql} from "@apollo/client";
 import {registerScreen} from "@haulmont/jmix-react-web";
 import {Order} from "../../jmix/entities/Order_";
-import {notifications, NotificationType, getI18n} from "@haulmont/jmix-react-antd";
+import {notifications, NotificationType} from "@haulmont/jmix-react-antd";
 const ROUTING_PATH = "/parametrizedMessagesScreen";
 
 export const ParametrizedMessagesScreen = () => {
@@ -221,10 +221,9 @@ export const ParametrizedMessagesScreen = () => {
   )
 }
 
-const message = getI18n().formatMessage({id: "screen.ParametrizedMessages"}, {currentDate: dayjs().format("YYYY-MM-DD")});
 registerScreen({
   component: ParametrizedMessagesScreen,
-  caption:  message,
+  caption:  "screen.ParametrizedMessages",
   screenId: "ParametrizedMessagesScreen",
   menuOptions: {
     pathPattern: ROUTING_PATH,

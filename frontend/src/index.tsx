@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Result } from "antd";
 import { useIntl } from "react-intl";
+import "./i18n/i18nInit";
 import App from "./app/App";
 import { useDevLogin } from "./dev/hooks";
 import { DevSupport } from "@haulmont/react-ide-toolbox";
@@ -16,7 +17,6 @@ import {
 } from "@haulmont/jmix-react-core";
 import { I18nProvider, Modals } from "@haulmont/jmix-react-antd";
 import { initializeApp } from "@haulmont/jmix-rest";
-import "./i18n/i18nInit";
 import { ComponentPreviews } from "./dev/previews";
 
 import {

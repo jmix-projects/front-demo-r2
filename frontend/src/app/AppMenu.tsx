@@ -186,6 +186,18 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"21522e71-5149-4386-b3f8-3e8772dd0217"}
         />
       </SubMenuItem>
+      <SubMenuItem caption={"menu.Messages"} key={"messages"}>
+        <MenuItem
+          screenId={"ParametrizedMessagesScreen"}
+          caption={"menu.ParametrizedMessages"}
+          key={"ParametrizedMessagesScreen"}
+        />
+        <MenuItem
+          screenId={"ParametrizedCaptionScreen"}
+          caption={"menu.ParametrizedCaptionScreen"}
+          key={"aab8e6eb-2fa8-4476-a34f-c869e02d4e23"}
+        />
+      </SubMenuItem>
       <MenuItem
         screenId={"ScreenApiDemoScreen"}
         caption={"menu.ScreenApiDemoScreen"}
@@ -195,11 +207,6 @@ export const AppMenu = (props: AppMenuProps) => {
         screenId={"MenuDemo"}
         caption={"router.MenuDemoScreen"}
         key={"930a8778-0e7b-4556-a878-ea8b45fb6ea3"}
-      />
-      <MenuItem
-        screenId={"ParametrizedMessagesScreen"}
-        caption={"menu.ParametrizedMessages"}
-        key={"ParametrizedMessagesScreen"}
       />
       <MenuItem
         screenId={"UserList"}
