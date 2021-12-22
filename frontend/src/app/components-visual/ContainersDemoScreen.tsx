@@ -3,6 +3,7 @@ import { registerScreen } from "@haulmont/jmix-react-web";
 import {Card, Menu, Space, Typography} from "antd";
 import {Col, Footer, Header, Row, Sidebar, Card as JmixCard, MultiTabs} from "@haulmont/jmix-react-antd";
 import styles from "./style.module.css";
+import Link from "antd/es/typography/Link";
 
 const ROUTING_PATH = "/containersDemoScreen";
 
@@ -48,9 +49,11 @@ const ContainersDemoScreen = () => {
           </Menu>
         </Sidebar>
       </Card>
-      {/*<Card title="MultiTabs">*/}
-      {/*  <MultiTabs/> { /* todo extract for demonstration *!/*/}
-      {/*</Card>*/}
+      <Card title="MultiTabs">
+        <Link href={'/multiTabsDemo'}>
+          Open MultiTabs demo screen
+        </Link>
+      </Card>
       <Card title="Card">
         <JmixCard title={"Card Title"}>
           <p>Card content</p>

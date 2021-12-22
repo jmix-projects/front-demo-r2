@@ -30,11 +30,6 @@ const ComplexComponentsDemoScreen = () => {
           <DateField propertyName="endDate" showTime/>
         </EntityForm>
       </Card>
-      <Card title="MultiTabs">
-        <Link href={'/multiTabsDemo'}>
-          Open `MultiTabs` demo screen
-        </Link>
-      </Card>
     </Space>
   )
 };

@@ -6,9 +6,6 @@ import {Space, Typography} from "antd";
 const ROUTING_PATH = "/iconsDemoScreen";
 
 const IconsDemoScreen = () => <div>
-  <p>
-    Use Icons directly from <Typography.Text code={true}>@ant-design/icons</Typography.Text> library:
-  </p>
   <Space style={{fontSize: '32px'}}>
     <HomeOutlined />
     <SettingFilled />
