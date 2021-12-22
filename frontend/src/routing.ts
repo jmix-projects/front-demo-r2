@@ -36,3 +36,5 @@ import "./app/charts/RadarChartScreen";
 import "./app/charts/RadialBarChartScreen";
 import "./app/charts/ScatterChartScreen";
 import "./app/charts/WaffleChartScreen";
+import "./app/charts/ChoroplethChartScreen";
+import "./app/charts/ChordChartScreen";
