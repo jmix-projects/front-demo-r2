@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import EventCardsWithDetails from "../app/templates/entity-expandable-details/EventCardsWithDetails";
 import IconsDemoScreen from "../app/components-visual/IconsDemoScreen";
 import ComplexComponentsDemoScreen from "../app/components-visual/ComplexComponentsDemoScreen";
 import ControlsDemoScreen from "../app/components-visual/ControlsDemoScreen";
@@ -190,6 +191,11 @@ export default () => (
       <Component name="IconsDemoScreen">
         <Variant>
           <IconsDemoScreen />
+        </Variant>
+      </Component>
+      <Component name="EventCardsWithDetails">
+        <Variant>
+          <EventCardsWithDetails />
         </Variant>
       </Component>
     </Category>

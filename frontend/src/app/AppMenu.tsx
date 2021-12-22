@@ -163,6 +163,11 @@ export const AppMenu = (props: AppMenuProps) => {
           caption={"screen.EventCalendar"}
           key={"EventCalendar"}
         />
+        <MenuItem
+          screenId={"EventCardsWithDetails"}
+          caption={"screen.EventCardsWithDetails"}
+          key={"4af9afac-4900-4467-9905-ef9d14171d02"}
+        />
       </SubMenuItem>
       <SubMenuItem
         caption={"menu.Tools"}
