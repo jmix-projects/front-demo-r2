@@ -1,4 +1,6 @@
 {
+  "menu.ParametrizedCaptionScreen": "Parametrized Caption Screen",
+  "screen.ParametrizedCaptionScreen": "Parametrized Caption {currentDate}",
   "screen.EventWizard": "Event Wizard",
   "screen.EventCardsWithDetails": "Event Cards With Details",
   "screen.IconsDemoScreen": "Icons",
@@ -15,8 +17,9 @@
   "screen.Structure3to1": "3 : 1",
   "screen.StructureFourColumns": "Four Columns",
   "screen.StructureTwoColumns": "Two Columns",
+  "menu.Messages": "Messages",
   "menu.ParametrizedMessages": "Messages",
-  "screen.ParametrizedMessages": "Messages {currentDate}",
+  "screen.ParametrizedMessages": "Messages",
   "screen.UserSessionList": "User Session List",
   "screen.ChangePasswordComponent": "Change password",
   "screen.ResourceRoleList": "Resource Role List",

@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import ParametrizedCaptionScreen from "../app/i18n/ParametrizedCaptionScreen";
 import EventCardsWithDetails from "../app/templates/entity-expandable-details/EventCardsWithDetails";
 import IconsDemoScreen from "../app/components-visual/IconsDemoScreen";
 import ComplexComponentsDemoScreen from "../app/components-visual/ComplexComponentsDemoScreen";
@@ -154,6 +155,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/EventCardsWithDetails">
         <EventCardsWithDetails />
+      </ComponentPreview>
+      <ComponentPreview path="/parametrizedCaptionScreen">
+        <ParametrizedCaptionScreen />
       </ComponentPreview>
     </Previews>
   );

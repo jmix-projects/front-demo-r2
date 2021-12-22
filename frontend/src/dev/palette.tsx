@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import ParametrizedCaptionScreen from "../app/i18n/ParametrizedCaptionScreen";
 import EventWizard from "../app/templates/entity-wizard/EventWizard";
 import EventCardsWithDetails from "../app/templates/entity-expandable-details/EventCardsWithDetails";
 import IconsDemoScreen from "../app/components-visual/IconsDemoScreen";
@@ -202,6 +203,11 @@ export default () => (
       <Component name="EventWizard">
         <Variant>
           <EventWizard />
+        </Variant>
+      </Component>
+      <Component name="ParametrizedCaptionScreen">
+        <Variant>
+          <ParametrizedCaptionScreen />
         </Variant>
       </Component>
     </Category>
