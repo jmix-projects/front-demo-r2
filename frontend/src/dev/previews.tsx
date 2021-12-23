@@ -1,4 +1,5 @@
 import { VisualComponentsDemoScreen } from "../app/components-visual/VisualComponentsDemoScreen";
+import ErrorHandlingDemoScreen from "../app/error-handling/ErrorHandlingDemoScreen";
 import ParametrizedCaptionScreen from "../app/i18n/ParametrizedCaptionScreen";
 import EventCardsWithDetails from "../app/templates/entity-expandable-details/EventCardsWithDetails";
 import IconsDemoScreen from "../app/components-visual/IconsDemoScreen";
@@ -162,6 +163,9 @@ export const ComponentPreviews = () => {
       </ComponentPreview>
       <ComponentPreview path="/pivotTableScreen">
         <PivotTableScreen />
+      </ComponentPreview>
+      <ComponentPreview path="/errorHandlingDemoScreen">
+        <ErrorHandlingDemoScreen />
       </ComponentPreview>
     </Previews>
   );

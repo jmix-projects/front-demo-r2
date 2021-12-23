@@ -11,6 +11,7 @@ import {
   Row,
   Space
 } from "antd";
+import ErrorHandlingDemoScreen from "../app/error-handling/ErrorHandlingDemoScreen";
 import ParametrizedCaptionScreen from "../app/i18n/ParametrizedCaptionScreen";
 import EventWizard from "../app/templates/entity-wizard/EventWizard";
 import EventCardsWithDetails from "../app/templates/entity-expandable-details/EventCardsWithDetails";
@@ -215,6 +216,11 @@ export default () => (
       <Component name="PivotTableScreen">
         <Variant>
           <PivotTableScreen />
+        </Variant>
+      </Component>
+      <Component name="ErrorHandlingDemoScreen">
+        <Variant>
+          <ErrorHandlingDemoScreen />
         </Variant>
       </Component>
     </Category>

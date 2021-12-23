@@ -198,6 +198,16 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"aab8e6eb-2fa8-4476-a34f-c869e02d4e23"}
         />
       </SubMenuItem>
+      <MenuItem
+        screenId={"ScreenApiDemoScreen"}
+        caption={"menu.ScreenApiDemoScreen"}
+        key={"9091872d-420e-47e2-b1d5-747c562ad137"}
+      />
+      <MenuItem
+        screenId={"ErrorHandlingDemoScreen"}
+        caption={"screen.ErrorHandlingDemoScreen"}
+        key={"dee8d9e9-5290-4bfb-abc2-712655d12bb0"}
+      />
       <SubMenuItem
         caption={"menu.Charts"}
         key={"a9c4dce1-f80b-4015-b206-53527495d2c1"}
@@ -258,11 +268,6 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"a0283b3d-1271-43a8-be0d-f69b2d9e2843"}
         />
       </SubMenuItem>
-      <MenuItem
-        screenId={"ScreenApiDemoScreen"}
-        caption={"menu.ScreenApiDemoScreen"}
-        key={"9091872d-420e-47e2-b1d5-747c562ad137"}
-      />
       <MenuItem
         screenId={"MenuDemo"}
         caption={"router.MenuDemoScreen"}

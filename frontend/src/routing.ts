@@ -1,3 +1,4 @@
+import "./app/error-handling/ErrorHandlingDemoScreen";
 import "./app/i18n/ParametrizedCaptionScreen";
 import "./app/templates/entity-wizard/EventWizard";
 import "./app/templates/entity-expandable-details/EventCardsWithDetails";
