@@ -33,6 +33,7 @@ import {
 } from "@haulmont/react-ide-toolbox";
 import * as React from "react";
 import { FormattedMessage } from "react-intl";
+import { ChartsPalette } from "@haulmont/jmix-addon-charts/palette";
 
 export default () => (
   <Palette>
@@ -217,5 +218,6 @@ export default () => (
         </Variant>
       </Component>
     </Category>
+    <ChartsPalette />
   </Palette>
 );
