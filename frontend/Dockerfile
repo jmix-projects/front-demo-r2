@@ -4,8 +4,9 @@ WORKDIR /app
 
 COPY package.json ./
 COPY package-lock.json ./
+COPY front-cn-locale-example-package ../
 
-RUN npm ci
+RUN npm i
 
 COPY . ./
 
