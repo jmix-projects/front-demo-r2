@@ -3,11 +3,18 @@ import { observer } from "mobx-react";
 import { PlusOutlined, LeftOutlined } from "@ant-design/icons";
 import { Button, Tooltip } from "antd";
 import { EntityPermAccessControl } from "@haulmont/jmix-react-core";
+import {
+  DataTable,
+  RetryDialog,
+  useMasterDetailList,
+  useOpenScreenErrorCallback,
+  useEntityDeleteCallback,
+  saveHistory
+} from "@haulmont/jmix-react-antd";
+import { EntityListProps } from "@haulmont/jmix-react-web";
 import { Customer } from "../../../jmix/entities/Customer";
 import { FormattedMessage } from "react-intl";
 import { gql } from "@apollo/client";
-import {EntityListProps} from "@haulmont/jmix-react-web";
-import {DataTable, RetryDialog, useMasterDetailList} from "@haulmont/jmix-react-antd";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerMDList";
@@ -19,16 +26,16 @@ const CUSTOMER_LIST = gql`
     $orderBy: inp_CustomerOrderBy
     $filter: [inp_CustomerFilterCondition]
   ) {
-    CustomerCount
+    CustomerCount(filter: $filter)
     CustomerList(
       limit: $limit
       offset: $offset
       orderBy: $orderBy
       filter: $filter
     ) {
-      id
       _instanceName
       email
+      id
       name
     }
   }
@@ -36,7 +43,8 @@ const CUSTOMER_LIST = gql`
 
 const CustomerMDList = observer((props: EntityListProps<Customer>) => {
   const { entityList, onEntityListChange } = props;
-
+  const onOpenScreenError = useOpenScreenErrorCallback();
+  const onEntityDelete = useEntityDeleteCallback();
   const {
     items,
     count,
@@ -56,7 +64,10 @@ const CustomerMDList = observer((props: EntityListProps<Customer>) => {
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH,
     entityList,
-    onEntityListChange
+    onEntityListChange,
+    onPagination: saveHistory,
+    onEntityDelete,
+    onOpenScreenError
   });
 
   if (error != null) {
@@ -102,7 +113,7 @@ const CustomerMDList = observer((props: EntityListProps<Customer>) => {
 
   if (entityList != null) {
     buttons.unshift(
-      <Tooltip title={<FormattedMessage id="common.back" />}>
+      <Tooltip title={<FormattedMessage id="common.back" />} key="back">
         <Button
           htmlType="button"
           style={{ margin: "0 12px 12px 0" }}

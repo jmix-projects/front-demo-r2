@@ -1,28 +1,29 @@
 import React from "react";
-import {Button, Card, Form} from "antd";
-import {useForm} from "antd/es/form/Form";
-import {observer} from "mobx-react";
-import {FormattedMessage} from "react-intl";
-import {gql} from "@apollo/client";
-import {DatatypesTestEntity} from "../../../jmix/entities/DatatypesTestEntity";
+import { Form, Button, Card, Space } from "antd";
+import { useForm } from "antd/es/form/Form";
+import { observer } from "mobx-react";
+import { FormattedMessage } from "react-intl";
 import {
-  ant_to_jmixFront,
   createUseAntdForm,
   createUseAntdFormValidation,
+  RetryDialog,
   Field,
   GlobalErrorsAlert,
-  RetryDialog,
   Spinner,
   useEntityPersistCallbacks,
-  useSubmitFailedCallback
+  useSubmitFailedCallback,
+  ant_to_jmixFront
 } from "@haulmont/jmix-react-antd";
 import {
   createAntdFormValidationMessages,
+  useEntityEditor,
   EntityEditorProps,
-  registerEntityEditor, useDefaultEditorHotkeys,
-  useEntityEditor
+  registerEntityEditor,
+  useDefaultEditorHotkeys
 } from "@haulmont/jmix-react-web";
+import { gql } from "@apollo/client";
 import styles from "../../../app/App.module.css";
+import { DatatypesTestEntity } from "../../../jmix/entities/DatatypesTestEntity";
 
 const ENTITY_NAME = "DatatypesTestEntity";
 const ROUTING_PATH = "/datatypesTestEntityEditor";
@@ -30,7 +31,6 @@ const ROUTING_PATH = "/datatypesTestEntityEditor";
 const LOAD_DATATYPESTESTENTITY = gql`
   query DatatypesTestEntityById($id: String = "", $loadItem: Boolean!) {
     DatatypesTestEntityById(id: $id) @include(if: $loadItem) {
-      id
       _instanceName
       bigDecimalAttr
       booleanAttr
@@ -38,6 +38,7 @@ const LOAD_DATATYPESTESTENTITY = gql`
       dateTimeAttr
       doubleAttr
       enumAttr
+      id
       integerAttr
       localDateAttr
       localDateTimeAttr
@@ -68,9 +69,9 @@ const DatatypesTestEntityEditor = observer(
     const {
       onCommit,
       entityInstance,
-      submitBtnCaption = "common.submit"
+      submitBtnCaption = "common.submit",
+      disabled: readOnlyMode
     } = props;
-
     const [form] = useForm();
     const onSubmitFailed = useSubmitFailedCallback();
     const {
@@ -117,6 +118,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="bigDecimalAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -125,6 +127,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="booleanAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" },
               valuePropName: "checked"
@@ -134,6 +137,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="dateAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -142,6 +146,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="dateTimeAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -150,6 +155,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="doubleAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -158,7 +164,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="enumAttr"
-            disabled={true}
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -167,6 +173,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="integerAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -175,6 +182,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="localDateAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -183,6 +191,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="localDateTimeAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -191,6 +200,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="localTimeAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -199,6 +209,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="longAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -207,6 +218,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="name"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -215,6 +227,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="offsetDateTimeAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -223,6 +236,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="offsetTimeAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -231,6 +245,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="stringAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -239,6 +254,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="timeAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -247,6 +263,7 @@ const DatatypesTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="uuidAttr"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -255,17 +272,22 @@ const DatatypesTestEntityEditor = observer(
           <GlobalErrorsAlert serverValidationErrors={serverValidationErrors} />
 
           <Form.Item style={{ textAlign: "center" }}>
-            <Button htmlType="button" onClick={handleCancelBtnClick}>
-              <FormattedMessage id="common.cancel" />
-            </Button>
-            <Button
-              type="primary"
-              htmlType="submit"
-              loading={upsertLoading}
-              style={{ marginLeft: "8px" }}
-            >
-              <FormattedMessage id={submitBtnCaption} />
-            </Button>
+            <Space size={8}>
+              <Button htmlType="button" onClick={handleCancelBtnClick}>
+                <FormattedMessage
+                  id={readOnlyMode ? "common.back" : "common.cancel"}
+                />
+              </Button>
+              {!readOnlyMode && (
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  loading={upsertLoading}
+                >
+                  <FormattedMessage id={submitBtnCaption} />
+                </Button>
+              )}
+            </Space>
           </Form.Item>
         </Form>
       </Card>
@@ -274,14 +296,14 @@ const DatatypesTestEntityEditor = observer(
 );
 
 registerEntityEditor({
-  entityName: ENTITY_NAME,
-  screenId: "DatatypesTestEntityEdit",
   component: DatatypesTestEntityEditor,
-  caption: "Datatypes Test Entity Edit",
+  caption: "screen.DatatypesTestEntityEditor",
+  screenId: "DatatypesTestEntityEditor",
+  entityName: ENTITY_NAME,
   menuOptions: {
-    menuLink: ROUTING_PATH,
-    pathPattern: ROUTING_PATH
+    pathPattern: ROUTING_PATH,
+    menuLink: ROUTING_PATH
   }
-})
+});
 
 export default DatatypesTestEntityEditor;

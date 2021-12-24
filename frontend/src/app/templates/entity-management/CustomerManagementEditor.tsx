@@ -1,27 +1,29 @@
-import React, { useContext } from "react";
-import {Form, Alert, Button, Card, Space} from "antd";
+import React from "react";
+import { Form, Button, Card, Space } from "antd";
 import { useForm } from "antd/es/form/Form";
 import { observer } from "mobx-react";
 import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
-import { Customer } from "../../../jmix/entities/Customer";
 import {
-  createAntdFormValidationMessages,
-  EntityEditorProps,
-  registerEntityEditor, useDefaultEditorHotkeys,
-  useEntityEditor
-} from "@haulmont/jmix-react-web";
-import {
-  ant_to_jmixFront,
-  createUseAntdForm, createUseAntdFormValidation,
+  createUseAntdForm,
+  createUseAntdFormValidation,
+  RetryDialog,
   Field,
   GlobalErrorsAlert,
-  RetryDialog,
   Spinner,
   useEntityPersistCallbacks,
-  useSubmitFailedCallback
+  useSubmitFailedCallback,
+  ant_to_jmixFront
 } from "@haulmont/jmix-react-antd";
+import {
+  createAntdFormValidationMessages,
+  useEntityEditor,
+  EntityEditorProps,
+  registerEntityEditor,
+  useDefaultEditorHotkeys
+} from "@haulmont/jmix-react-web";
+import { gql } from "@apollo/client";
 import styles from "../../../app/App.module.css";
+import { Customer } from "../../../jmix/entities/Customer";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerManagementEditor";
@@ -29,9 +31,9 @@ const ROUTING_PATH = "/customerManagementEditor";
 const LOAD_CUSTOMER = gql`
   query CustomerById($id: String = "", $loadItem: Boolean!) {
     CustomerById(id: $id) @include(if: $loadItem) {
-      id
       _instanceName
       email
+      id
       name
     }
   }
@@ -50,9 +52,9 @@ const CustomerManagementEditor = observer(
     const {
       onCommit,
       entityInstance,
-      submitBtnCaption = "common.submit"
+      submitBtnCaption = "common.submit",
+      disabled: readOnlyMode
     } = props;
-
     const [form] = useForm();
     const onSubmitFailed = useSubmitFailedCallback();
     const {
@@ -99,6 +101,7 @@ const CustomerManagementEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="email"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -107,6 +110,7 @@ const CustomerManagementEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="name"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -117,11 +121,19 @@ const CustomerManagementEditor = observer(
           <Form.Item style={{ textAlign: "center" }}>
             <Space size={8}>
               <Button htmlType="button" onClick={handleCancelBtnClick}>
-                <FormattedMessage id="common.cancel" />
+                <FormattedMessage
+                  id={readOnlyMode ? "common.back" : "common.cancel"}
+                />
               </Button>
-              <Button type="primary" htmlType="submit" loading={upsertLoading}>
-                <FormattedMessage id={submitBtnCaption} />
-              </Button>
+              {!readOnlyMode && (
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  loading={upsertLoading}
+                >
+                  <FormattedMessage id={submitBtnCaption} />
+                </Button>
+              )}
             </Space>
           </Form.Item>
         </Form>
@@ -134,7 +146,11 @@ registerEntityEditor({
   component: CustomerManagementEditor,
   caption: "screen.CustomerManagementEditor",
   screenId: "CustomerManagementEditor",
-  entityName: ENTITY_NAME
+  entityName: ENTITY_NAME,
+  menuOptions: {
+    pathPattern: ROUTING_PATH,
+    menuLink: ROUTING_PATH
+  }
 });
 
 export default CustomerManagementEditor;

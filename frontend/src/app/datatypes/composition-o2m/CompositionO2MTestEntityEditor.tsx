@@ -1,27 +1,29 @@
 import React from "react";
-import {Button, Card, Form, Space} from "antd";
-import {useForm} from "antd/es/form/Form";
-import {observer} from "mobx-react";
-import {FormattedMessage} from "react-intl";
-import {gql} from "@apollo/client";
-import {CompositionO2MTestEntity} from "../../../jmix/entities/CompositionO2MTestEntity";
+import { Form, Button, Card, Space } from "antd";
+import { useForm } from "antd/es/form/Form";
+import { observer } from "mobx-react";
+import { FormattedMessage } from "react-intl";
 import {
-  createAntdFormValidationMessages,
-  EntityEditorProps,
-  registerEntityEditor,
-  useEntityEditor
-} from "@haulmont/jmix-react-web";
-import {
-  ant_to_jmixFront,
   createUseAntdForm,
   createUseAntdFormValidation,
+  RetryDialog,
   Field,
   GlobalErrorsAlert,
-  RetryDialog,
-  Spinner, useEntityPersistCallbacks,
-  useSubmitFailedCallback
+  Spinner,
+  useEntityPersistCallbacks,
+  useSubmitFailedCallback,
+  ant_to_jmixFront
 } from "@haulmont/jmix-react-antd";
+import {
+  createAntdFormValidationMessages,
+  useEntityEditor,
+  EntityEditorProps,
+  registerEntityEditor,
+  useDefaultEditorHotkeys
+} from "@haulmont/jmix-react-web";
+import { gql } from "@apollo/client";
 import styles from "../../../app/App.module.css";
+import { CompositionO2MTestEntity } from "../../../jmix/entities/CompositionO2MTestEntity";
 
 const ENTITY_NAME = "CompositionO2MTestEntity";
 const ROUTING_PATH = "/compositionO2MTestEntityEditor";
@@ -29,13 +31,13 @@ const ROUTING_PATH = "/compositionO2MTestEntityEditor";
 const LOAD_COMPOSITIONO2MTESTENTITY = gql`
   query CompositionO2MTestEntityById($id: String = "", $loadItem: Boolean!) {
     CompositionO2MTestEntityById(id: $id) @include(if: $loadItem) {
-      id
       _instanceName
       datatypesTestEntity {
-        id
         _instanceName
+        id
         name
       }
+      id
       name
       quantity
     }
@@ -63,9 +65,9 @@ const CompositionO2MTestEntityEditor = observer(
     const {
       onCommit,
       entityInstance,
-      submitBtnCaption = "common.submit"
+      submitBtnCaption = "common.submit",
+      disabled: readOnlyMode
     } = props;
-
     const [form] = useForm();
     const onSubmitFailed = useSubmitFailedCallback();
     const {
@@ -90,6 +92,8 @@ const CompositionO2MTestEntityEditor = observer(
       useEntityEditorFormValidation: createUseAntdFormValidation(form)
     });
 
+    useDefaultEditorHotkeys({ saveEntity: form.submit });
+
     if (queryLoading) {
       return <Spinner />;
     }
@@ -111,6 +115,7 @@ const CompositionO2MTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="datatypesTestEntity"
+            disabled={readOnlyMode}
             associationOptions={relationOptions?.get("DatatypesTestEntity")}
             formItemProps={{
               style: { marginBottom: "12px" }
@@ -120,6 +125,7 @@ const CompositionO2MTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="name"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -128,6 +134,7 @@ const CompositionO2MTestEntityEditor = observer(
           <Field
             entityName={ENTITY_NAME}
             propertyName="quantity"
+            disabled={readOnlyMode}
             formItemProps={{
               style: { marginBottom: "12px" }
             }}
@@ -138,11 +145,19 @@ const CompositionO2MTestEntityEditor = observer(
           <Form.Item style={{ textAlign: "center" }}>
             <Space size={8}>
               <Button htmlType="button" onClick={handleCancelBtnClick}>
-                <FormattedMessage id="common.cancel" />
+                <FormattedMessage
+                  id={readOnlyMode ? "common.back" : "common.cancel"}
+                />
               </Button>
-              <Button type="primary" htmlType="submit" loading={upsertLoading}>
-                <FormattedMessage id={submitBtnCaption} />
-              </Button>
+              {!readOnlyMode && (
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  loading={upsertLoading}
+                >
+                  <FormattedMessage id={submitBtnCaption} />
+                </Button>
+              )}
             </Space>
           </Form.Item>
         </Form>
@@ -152,10 +167,14 @@ const CompositionO2MTestEntityEditor = observer(
 );
 
 registerEntityEditor({
-  screenId: "compositionO2M",
   component: CompositionO2MTestEntityEditor,
-  caption: "compositionO2M",
-  entityName: ENTITY_NAME
-})
+  caption: "screen.CompositionO2MTestEntityEditor",
+  screenId: "CompositionO2MTestEntityEditor",
+  entityName: ENTITY_NAME,
+  menuOptions: {
+    pathPattern: ROUTING_PATH,
+    menuLink: ROUTING_PATH
+  }
+});
 
 export default CompositionO2MTestEntityEditor;

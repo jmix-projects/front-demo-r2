@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import React, { useMemo } from "react";
 import { observer } from "mobx-react";
 import {
   DeleteOutlined,
@@ -13,11 +13,24 @@ import {
   EntityPermAccessControl,
   toIdString
 } from "@haulmont/jmix-react-core";
+import {
+  EntityProperty,
+  useEntityList,
+  EntityListProps,
+  registerEntityList
+} from "@haulmont/jmix-react-web";
+import {
+  Paging,
+  Spinner,
+  RetryDialog,
+  useOpenScreenErrorCallback,
+  useEntityDeleteCallback,
+  saveHistory
+} from "@haulmont/jmix-react-antd";
 import { Customer } from "../../../jmix/entities/Customer";
 import { FormattedMessage } from "react-intl";
 import { gql } from "@apollo/client";
-import {EntityListProps, EntityProperty, registerEntityList, useEntityList} from "@haulmont/jmix-react-web";
-import {Paging, RetryDialog, Spinner} from "@haulmont/jmix-react-antd";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerManagementList";
@@ -29,24 +42,30 @@ const CUSTOMER_LIST = gql`
     $orderBy: inp_CustomerOrderBy
     $filter: [inp_CustomerFilterCondition]
   ) {
-    CustomerCount
+    CustomerCount(filter: $filter)
     CustomerList(
       limit: $limit
       offset: $offset
       orderBy: $orderBy
       filter: $filter
     ) {
-      id
       _instanceName
       email
+      id
       name
     }
   }
 `;
 
 const CustomerManagementList = observer((props: EntityListProps<Customer>) => {
-  const { entityList, onEntityListChange, onSelectEntity } = props;
-
+  const {
+    entityList,
+    onEntityListChange,
+    onSelectEntity,
+    disabled: readOnlyMode
+  } = props;
+  const onOpenScreenError = useOpenScreenErrorCallback();
+  const onEntityDelete = useEntityDeleteCallback();
   const {
     items,
     count,
@@ -63,56 +82,58 @@ const CustomerManagementList = observer((props: EntityListProps<Customer>) => {
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH,
     entityList,
-    onEntityListChange
+    onEntityListChange,
+    onPagination: saveHistory,
+    onEntityDelete,
+    onOpenScreenError
   });
 
   const getEntityCardsActions = useMemo(() => {
+    if (readOnlyMode) {
+      return () => [];
+    }
+
     return onSelectEntity
       ? (e: EntityInstance<Customer>) => [
-        <Button
-          htmlType="button"
-          type="primary"
-          onClick={() => {
-            onSelectEntity(e);
-            goToParentScreen();
-          }}
-        >
-              <span>
-                <FormattedMessage id="common.selectEntity" />
-              </span>
-        </Button>
-      ]
+          <Button
+            htmlType="button"
+            type="primary"
+            onClick={() => {
+              onSelectEntity(e);
+              goToParentScreen();
+            }}
+          >
+            <span>
+              <FormattedMessage id="common.selectEntity" />
+            </span>
+          </Button>
+        ]
       : (e: EntityInstance<Customer>) => [
-        <EntityPermAccessControl
-          entityName={ENTITY_NAME}
-          operation="delete"
-        >
-          <DeleteOutlined
-            role={"button"}
-            key="delete"
-            onClick={(event?: React.MouseEvent) =>
-              handleDeleteBtnClick(event, e.id)
-            }
-          />
-        </EntityPermAccessControl>,
-        <EntityPermAccessControl
-          entityName={ENTITY_NAME}
-          operation="update"
-        >
-          <EditOutlined
-            role={"button"}
-            key="edit"
-            onClick={(event?: React.MouseEvent) =>
-              handleEditBtnClick(event, e.id)
-            }
-          />
-        </EntityPermAccessControl>
-      ];
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="delete">
+            <DeleteOutlined
+              role={"button"}
+              key="delete"
+              onClick={(event?: React.MouseEvent) =>
+                handleDeleteBtnClick(event, e.id)
+              }
+            />
+          </EntityPermAccessControl>,
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="update">
+            <EditOutlined
+              role={"button"}
+              key="edit"
+              onClick={(event?: React.MouseEvent) =>
+                handleEditBtnClick(event, e.id)
+              }
+            />
+          </EntityPermAccessControl>
+        ];
   }, [
     onSelectEntity,
     handleDeleteBtnClick,
     handleEditBtnClick,
-    goToParentScreen
+    goToParentScreen,
+    readOnlyMode
   ]);
 
   if (error != null) {
@@ -125,9 +146,9 @@ const CustomerManagementList = observer((props: EntityListProps<Customer>) => {
   }
 
   return (
-    <div className="narrow-layout">
+    <div className={styles.narrowLayout}>
       <div style={{ marginBottom: "12px" }}>
-        {entityList != null && (
+        {(entityList != null || onSelectEntity != null) && (
           <Tooltip title={<FormattedMessage id="common.back" />}>
             <Button
               htmlType="button"
@@ -140,24 +161,20 @@ const CustomerManagementList = observer((props: EntityListProps<Customer>) => {
             />
           </Tooltip>
         )}
-
-        {onSelectEntity == null && (
-          <EntityPermAccessControl
-            entityName={ENTITY_NAME}
-            operation="create"
-          >
-              <span>
-                <Button
-                  htmlType="button"
-                  type="primary"
-                  icon={<PlusOutlined />}
-                  onClick={handleCreateBtnClick}
-                >
-                  <span>
-                    <FormattedMessage id="common.create" />
-                  </span>
-                </Button>
-              </span>
+        {onSelectEntity == null && !readOnlyMode && (
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
+            <span>
+              <Button
+                htmlType="button"
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={handleCreateBtnClick}
+              >
+                <span>
+                  <FormattedMessage id="common.create" />
+                </span>
+              </Button>
+            </span>
           </EntityPermAccessControl>
         )}
       </div>

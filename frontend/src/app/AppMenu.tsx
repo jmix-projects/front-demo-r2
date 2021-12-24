@@ -25,18 +25,18 @@ export const AppMenu = (props: AppMenuProps) => {
       >
         <MenuItem
           screenId={"DatatypesTestEntityList"}
-          caption={"router.DatatypesTestEntityList"}
-          key={"7ef031d3-8b07-437b-bfef-7fc3800100cd"}
+          caption={"screen.DatatypesTestEntityList"}
+          key={"150b9ed4-f94a-492f-abb7-62da0f7f00f9"}
         />
         <MenuItem
           screenId={"CompositionO2OTestEntityList"}
-          caption={"router.CompositionO2OTestEntityList"}
-          key={"62518b6c-54c7-4017-8b89-9ce6480a0cfc"}
+          caption={"screen.CompositionO2OTestEntityList"}
+          key={"79a475a3-d5be-42b3-8e2f-45526da0ffda"}
         />
         <MenuItem
           screenId={"CompositionO2MTestEntityList"}
-          caption={"router.CompositionO2MTestEntityList"}
-          key={"aae139b5-829e-4c05-8119-bcb9977842e6"}
+          caption={"screen.CompositionO2MTestEntityList"}
+          key={"5f66a2d9-58f0-4a2c-a9cd-443649d0fbb3"}
         />
       </SubMenuItem>
       <SubMenuItem
@@ -100,7 +100,7 @@ export const AppMenu = (props: AppMenuProps) => {
         />
         <MenuItem
           screenId={"CustomerCards"}
-          caption={"menu.EntityCards"}
+          caption={"menu.CustomerCards"}
           key={"a004b701-6412-45bd-95b5-9c5298295d6b"}
         />
         <MenuItem
@@ -115,8 +115,8 @@ export const AppMenu = (props: AppMenuProps) => {
         />
         <MenuItem
           screenId={"CustomerManagementList"}
-          caption={"menu.EntityManagement"}
-          key={"93eb4c45-8297-401c-b555-026d3ae68c67"}
+          caption={"screen.CustomerManagementList"}
+          key={"9dec7201-a870-4812-a2da-a71f3b6f98c6"}
         />
         <MenuItem
           screenId={"CustomerMasterDetail"}
