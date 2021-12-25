@@ -1,10 +1,10 @@
-FROM node:14 as builder
+FROM node:16 as builder
 
 WORKDIR /app
 
 COPY package.json ./
 COPY package-lock.json ./
-COPY front-cn-locale-example-package ../
+COPY cn-locale-example-package ./cn-locale-example-package
 
 RUN npm i
 
