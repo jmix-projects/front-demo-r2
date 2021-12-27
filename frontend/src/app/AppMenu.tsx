@@ -40,7 +40,7 @@ export const AppMenu = (props: AppMenuProps) => {
         />
       </SubMenuItem>
       <SubMenuItem
-        caption={"Components"}
+        caption={"menu.Components"}
         key={"dr2945b3-7666-4adb-b8c9-q9d30e4ce4cb"}
       >
         <SubMenuItem

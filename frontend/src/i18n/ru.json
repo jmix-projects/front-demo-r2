@@ -8,6 +8,7 @@
   "menu.CustomerCards": "Customer Cards",
   "menu.ScreenApiDemoScreen": "Screen API",
   "menu.CustomerManagementList": "Покупатели",
+  "menu.Components": "Компоненты",
   "screen.CustomerManagementList": "Покупатели",
   "screen.CustomerManagementEditor": "Редактор сущности Покупатель",
   "customerManagementList": "Customer Browser",
