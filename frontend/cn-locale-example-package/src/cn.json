@@ -112,5 +112,22 @@
   "antd.form.validation.array.min": "%s 不能少于 %s 个元素",
   "antd.form.validation.array.max": "%s 不能多于 %s 个元素",
   "antd.form.validation.array.range": "%s 需要有 %s 至 %s 个元素",
-  "antd.form.validation.pattern.mismatch": "%s 的值 %s 不匹配需要的格式： %s"
+  "antd.form.validation.pattern.mismatch": "%s 的值 %s 不匹配需要的格式： %s",
+  "router.home": "Home",
+  "menu.Datatypes": "Datatypes",
+  "menu.Components": "Components",
+  "menu.Templates": "Templates",
+  "menu.Tools": "Tools",
+  "menu.Messages": "Messages",
+  "menu.ScreenApiDemoScreen": "Screen Api Demo Screen",
+  "screen.ErrorHandlingDemoScreen": "Error Handling Demo Screen",
+  "menu.Charts": "Charts",
+  "router.MenuDemoScreen": "Menu Demo Screen",
+  "screen.UserList": "User List",
+  "screen.ResourceRoleList": "Resource Role List",
+  "screen.RowLevelRoleList": "Row Level Role List",
+  "screen.UserSessionList": "User Session List",
+  "screen.EntityInspector": "Entity Inspector",
+  "themes.sizes.defaultSize": "Default size",
+  "themes.light": "Light theme"
 }
