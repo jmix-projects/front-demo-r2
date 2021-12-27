@@ -44,7 +44,7 @@ const ErrorHandlingDemoScreen = () => {
       </Space>
       <Divider/>
 
-      {gqlErrors?.graphQLErrors && <Typography.Title level={3}>NetworkError</Typography.Title>}
+      {gqlErrors?.graphQLErrors && <Typography.Title level={3}>Server-side errors</Typography.Title>}
       {
         gqlErrors?.graphQLErrors.map(({message}, i) => (
         <Alert type={"error"} key={i} message={message}/>
@@ -52,7 +52,7 @@ const ErrorHandlingDemoScreen = () => {
 
       {gqlErrors?.networkError &&
         <>
-          <Typography.Title level={3}>NetworkError</Typography.Title>
+          <Typography.Title level={3}>Network error</Typography.Title>
           <Alert type={"error"} message={gqlErrors?.networkError.message}/>
         </>
       }

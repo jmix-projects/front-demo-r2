@@ -16,7 +16,7 @@
     "antd": "^4.13.1",
     "classnames": "^2.3.1",
     "graphql": "^15.4.0",
-    "jmix-i18n-cn": "file:../front-cn-locale-example-package",
+    "jmix-i18n-cn": "file:./cn-locale-example-package",
     "mobx": "^6.3.3",
     "mobx-react": "^7.2.1",
     "react": "^17.0.1",

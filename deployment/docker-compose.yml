@@ -35,7 +35,7 @@ services:
     networks:
       - frontend-demo-r2-net
 
-  frontend-r1-front:
+  frontend-r2-front:
     container_name: frontend-demo-r2-front
     image: docker.haulmont.com/platform/infrastructure/demo-cuba-apps-docker/demo-r2/frontend-demo-r2-front:testing
     restart: unless-stopped
