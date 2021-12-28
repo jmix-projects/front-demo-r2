@@ -1,34 +1,20 @@
-import React, { useMemo } from "react";
-import { observer } from "mobx-react";
-import {
-  DeleteOutlined,
-  EditOutlined,
-  PlusOutlined,
-  LeftOutlined
-} from "@ant-design/icons";
-import { Button, List, Tooltip } from "antd";
-import {
-  EntityInstance,
-  getFields,
-  EntityPermAccessControl
-} from "@haulmont/jmix-react-core";
-import {
-  EntityProperty,
-  useEntityList,
-  EntityListProps,
-  registerEntityList
-} from "@haulmont/jmix-react-web";
+import React, {useMemo} from "react";
+import {observer} from "mobx-react";
+import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
+import {Button, List, Tooltip} from "antd";
+import {EntityInstance, EntityPermAccessControl, getFields} from "@haulmont/jmix-react-core";
+import {EntityListProps, EntityProperty, registerScreen, useEntityList} from "@haulmont/jmix-react-web";
 import {
   Paging,
-  Spinner,
   RetryDialog,
-  useOpenScreenErrorCallback,
+  saveHistory,
+  Spinner,
   useEntityDeleteCallback,
-  saveHistory
+  useOpenScreenErrorCallback
 } from "@haulmont/jmix-react-antd";
-import { Customer } from "../../../jmix/entities/Customer";
-import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
+import {Customer} from "../../../jmix/entities/Customer";
+import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
 import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "Customer";
@@ -210,15 +196,14 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
   );
 });
 
-registerEntityList({
-  component: CustomerList,
-  caption: "menu.CustomerList",
+registerScreen({
   screenId: "CustomerList",
-  entityName: ENTITY_NAME,
+  component: CustomerList,
+  caption: "Customer List",
   menuOptions: {
-    pathPattern: `${ROUTING_PATH}/:entityId?`,
-    menuLink: ROUTING_PATH
+    menuLink: ROUTING_PATH,
+    pathPattern: `${ROUTING_PATH}/:entityId?`
   }
-});
+})
 
 export default CustomerList;

@@ -6,7 +6,7 @@ import {EntityInstance, EntityPermAccessControl, getFields, toIdString} from "@h
 import {
   EntityListProps,
   EntityProperty,
-  registerEntityList,
+  registerScreen,
   useEntityList,
   useScreenHotkey
 } from "@haulmont/jmix-react-web";
@@ -235,13 +235,12 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
   );
 });
 
-registerEntityList({
-  component: CustomerCards,
-  caption: "menu.CustomerCards",
+registerScreen({
   screenId: "CustomerCards",
-  entityName: ENTITY_NAME,
+  component: CustomerCards,
+  caption: "Entity Cards",
   menuOptions: {
-    pathPattern: `${ROUTING_PATH}/:entityId?`,
+    pathPattern: ROUTING_PATH,
     menuLink: ROUTING_PATH
   }
 });
