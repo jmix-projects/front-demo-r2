@@ -7,6 +7,7 @@ import io.jmix.security.role.annotation.ResourceRole;
 import io.jmix.usermgmt.role.annotation.FrontendMenuPolicy;
 import io.jmix.usermgmt.role.annotation.FrontendScreenPolicy;
 
+import static io.jmix.security.model.EntityAttributePolicyAction.MODIFY;
 import static io.jmix.security.model.EntityAttributePolicyAction.VIEW;
 import static io.jmix.security.model.EntityPolicyAction.*;
 
@@ -17,8 +18,8 @@ public interface JmixTestRole {
     @EntityAttributePolicy(entityClass = User.class, attributes = {"email"}, action = VIEW)
     @EntityAttributePolicy(entityClass = User.class,
             attributes = {"username", "password",
-                    "firstName", "lastName",},
-            action = VIEW)
+                    "firstName", "lastName"},
+            action = MODIFY)
     @FrontendMenuPolicy(menuIds = {"UserList", "ResourceRoleList"})
     @FrontendScreenPolicy(screenIds = {"UserList", "ResourceRoleList"})
     void specify();
