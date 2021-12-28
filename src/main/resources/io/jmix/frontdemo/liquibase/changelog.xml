@@ -26,6 +26,14 @@
         <sqlFile path="test-user.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="test-groups" author="admin">
+        <sqlFile path="test-groups.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
+    <changeSet id="test-roles" author="admin">
+        <sqlFile path="test-roles.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
     <changeSet id="datatypes_test_entities" author="admin">
         <sqlFile path="datatypes_test_entities.sql" relativeToChangelogFile="true"/>
     </changeSet>
