@@ -1,35 +1,25 @@
-import React, { useMemo } from "react";
-import { observer } from "mobx-react";
+import React, {useCallback, useMemo, useState} from "react";
+import {observer} from "mobx-react";
+import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
+import {Button, Card, Pagination, Tooltip} from "antd";
+import {EntityInstance, EntityPermAccessControl, getFields, toIdString} from "@haulmont/jmix-react-core";
 import {
-  DeleteOutlined,
-  EditOutlined,
-  PlusOutlined,
-  LeftOutlined
-} from "@ant-design/icons";
-import { Button, Card, Tooltip } from "antd";
-import {
-  EntityInstance,
-  getFields,
-  EntityPermAccessControl,
-  toIdString
-} from "@haulmont/jmix-react-core";
-import {
-  EntityProperty,
-  useEntityList,
   EntityListProps,
-  registerEntityList
+  EntityProperty,
+  registerEntityList,
+  useEntityList,
+  useScreenHotkey
 } from "@haulmont/jmix-react-web";
 import {
-  Paging,
-  Spinner,
   RetryDialog,
-  useOpenScreenErrorCallback,
+  saveHistory,
+  Spinner,
   useEntityDeleteCallback,
-  saveHistory
+  useOpenScreenErrorCallback
 } from "@haulmont/jmix-react-antd";
-import { Customer } from "../../../jmix/entities/Customer";
-import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
+import {Customer} from "../../../jmix/entities/Customer";
+import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
 import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "Customer";
@@ -136,6 +126,40 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
     readOnlyMode
   ]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const navigateToNextPage = useCallback(() => {
+    if (count == null || currentPage >= Math.ceil(count/10)) return;
+    setCurrentPage(page => page+1);
+    handlePaginationChange(currentPage+1, 10);
+  }, [currentPage, count]);
+
+  const navigateToPrevPage = useCallback(() => {
+    if (currentPage <= 1) return;
+    setCurrentPage(page => page-1);
+    handlePaginationChange(currentPage-1, 10);
+  }, [currentPage]);
+
+
+  useScreenHotkey({
+    hotkey: 'n',
+    description: 'Go to next page',
+    categoryName: 'Customer Cards',
+  }, navigateToNextPage);
+
+  useScreenHotkey({
+    hotkey: 'p',
+    description: 'Go to previous page',
+    categoryName: 'Customer Cards',
+  }, navigateToPrevPage);
+
+
+  function onPaginationChange(page: number) {
+    setCurrentPage(page);
+    handlePaginationChange(page, 10);
+  }
+
+
   if (error != null) {
     console.error(error);
     return <RetryDialog onRetry={executeListQuery} />;
@@ -203,11 +227,9 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
       ))}
 
       <div style={{ margin: "12px 0 12px 0", float: "right" }}>
-        <Paging
-          paginationConfig={entityListState.pagination ?? {}}
-          onPagingChange={handlePaginationChange}
-          total={count}
-        />
+        <Pagination current={currentPage}
+                    total={count}
+                    onChange={(page) => {onPaginationChange(page);}}/>
       </div>
     </div>
   );
