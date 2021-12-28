@@ -1,23 +1,28 @@
 import React from "react";
-import { Form, Button } from "antd";
+import { Form, Button, Space } from "antd";
 import { useForm } from "antd/es/form/Form";
 import { observer } from "mobx-react";
 import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
-import { Customer } from "../../../jmix/entities/Customer";
 import {
-  ant_to_jmixFront,
   createUseAntdForm,
   createUseAntdFormValidation,
+  RetryDialog,
   Field,
   GlobalErrorsAlert,
-  RetryDialog,
   Spinner,
-  useChangeConfirm, useCreateAntdResetForm, useEntityPersistCallbacks,
   useMasterDetailEditor,
-  useSubmitFailedCallback
+  useCreateAntdResetForm,
+  useEntityPersistCallbacks,
+  useSubmitFailedCallback,
+  ant_to_jmixFront,
+  useChangeConfirm
 } from "@haulmont/jmix-react-antd";
-import {createAntdFormValidationMessages, EntityEditorProps} from "@haulmont/jmix-react-web";
+import {
+  createAntdFormValidationMessages,
+  EntityEditorProps
+} from "@haulmont/jmix-react-web";
+import { gql } from "@apollo/client";
+import { Customer } from "../../../jmix/entities/Customer";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerMDEditor";
@@ -25,9 +30,9 @@ const ROUTING_PATH = "/customerMDEditor";
 const LOAD_CUSTOMER = gql`
   query CustomerById($id: String = "", $loadItem: Boolean!) {
     CustomerById(id: $id) @include(if: $loadItem) {
-      id
       _instanceName
       email
+      id
       name
     }
   }
@@ -47,14 +52,13 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
     entityInstance,
     submitBtnCaption = "common.submit"
   } = props;
-
   const [form] = useForm();
   const onSubmitFailed = useSubmitFailedCallback();
   const { setDirty } = useChangeConfirm();
+
   const fieldComponentProps = {
     onBlur: setDirty
   };
-
 
   const {
     executeLoadQuery,
@@ -116,17 +120,14 @@ const CustomerMDEditor = observer((props: EntityEditorProps<Customer>) => {
       <GlobalErrorsAlert serverValidationErrors={serverValidationErrors} />
 
       <Form.Item style={{ textAlign: "center" }}>
-        <Button htmlType="button" onClick={handleCancelBtnClick}>
-          <FormattedMessage id="common.cancel" />
-        </Button>
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={upsertLoading}
-          style={{ marginLeft: "8px" }}
-        >
-          <FormattedMessage id={submitBtnCaption} />
-        </Button>
+        <Space size={8}>
+          <Button htmlType="button" onClick={handleCancelBtnClick}>
+            <FormattedMessage id="common.cancel" />
+          </Button>
+          <Button type="primary" htmlType="submit" loading={upsertLoading}>
+            <FormattedMessage id={submitBtnCaption} />
+          </Button>
+        </Space>
       </Form.Item>
     </Form>
   );

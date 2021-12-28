@@ -1,10 +1,9 @@
 import React from "react";
 import CustomerMDEditor from "./CustomerMDEditor";
 import CustomerMDList from "./CustomerMDList";
-
-import {observer} from "mobx-react";
 import { MasterDetailManager } from "@haulmont/jmix-react-antd";
-import {registerScreen} from "@haulmont/jmix-react-web";
+import { registerEntityList } from "@haulmont/jmix-react-web";
+import { observer } from "mobx-react";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerMasterDetail";
@@ -18,14 +17,15 @@ const CustomerMasterDetail = observer(() => {
   );
 });
 
-registerScreen({
-  screenId: "CustomerMasterDetail",
+registerEntityList({
   component: CustomerMasterDetail,
-  caption: "CustomerMasterDetail",
+  caption: "menu.CustomerMasterDetail",
+  screenId: "CustomerMasterDetail",
+  entityName: ENTITY_NAME,
   menuOptions: {
-    menuLink: ROUTING_PATH,
-    pathPattern: `${ROUTING_PATH}/:entityId?`
+    pathPattern: `${ROUTING_PATH}/:entityId?`,
+    menuLink: ROUTING_PATH
   }
-})
+});
 
 export default CustomerMasterDetail;

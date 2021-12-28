@@ -1,29 +1,26 @@
-import React, {useCallback, useState} from "react";
-import { observer } from "mobx-react";
-import {
-  DeleteOutlined,
-  EditOutlined,
-  PlusOutlined,
-  LeftOutlined
-} from "@ant-design/icons";
+import React, {useCallback, useMemo, useState} from "react";
+import {observer} from "mobx-react";
+import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
 import {Button, Card, Pagination, Tooltip} from "antd";
-import {
-  EntityInstance,
-  getFields,
-  EntityPermAccessControl,
-  toIdString
-} from "@haulmont/jmix-react-core";
-import { Customer } from "../../../jmix/entities/Customer";
-import { FormattedMessage } from "react-intl";
-import { gql } from "@apollo/client";
+import {EntityInstance, EntityPermAccessControl, getFields, toIdString} from "@haulmont/jmix-react-core";
 import {
   EntityListProps,
   EntityProperty,
-  registerScreen,
+  registerEntityList,
   useEntityList,
   useScreenHotkey
 } from "@haulmont/jmix-react-web";
-import {Paging, RetryDialog, Spinner } from "@haulmont/jmix-react-antd";
+import {
+  RetryDialog,
+  saveHistory,
+  Spinner,
+  useEntityDeleteCallback,
+  useOpenScreenErrorCallback
+} from "@haulmont/jmix-react-antd";
+import {Customer} from "../../../jmix/entities/Customer";
+import {FormattedMessage} from "react-intl";
+import {gql} from "@apollo/client";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerCards";
@@ -35,24 +32,30 @@ const CUSTOMER_LIST = gql`
     $orderBy: inp_CustomerOrderBy
     $filter: [inp_CustomerFilterCondition]
   ) {
-    CustomerCount
+    CustomerCount(filter: $filter)
     CustomerList(
       limit: $limit
       offset: $offset
       orderBy: $orderBy
       filter: $filter
     ) {
-      id
       _instanceName
       email
+      id
       name
     }
   }
 `;
 
 const CustomerCards = observer((props: EntityListProps<Customer>) => {
-  const { entityList, onEntityListChange } = props;
-
+  const {
+    entityList,
+    onEntityListChange,
+    onSelectEntity,
+    disabled: readOnlyMode
+  } = props;
+  const onOpenScreenError = useOpenScreenErrorCallback();
+  const onEntityDelete = useEntityDeleteCallback();
   const {
     items,
     count,
@@ -69,8 +72,59 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH,
     entityList,
-    onEntityListChange
+    onEntityListChange,
+    onPagination: saveHistory,
+    onEntityDelete,
+    onOpenScreenError
   });
+
+  const getEntityCardsActions = useMemo(() => {
+    if (readOnlyMode) {
+      return () => [];
+    }
+
+    return onSelectEntity
+      ? (e: EntityInstance<Customer>) => [
+          <Button
+            htmlType="button"
+            type="primary"
+            onClick={() => {
+              onSelectEntity(e);
+              goToParentScreen();
+            }}
+          >
+            <span>
+              <FormattedMessage id="common.selectEntity" />
+            </span>
+          </Button>
+        ]
+      : (e: EntityInstance<Customer>) => [
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="delete">
+            <DeleteOutlined
+              role={"button"}
+              key="delete"
+              onClick={(event?: React.MouseEvent) =>
+                handleDeleteBtnClick(event, e.id)
+              }
+            />
+          </EntityPermAccessControl>,
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="update">
+            <EditOutlined
+              role={"button"}
+              key="edit"
+              onClick={(event?: React.MouseEvent) =>
+                handleEditBtnClick(event, e.id)
+              }
+            />
+          </EntityPermAccessControl>
+        ];
+  }, [
+    onSelectEntity,
+    handleDeleteBtnClick,
+    handleEditBtnClick,
+    goToParentScreen,
+    readOnlyMode
+  ]);
 
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -99,6 +153,13 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
     categoryName: 'Customer Cards',
   }, navigateToPrevPage);
 
+
+  function onPaginationChange(page: number) {
+    setCurrentPage(page);
+    handlePaginationChange(page, 10);
+  }
+
+
   if (error != null) {
     console.error(error);
     return <RetryDialog onRetry={executeListQuery} />;
@@ -108,15 +169,10 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
     return <Spinner />;
   }
 
-  function onPaginationChange(page: number) {
-      setCurrentPage(page);
-      handlePaginationChange(page, 10);
-  }
-
   return (
-    <div className="narrow-layout">
+    <div className={styles.narrowLayout}>
       <div style={{ marginBottom: "12px" }}>
-        {entityList != null && (
+        {(entityList != null || onSelectEntity != null) && (
           <Tooltip title={<FormattedMessage id="common.back" />}>
             <Button
               htmlType="button"
@@ -129,21 +185,22 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
             />
           </Tooltip>
         )}
-
-        <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
-          <span>
-            <Button
-              htmlType="button"
-              type="primary"
-              icon={<PlusOutlined />}
-              onClick={handleCreateBtnClick}
-            >
-              <span>
-                <FormattedMessage id="common.create" />
-              </span>
-            </Button>
-          </span>
-        </EntityPermAccessControl>
+        {onSelectEntity == null && !readOnlyMode && (
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
+            <span>
+              <Button
+                htmlType="button"
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={handleCreateBtnClick}
+              >
+                <span>
+                  <FormattedMessage id="common.create" />
+                </span>
+              </Button>
+            </span>
+          </EntityPermAccessControl>
+        )}
       </div>
 
       {items == null || items.length === 0 ? (
@@ -156,30 +213,7 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
           title={e._instanceName}
           key={e.id ? toIdString(e.id) : undefined}
           style={{ marginBottom: "12px" }}
-          actions={[
-            <EntityPermAccessControl
-              entityName={ENTITY_NAME}
-              operation="delete"
-            >
-              <DeleteOutlined
-                key="delete"
-                onClick={(event?: React.MouseEvent) =>
-                  handleDeleteBtnClick(event, e.id)
-                }
-              />
-            </EntityPermAccessControl>,
-            <EntityPermAccessControl
-              entityName={ENTITY_NAME}
-              operation="update"
-            >
-              <EditOutlined
-                key="edit"
-                onClick={(event?: React.MouseEvent) =>
-                  handleEditBtnClick(event, e.id)
-                }
-              />
-            </EntityPermAccessControl>
-          ]}
+          actions={getEntityCardsActions(e)}
         >
           {getFields(e).map(p => (
             <EntityProperty
@@ -201,12 +235,13 @@ const CustomerCards = observer((props: EntityListProps<Customer>) => {
   );
 });
 
-registerScreen({
-  screenId: "CustomerCards",
+registerEntityList({
   component: CustomerCards,
-  caption: "Entity Cards",
+  caption: "menu.CustomerCards",
+  screenId: "CustomerCards",
+  entityName: ENTITY_NAME,
   menuOptions: {
-    pathPattern: ROUTING_PATH,
+    pathPattern: `${ROUTING_PATH}/:entityId?`,
     menuLink: ROUTING_PATH
   }
 });

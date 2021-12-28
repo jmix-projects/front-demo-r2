@@ -1,13 +1,35 @@
-import React from "react";
-import {observer} from "mobx-react";
-import {DeleteOutlined, EditOutlined, LeftOutlined, PlusOutlined} from "@ant-design/icons";
-import {Button, List, Tooltip} from "antd";
-import {EntityInstance, EntityPermAccessControl, getFields} from "@haulmont/jmix-react-core";
-import {Customer} from "../../../jmix/entities/Customer";
-import {FormattedMessage} from "react-intl";
-import {gql} from "@apollo/client";
-import {EntityListProps, EntityProperty, registerScreen, useEntityList} from "@haulmont/jmix-react-web";
-import {Paging, RetryDialog, Spinner } from "@haulmont/jmix-react-antd";
+import React, { useMemo } from "react";
+import { observer } from "mobx-react";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  PlusOutlined,
+  LeftOutlined
+} from "@ant-design/icons";
+import { Button, List, Tooltip } from "antd";
+import {
+  EntityInstance,
+  getFields,
+  EntityPermAccessControl
+} from "@haulmont/jmix-react-core";
+import {
+  EntityProperty,
+  useEntityList,
+  EntityListProps,
+  registerEntityList
+} from "@haulmont/jmix-react-web";
+import {
+  Paging,
+  Spinner,
+  RetryDialog,
+  useOpenScreenErrorCallback,
+  useEntityDeleteCallback,
+  saveHistory
+} from "@haulmont/jmix-react-antd";
+import { Customer } from "../../../jmix/entities/Customer";
+import { FormattedMessage } from "react-intl";
+import { gql } from "@apollo/client";
+import styles from "../../../app/App.module.css";
 
 const ENTITY_NAME = "Customer";
 const ROUTING_PATH = "/customerList";
@@ -19,24 +41,30 @@ const CUSTOMER_LIST = gql`
     $orderBy: inp_CustomerOrderBy
     $filter: [inp_CustomerFilterCondition]
   ) {
-    CustomerCount
+    CustomerCount(filter: $filter)
     CustomerList(
       limit: $limit
       offset: $offset
       orderBy: $orderBy
       filter: $filter
     ) {
-      id
       _instanceName
       email
+      id
       name
     }
   }
 `;
 
 const CustomerList = observer((props: EntityListProps<Customer>) => {
-  const { entityList, onEntityListChange } = props;
-
+  const {
+    entityList,
+    onEntityListChange,
+    onSelectEntity,
+    disabled: readOnlyMode
+  } = props;
+  const onOpenScreenError = useOpenScreenErrorCallback();
+  const onEntityDelete = useEntityDeleteCallback();
   const {
     items,
     count,
@@ -53,8 +81,59 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
     entityName: ENTITY_NAME,
     routingPath: ROUTING_PATH,
     entityList,
-    onEntityListChange
+    onEntityListChange,
+    onPagination: saveHistory,
+    onEntityDelete,
+    onOpenScreenError
   });
+
+  const getEntityListActions = useMemo(() => {
+    if (readOnlyMode) {
+      return () => [];
+    }
+
+    return onSelectEntity
+      ? (e: EntityInstance<Customer>) => [
+          <Button
+            htmlType="button"
+            type="primary"
+            onClick={() => {
+              onSelectEntity(e);
+              goToParentScreen();
+            }}
+          >
+            <span>
+              <FormattedMessage id="common.selectEntity" />
+            </span>
+          </Button>
+        ]
+      : (e: EntityInstance<Customer>) => [
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="delete">
+            <DeleteOutlined
+              role={"button"}
+              key="delete"
+              onClick={(event?: React.MouseEvent) =>
+                handleDeleteBtnClick(event, e.id)
+              }
+            />
+          </EntityPermAccessControl>,
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="update">
+            <EditOutlined
+              role={"button"}
+              key="edit"
+              onClick={(event?: React.MouseEvent) =>
+                handleEditBtnClick(event, e.id)
+              }
+            />
+          </EntityPermAccessControl>
+        ];
+  }, [
+    onSelectEntity,
+    handleDeleteBtnClick,
+    handleEditBtnClick,
+    goToParentScreen,
+    readOnlyMode
+  ]);
 
   if (error != null) {
     console.error(error);
@@ -66,57 +145,46 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
   }
 
   return (
-    <div className="narrow-layout">
-      {entityList != null && (
-        <Tooltip title={<FormattedMessage id="common.back" />}>
-          <Button
-            htmlType="button"
-            style={{ margin: "0 12px 12px 0" }}
-            icon={<LeftOutlined />}
-            onClick={goToParentScreen}
-            key="back"
-            type="default"
-            shape="circle"
-          />
-        </Tooltip>
-      )}
+    <div className={styles.narrowLayout}>
+      <div style={{ marginBottom: "12px" }}>
+        {(entityList != null || onSelectEntity != null) && (
+          <Tooltip title={<FormattedMessage id="common.back" />}>
+            <Button
+              htmlType="button"
+              style={{ margin: "0 12px 12px 0" }}
+              icon={<LeftOutlined />}
+              onClick={goToParentScreen}
+              key="back"
+              type="default"
+              shape="circle"
+            />
+          </Tooltip>
+        )}
 
-      <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
-        <span style={{ marginBottom: "12px" }}>
-          <Button
-            htmlType="button"
-            type="primary"
-            icon={<PlusOutlined />}
-            onClick={handleCreateBtnClick}
-          >
+        {onSelectEntity == null && !readOnlyMode && (
+          <EntityPermAccessControl entityName={ENTITY_NAME} operation="create">
             <span>
-              <FormattedMessage id="common.create" />
+              <Button
+                htmlType="button"
+                type="primary"
+                icon={<PlusOutlined />}
+                onClick={handleCreateBtnClick}
+              >
+                <span>
+                  <FormattedMessage id="common.create" />
+                </span>
+              </Button>
             </span>
-          </Button>
-        </span>
-      </EntityPermAccessControl>
+          </EntityPermAccessControl>
+        )}
+      </div>
 
       <List
         itemLayout="horizontal"
         bordered
         dataSource={items}
         renderItem={(item: EntityInstance<Customer>) => (
-          <List.Item
-            actions={[
-              <EntityPermAccessControl
-                entityName={ENTITY_NAME}
-                operation="delete"
-              >
-                <DeleteOutlined key="delete" onClick={handleDeleteBtnClick} />
-              </EntityPermAccessControl>,
-              <EntityPermAccessControl
-                entityName={ENTITY_NAME}
-                operation="update"
-              >
-                <EditOutlined key="edit" onClick={handleEditBtnClick} />
-              </EntityPermAccessControl>
-            ]}
-          >
+          <List.Item actions={getEntityListActions(item)}>
             <div style={{ flexGrow: 1 }}>
               {getFields(item).map(p => (
                 <EntityProperty
@@ -142,14 +210,15 @@ const CustomerList = observer((props: EntityListProps<Customer>) => {
   );
 });
 
-registerScreen({
-  screenId: "CustomerList",
+registerEntityList({
   component: CustomerList,
-  caption: "Customer List",
+  caption: "menu.CustomerList",
+  screenId: "CustomerList",
+  entityName: ENTITY_NAME,
   menuOptions: {
-    menuLink: ROUTING_PATH,
-    pathPattern: `${ROUTING_PATH}/:entityId?`
+    pathPattern: `${ROUTING_PATH}/:entityId?`,
+    menuLink: ROUTING_PATH
   }
-})
+});
 
 export default CustomerList;
