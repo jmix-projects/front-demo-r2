@@ -22,6 +22,10 @@
         <sqlFile path="restricted-user.sql" relativeToChangelogFile="true"/>
     </changeSet>
 
+    <changeSet id="test-user" author="admin">
+        <sqlFile path="test-user.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+
     <changeSet id="datatypes_test_entities" author="admin">
         <sqlFile path="datatypes_test_entities.sql" relativeToChangelogFile="true"/>
     </changeSet>
