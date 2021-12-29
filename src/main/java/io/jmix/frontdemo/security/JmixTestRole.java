@@ -4,6 +4,7 @@ import io.jmix.frontdemo.entity.User;
 import io.jmix.security.role.annotation.EntityAttributePolicy;
 import io.jmix.security.role.annotation.EntityPolicy;
 import io.jmix.security.role.annotation.ResourceRole;
+import io.jmix.security.role.annotation.SpecificPolicy;
 import io.jmix.usermgmt.role.annotation.FrontendMenuPolicy;
 import io.jmix.usermgmt.role.annotation.FrontendScreenPolicy;
 
@@ -22,5 +23,6 @@ public interface JmixTestRole {
             action = MODIFY)
     @FrontendMenuPolicy(menuIds = {"UserList", "ResourceRoleList"})
     @FrontendScreenPolicy(screenIds = {"UserList", "ResourceRoleList"})
+    @SpecificPolicy(resources = "graphql.enabled")
     void specify();
 }
