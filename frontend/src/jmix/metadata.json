@@ -6598,12 +6598,7 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "NotNull"
-            }
-          ]
+          "transient": false
         }
       ]
     },
@@ -6698,12 +6693,7 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "NotNull"
-            }
-          ]
+          "transient": false
         }
       ]
     },
@@ -6785,12 +6775,7 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "NotNull"
-            }
-          ]
+          "transient": false
         }
       ]
     },
@@ -7145,12 +7130,7 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "NotNull"
-            }
-          ]
+          "transient": false
         }
       ]
     },
@@ -7357,12 +7337,7 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "NotNull"
-            }
-          ]
+          "transient": false
         }
       ]
     },
@@ -7444,143 +7419,6 @@
           "cardinality": "MANY_TO_ONE",
           "readOnly": false,
           "mandatory": true,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "NotNull"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "umgmt_User",
-      "className": "User",
-      "persistentEntity": true,
-      "idAttributeName": "id",
-      "attributes": [
-        {
-          "name": "id",
-          "type": {
-            "packageName": "java.util",
-            "className": "UUID",
-            "fqn": "java.util.UUID",
-            "label": "UUID"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": true,
-          "transient": false,
-          "traitAttribute": "uuid"
-        },
-        {
-          "name": "version",
-          "type": {
-            "packageName": "java.lang",
-            "className": "Integer",
-            "fqn": "java.lang.Integer",
-            "label": "Integer"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": true,
-          "transient": false,
-          "traitAttribute": "version"
-        },
-        {
-          "name": "username",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": true,
-          "transient": false
-        },
-        {
-          "name": "password",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": false
-        },
-        {
-          "name": "firstName",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": false
-        },
-        {
-          "name": "lastName",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": false
-        },
-        {
-          "name": "email",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": false,
-          "beanValidationRules": [
-            {
-              "name": "Email"
-            }
-          ]
-        },
-        {
-          "name": "active",
-          "type": {
-            "packageName": "java.lang",
-            "className": "Boolean",
-            "fqn": "java.lang.Boolean",
-            "label": "Boolean"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
-          "transient": false
-        },
-        {
-          "name": "timeZoneId",
-          "type": {
-            "packageName": "java.lang",
-            "className": "String",
-            "fqn": "java.lang.String",
-            "label": "String"
-          },
-          "mappingType": "DATATYPE",
-          "readOnly": false,
-          "mandatory": false,
           "transient": false
         }
       ]
