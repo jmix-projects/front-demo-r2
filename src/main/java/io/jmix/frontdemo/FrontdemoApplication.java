@@ -113,7 +113,7 @@ public class FrontdemoApplication {
                     .orElse(null);
 
             if (testUser != null) {
-                testUser.setPassword(properties.getRestrictedPassword());
+                testUser.setPassword(properties.getPassword());
                 dataManager.save(testUser);
             }
 
