@@ -10,6 +10,7 @@ import io.jmix.securityui.role.annotation.MenuPolicy;
 import io.jmix.securityui.role.annotation.ScreenPolicy;
 import io.jmix.usermgmt.role.annotation.FrontendMenuPolicy;
 import io.jmix.usermgmt.role.annotation.FrontendScreenPolicy;
+import io.jmix.security.role.annotation.GraphQLPolicy;
 
 
 @ResourceRole(name = "Full Access", code = FullAccessRole.CODE)
@@ -24,5 +25,6 @@ public interface FullAccessRole {
     @SpecificPolicy(resources = "*")
     @FrontendMenuPolicy(menuIds = "*")
     @FrontendScreenPolicy(screenIds = "*")
+    @GraphQLPolicy(operations = "*")
     void fullAccess();
 }
