@@ -21,7 +21,7 @@ public interface JmixTestRole {
             attributes = {"username", "password",
                     "firstName", "lastName"},
             action = MODIFY)
-    @FrontendMenuPolicy(menuIds = {"UserList", "ResourceRoleList"})
+    @FrontendMenuPolicy(menuIds = {"UserList", "ResourceRoleList", "7173e042-ffd6-41ea-88bb-c34d8a619524"})
     @FrontendScreenPolicy(screenIds = {"UserList", "ResourceRoleList"})
     @SpecificPolicy(resources = "graphql.enabled")
     void specify();
