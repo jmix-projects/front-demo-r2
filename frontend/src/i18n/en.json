@@ -1,5 +1,6 @@
 {
   "screen.ErrorHandlingDemoScreen": "Error Handling",
+  "screen.notAllowed": "Screen is not allowed",
   "menu.ParametrizedCaptionScreen": "Parametrized Caption Screen",
   "screen.ParametrizedCaptionScreen": "Parametrized Caption {currentDate}",
   "screen.EventWizard": "Event Wizard",

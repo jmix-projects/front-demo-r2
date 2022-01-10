@@ -1,4 +1,5 @@
 {
+  "screen.notAllowed": "Доступ к экрану запрещен",
   "screen.ParametrizedMessages": "Сообщения",
   "menu.ParametrizedCaptionScreen": "Parametrized Caption Screen",
   "screen.ParametrizedCaptionScreen": "Parametrized Caption {currentDate}",
