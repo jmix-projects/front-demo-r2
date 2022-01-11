@@ -22,7 +22,7 @@ public interface JmixTestRole {
                     "firstName", "lastName"},
             action = MODIFY)
     @FrontendMenuPolicy(menuIds = {"UserList", "ResourceRoleList"})
-    @FrontendScreenPolicy(screenIds = {"UserList", "ResourceRoleList"})
+    @FrontendScreenPolicy(screenIds = {"UserList","UserEditor"})
     @SpecificPolicy(resources = "graphql.enabled")
     void specify();
 }
