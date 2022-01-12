@@ -25,7 +25,7 @@ public class DeeplyNestedTestEntity {
         this.id = id;
     }
 
-    @Size(message = "{msg://io.jmix.frontdemo.entity.datatypes/DeeplyNestedTestEntity.name.validation.Size}", min = 5, max = 15)
+    @Size(message = "{msg://io.jmix.frontdemo.entity.datatypes/DeeplyNestedTestEntity.name.validation.Size}", min = 3, max = 10)
     @InstanceName
     @Column(name = "NAME")
     protected String name;

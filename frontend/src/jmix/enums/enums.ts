@@ -1,4 +1,9 @@
-export enum Type {}
+export enum Type {
+  CREATE = "CREATE",
+  MODIFY = "MODIFY",
+  DELETE = "DELETE",
+  RESTORE = "RESTORE"
+}
 
 export enum TestEnum {
   NEW_VALUE = "NEW_VALUE",

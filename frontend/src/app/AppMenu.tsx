@@ -30,7 +30,7 @@ export const AppMenu = (props: AppMenuProps) => {
         />
         <MenuItem
           screenId={"CompositionO2OTestEntityList"}
-          caption={"screen.CompositionO2OTestEntityList"}
+          caption={"menu.CompositionO2OTestEntityList"}
           key={"79a475a3-d5be-42b3-8e2f-45526da0ffda"}
         />
         <MenuItem

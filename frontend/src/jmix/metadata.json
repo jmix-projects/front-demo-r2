@@ -1153,8 +1153,8 @@
             {
               "name": "Size",
               "message": "{msg://io.jmix.frontdemo.entity.datatypes/DeeplyNestedTestEntity.name.validation.Size}",
-              "min": 5,
-              "max": 15
+              "min": 3,
+              "max": 10
             }
           ]
         },
@@ -7526,7 +7526,24 @@
     {
       "className": "Type",
       "fqn": "io.jmix.audit.entity.EntityLogItem.Type",
-      "values": []
+      "values": [
+        {
+          "name": "CREATE",
+          "id": "C"
+        },
+        {
+          "name": "MODIFY",
+          "id": "M"
+        },
+        {
+          "name": "DELETE",
+          "id": "D"
+        },
+        {
+          "name": "RESTORE",
+          "id": "R"
+        }
+      ]
     },
     {
       "className": "TestEnum",
