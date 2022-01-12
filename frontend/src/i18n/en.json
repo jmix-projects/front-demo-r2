@@ -97,6 +97,7 @@
   "menu.TemplatesEntityEdit": "Entity Editor",
   "menu.CustomerList": "Entity Browser List",
   "menu.StructureTemplates": "Structure",
+  "menu.ErrorHandlingDemoScreen": "Error Handling",
   "router.CustomerEditor": "Customer Editor",
   "router.MenuDemoScreen": "Menu",
   "screen.home": "Home",

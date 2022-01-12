@@ -109,7 +109,7 @@ export const AppMenu = (props: AppMenuProps) => {
           key={"482486d8-690d-46fe-93e8-d26b4fee07aa"}
         />
         <MenuItem
-          screenId={"DatatypesTestEntityEdit"}
+          screenId={"DatatypesTestEntityEditor"}
           caption={"menu.TemplatesEntityEdit"}
           key={"7ef031d3-8b07-437b-bfef-7fc38001w0cd"}
         />
@@ -205,7 +205,7 @@ export const AppMenu = (props: AppMenuProps) => {
       />
       <MenuItem
         screenId={"ErrorHandlingDemoScreen"}
-        caption={"screen.ErrorHandlingDemoScreen"}
+        caption={"menu.ErrorHandlingDemoScreen"}
         key={"dee8d9e9-5290-4bfb-abc2-712655d12bb0"}
       />
       <SubMenuItem
