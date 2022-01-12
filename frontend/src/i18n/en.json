@@ -71,7 +71,7 @@
   "formWizard.stepTitle": "Step {index}",
   "menu.CustomerCards": "Entity Browser Cards",
   "menu.ScreenApiDemoScreen": "Screen API",
-  "menu.CustomerManagementList": "Customer Management List",
+  "menu.CustomerManagementList": "Entity Management",
   "screen.CustomerManagementList": "Customer Management List",
   "screen.CustomerManagementEditor": "Customer Management Editor",
   "customerManagementList": "Customer Browser",

@@ -115,7 +115,7 @@ export const AppMenu = (props: AppMenuProps) => {
         />
         <MenuItem
           screenId={"CustomerManagementList"}
-          caption={"screen.CustomerManagementList"}
+          caption={"menu.CustomerManagementList"}
           key={"9dec7201-a870-4812-a2da-a71f3b6f98c6"}
         />
         <MenuItem
