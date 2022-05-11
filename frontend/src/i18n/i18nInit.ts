@@ -54,7 +54,7 @@ antdLocalesStore.addAntdLocale({
 
 localesStore.addLocale({
   locale: "fr",
-  caption: "Françias",
+  caption: "Français",
   messages: fr,
 });
 
